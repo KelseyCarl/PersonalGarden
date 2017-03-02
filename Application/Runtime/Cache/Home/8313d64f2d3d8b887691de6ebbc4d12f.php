@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,7 @@
             margin-top: 40px;
             font-size: 18px;
             color: white;
+            cursor: pointer;
         }
         #msg{
             color: red;
@@ -28,14 +29,14 @@
     <script>
         $(function(){
             $("#verify_img").click(function() {
-                var verifyURL = "http://localhost/PersonalGarden/index.php/Home/YZM/verify";
+                var verifyURL = "http://localhost/PersonalGarden/index.php/Home/Login/verify";
                 var time = new Date().getTime();
                 $("#verify_img").attr({
                     "src" : verifyURL + "/" + time
                 });
             });
             $("#j_verify").keyup(function() {
-                $.post("http://localhost/PersonalGarden/index.php/Home/YZM/check_verify", {
+                $.post("http://localhost/PersonalGarden/index.php/Home/Login/check_verify", {
                     code : $("#j_verify").val()
                 }, function(data) {
                     if (data.data['flag'] == true) {
@@ -51,14 +52,14 @@
                 var pswd = $("#pswd").val();
                 $.ajax({
                     type:"get",
-                    url:"http://localhost/PersonalGarden/index.php/Home/YZM/verify_user/phone/"+username,
+                    url:"http://localhost/PersonalGarden/index.php/Home/Login/login/user_phone/"+username,
                     async: false,
                     dataType: 'json',
                     success: function(data) {
                         if(data.hasOwnProperty("resultcode")){
                             if(data.resultcode==-2){
                                 alert("你的账号在其他地方登录了或者已经超时，请重新登录！");
-                                window.location.href = "blue.html";
+                                window.location.href = "index.html";
                             }
                             else{
                                 var user = data.data.subitem[0]["user_phone"];
@@ -104,7 +105,7 @@
 
     <label for="j_verify" class="t">验证码：</label>
     <input id="j_verify"  name="j_verify" type="text" class="form-control x164 in">
-    <img id="verify_img" alt="点击更换" title="点击更换" src="{:U('YZM/verify',array())}" class="m"><br>
+    <img id="verify_img" alt="点击更换" title="点击更换" src="<?php echo U('YZM/verify',array());?>" class="m"><br>
     <p id="msg">提示信息</p>
     <button class="btn" id="tip">登录</button>
     <!--<img id="verify_img" alt="点击更换" title="点击更换" src="http://localhost/mygarden/mygarden.php/Api/YZM/verify" class="m">-->

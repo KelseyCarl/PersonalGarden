@@ -1,7 +1,7 @@
 <?php 
 namespace Home\Controller;
 use Home\Controller\HomeController;
-include('./Extension/Send.php');
+include('Send.php');
 header('Content-Type:text/html; charset=utf-8');
 class SendController extends  CommonController{
 	//发送短信的控制类为index
