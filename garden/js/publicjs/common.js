@@ -1,5 +1,5 @@
 
-	 URL = "http://114.55.123.85:801/index.php/Home/"; //陈松的url
+	 URL = "http://localhost/PersonalGarden/index.php/Home";
 
 	 URL_C = URL;
 	 URL2 = URL;

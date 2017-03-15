@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="../../css/foundation.min.css">
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/foundation-5.3.3.min.js"></script>
+    <script src="../../js/vendor/modernizr.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
+</head>
+<body class="login-page">
+    <div class="login-box">
+        <div class="login-box-content">
+            <div class="login-logo">
+                <a href="../HomePage/home.html"><img src="../../img/Atmosfero_50.png"></a>
+            </div>
+            <div class="login-box-body">
+                <p class="login-box-msg">用户登录</p>
+                <form id="loginForm" action="" method="post">
+                    <script type="text/javascript">
+                        $(function () {//将第一个输入框聚焦
+                            $(':input:enabled:visible').filter(function() {
+                                return $(this).val() == "";
+                            }).first().focus();
+                        });
+                    </script>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="username" name="username" placeholder="电话/用户名" maxlength="100" type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input id="password" name="password" placeholder="密码" maxlength="80" type="password">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <input value="登录" id="login_btn" class="button radius" maxlength="100" type="submit">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-4 columns text-left"><a href="register.html">注册</a>
+                        </div>
+                        <div class="small-8 columns text-right"><a href="resetpass.html">忘记密码？</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<!--控件初始化-->
+<script type="text/javascript">
+    $(function(){
+        $("#loginsub").focus();
+        $("#login_btn").click(function(){
+            login();
+        });
+        $(document).foundation();
+    })
+    function login(){
+        if($("#username").val()&&$("#password").val()){
+            var Data={
+                data:{
+                    username:$("#username").val(),//在接口确定之后修改字段名称
+                    password:$("#password").val()
+                }
+            };
+            $.ajax({
+                type:"post",
+                url:"http://localhost/PersonalGarden/index.php/Home/Login/login",
+                data:JSON.stringify(Data),
+                async:true,
+                dataType:'json',
+                success:function(data){
+                    //登录信息正确的时候
+                    if(data.resultcode==0){
+                        var token=data.data.subitem[0].token;
+                        console.log(token);
+                        window.location="../HomePage/home.html?token="+token;
+                    }
+                    else{
+                        alert("用户名或密码错误！");
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown, data) {
+                    alert(errorThrown);
+                }
+            });
+        }
+        else {
+            alert("账号密码不能为空");
+        }
+    }
+    //键盘事件：回车登录
+    document.onkeydown = function(event_e){
+        if(window.event) {
+            event_e = window.event;
+        }
+        var int_keycode = event_e.charCode||event_e.keyCode;
+        if( int_keycode == '13' ) {
+            login();
+            return false;
+        }
+    }
+</script>
+<!--<script>-->
+    <!--$(document).ready(function() {-->
+        <!--$("#login_btn").focus();-->
+        <!--$("#login_btn").click(function(){-->
+            <!--login();-->
+        <!--});-->
+        <!--$(document).foundation();-->
+    <!--});-->
+
+    <!--function login(){-->
+        <!--if($("#username").val()&&$("#password").val()){-->
+            <!--var Data={-->
+                <!--data:{-->
+                    <!--username:$("#username").val(),-->
+                    <!--password:$("#password").val()-->
+                <!--}-->
+            <!--};-->
+            <!--$.ajax({-->
+                <!--type:"post",-->
+                <!--url:"http://localhost/PersonalGarden/index.php/Home/Login/login",-->
+                <!--data:JSON.stringify(Data),-->
+                <!--async:true,-->
+                <!--dataType:'json',-->
+                <!--success:function(data){-->
+                    <!--//登录信息正确的时候-->
+                    <!--console.log("hello");-->
+                    <!--if(data.resultcode==0){-->
+<!--//                        var token=data.data.subitem[0].token;-->
+                        <!--var token=data.data;-->
+                        <!--console.log(token);-->
+<!--//                        window.location="../HomePage/home.html?token="+token;-->
+<!--//                        window.location="register.html?token="+token;-->
+                    <!--}-->
+                    <!--else{-->
+                        <!--alert("用户名或密码错误！");-->
+                    <!--}-->
+                <!--},-->
+                <!--error: function(XMLHttpRequest, textStatus, errorThrown, data) {-->
+                    <!--alert(errorThrown);-->
+                <!--}-->
+            <!--});-->
+        <!--}-->
+        <!--else {-->
+            <!--alert("账号密码不能为空");-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+</html>

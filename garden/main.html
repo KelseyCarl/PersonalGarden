@@ -110,7 +110,8 @@
 			$(function() {
 			
 				DWZ.init("dwz.frag.xml", {
-					loginUrl: "login_dialog.html",
+//					loginUrl: "login_dialog.html",
+					loginUrl: "index.html",
 					loginTitle: "登录", // 弹出登录对话框
 					//		loginUrl:"login.html",	// 跳到登录页面
 					statusCode: {
@@ -141,31 +142,29 @@
 				}
 				//登陆的token
 				token = getRequestParam("token");
-				qt1 = getRequestParam("qt1");
-				authorize_export();
+				console.log(token);
 				//未登陆则跳转登陆页面
 				if(!token) {
 					alert("请先登陆！");
 					window.location.href = "index.html";
 				} else {
 					//获取用户信息
-					$.get(URL + "Member/getUserInfo/token/" + token, function(json) {
+					$.get("http://localhost/PersonalGarden/index.php/Home/Admin/login/token/" + token, function(json) {
 						if(json.resultcode == -2) {
 							alert("token已失效，请重新登录！");
 							window.location.href = "index.html";
-						} else {
-						var browser=hovertreebrowser();
-				        if("Chrome"!=browser[0]){
-					        alertMsg.info("为保证你的使用体验，请在公告栏下载谷歌浏览器");
-				        }
-							user_name = json.data.user_name;
-							pid = json.data.pid;
+						}
+						else {
+							var browser=hovertreebrowser();
+				        	if("Chrome"!=browser[0]){
+					        	alertMsg.info("为保证你的使用体验，请在公告栏下载谷歌浏览器");
+				        	}
+							user_name = json.data.subitem[0].name;
+							console.log(user_name);
 							if(user_name){
-							//添加欢迎欢迎信息
-							$("#welcome").text(user_name + ",您好！");
+							//添加欢迎信息
+								$("#welcome").text(user_name + ",您好！");
 							}
-							//分权限显示tree
-							authorize_export();
 						}
 					})
 				}
