@@ -68,37 +68,34 @@ class LoginController extends RestController{
         $Model = M();
         switch($this->_method) {
             case 'post':{
-//                $json = '{"data":{"nickname":"yingtao","user_phone":"18408245117","password":"123456","user_sex":1}}';//获取用户写入的个人信息
+//                $json = '{"data":{"username":"18408245117","password1":"admin","password2":"admin"}}';//获取用户写入的个人信息
                 $data = json_decode(file_get_contents("php://input"), true);
 //                $data = json_decode($json, true);
-                $nickname = safe($data['data']['nickname']);
-                $user_phone = safe($data['data']['user_phone']);
-                $password = safe($data['data']['password']);
-                $user_sex = safe($data['data']['user_sex']);
-                $token = md5($password);
-
-                if($user_sex == 1){
-                    $sex = "male";
-                }else{
-                    $sex = "female";
-                }
-                $sql_query = "select user_phone from userinfor where user_phone=".$user_phone;
+                $phone = safe($data['data']['username']);
+                $pass1 = safe($data['data']['password1']);
+                $pass2 = safe($data['data']['password2']);
+                $sex = "保密";
+                $head = "http://placehold.it/80x80/000000/ffffff?text=head";
+                $token = md5($pass1);
+                $sql_query = "select user_phone from userinfor where user_phone=".$phone;
                 $sql_result = $Model->query($sql_query);
-                if($sql_result == null){
+                if($sql_result != null){
+                    $this->response(retmsg(-1,null,"该账号已被注册过"),'json');
+                }elseif($pass1 != $pass2){
+                    $this->response(retmsg(-1,null,"两次密码输入不一致，请重新输入"),'json');
+                }else {
                     //注册用户入库
                     $sql_insert = "insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
-                                   photo_type,photo_url,login_pass,token,soil_nums) values (".safe("null").",'".
-                                   safe($user_phone)."','".safe("null")."','".safe($nickname)."','".safe($sex)."','".
-                                   safe("null")."','".safe("image/jpg")."','".safe("http://placehold.it/80x80/000000/ffffff?text=head").
-                                   "','".safe($password)."','".safe($token)."','".safe("0")."'".")";
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (" . safe("null") . ",'" .
+                        safe($phone) . "','" . safe("") . "','" . safe("") . "','" . safe($sex) . "','" .
+                        safe("") . "','" . safe("image/jpg") . "','" . safe($head) .
+                        "','" . safe($pass1) . "','" . safe($token) . "','" . safe("0") . "'" . ")";
                     $insert_result = $Model->execute($sql_insert);
-                    if(is_bool($insert_result)){
-                        $this->response(retmsg(-1,null,"注册失败"),'json');
-                    }else{
-                        $this->response(retmsg(0,null,"注册成功"),'json');
+                    if (is_bool($insert_result)) {
+                        $this->response(retmsg(-1, null, "注册失败"), 'json');
+                    } else {
+                        $this->response(retmsg(0, null, "注册成功"), 'json');
                     }
-                }else{
-                    $this->response(retmsg(-1,null,"该账号已被注册过"),'json');
                 }
                 break;
             }

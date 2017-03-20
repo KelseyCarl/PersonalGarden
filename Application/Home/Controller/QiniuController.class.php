@@ -120,6 +120,7 @@ class QiniuController extends RestController{
                 } else {
                     $type = $file["type"];
                     $savepath = "http://om2m6x1n8.bkt.clouddn.com/".$key;
+                    echo "pathhdjhfjrhieryisjdos";
                     $insert_sql = "replace into photo(id,name,type,savename,savepath) values(" . "null" . ",'" . $key . "','" . $type . "','" . $key . "','" . $savepath . "'" . ")";
                     $insert_result = $Model->execute($insert_sql);
                     if(is_bool($insert_result)){

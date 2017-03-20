@@ -149,7 +149,7 @@
 					window.location.href = "index.html";
 				} else {
 					//获取用户信息
-					$.get("http://localhost/PersonalGarden/index.php/Home/Admin/login/token/" + token, function(json) {
+					$.get(URL+"Admin/login/token/" + token, function(json) {
 						if(json.resultcode == -2) {
 							alert("token已失效，请重新登录！");
 							window.location.href = "index.html";

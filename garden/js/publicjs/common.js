@@ -1,5 +1,5 @@
 
-	 URL = "http://localhost/PersonalGarden/index.php/Home";
+	 URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
 
 	 URL_C = URL;
 	 URL2 = URL;

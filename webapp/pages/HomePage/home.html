@@ -2,9 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页面</title>
+    <link rel="stylesheet" href="../../css/foundation.min.css">
+    <link rel="stylesheet" href="../../css/main.css" media="all">
+    <link rel="stylesheet" href="../../css/bootstrap.css" media="all">
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/foundation-5.3.3.min.js"></script>
+    <script src="../../js/vendor/modernizr.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
 </head>
 <body>
-    这是主页面
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <!-- 如果你不需要标题或图标可以删掉它 -->
+            <h1><a href="#">MyGarden</a></h1>
+        </li>
+        <!-- 小屏幕上折叠按钮: 去掉 .menu-icon 类，可以去除图标。
+        如果需要只显示图片，可以删除 "Menu" 文本 -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <ul class="left">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">电子商务</a></li>
+            <li><a href="#">我的土地</a></li>
+            <li><a href="#">个人中心</a></li>
+            <li><a href="#">设置</a></li>
+        </ul>
+    </section>
+</nav>
+<!--轮播-->
+<div class="banner">
+    <div class="container">
+        <script src="../../js/responsiveslides.min.js"></script>
+        <script>
+            // You can also use "$(window).load(function() {"
+            $(function () {
+                // Slideshow 4
+                $("#slider3").responsiveSlides({
+                    auto: true,
+                    pager: false,
+                    nav: true,
+                    speed: 500,
+                    namespace: "callbacks",
+                    before: function () {
+                        $('.events').append("<li>before event fired.</li>");
+                    },
+                    after: function () {
+                        $('.events').append("<li>after event fired.</li>");
+                    }
+                });
+            });
+        </script>
+        <div  id="top" class="callbacks_container">
+            <ul class="rslides" id="slider3">
+                <li>
+                    <div class="banner-info">
+                        <div class="banner-info-left">
+                            <img src="../../img/2.png" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="banner-info-right">
+                            <h1>图片一描述标题</h1>
+                            <p>图片一描述文字图片一描述文字图片一描述文字图片一描述文字</p>
+                            <div class="cont">
+                                <a href="#mail" class="scroll">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-info">
+                        <div class="banner-info-left">
+                            <img src="../../img/3.png" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="banner-info-right">
+                            <h1>图片二描述标题</h1>
+                            <p>图片二描述文字图片二描述文字图片二描述文字图片二描述文字图片二描述文字</p>
+                            <div class="cont">
+                                <a href="#mail" class="scroll">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-info">
+                        <div class="banner-info-left">
+                            <img src="../../img/4.png" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="banner-info-right">
+                            <h1>图片三描述标题</h1>
+                            <p>图片三描述文字图片三描述文字图片三描述文字图片三描述文字图片三描述文字图片三描述文字
+                                图片三描述文字图片三描述文字图片三描述文字图片三描述文字图片三描述文字</p>
+                            <div class="cont">
+                                <a href="#mail" class="scroll">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
+<script>
+    $(document).ready(function() {
+        $(document).foundation();
+    });
+</script>
 </html>

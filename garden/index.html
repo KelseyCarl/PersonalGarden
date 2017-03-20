@@ -4,7 +4,6 @@
     <title>MyGarden后台管理系统-登录</title>
     <meta name="description" content="slick Login">
     <meta name="author" content="Webdesigntuts+">
-    <!--<link rel="stylesheet" type="text/css" href="style.css" />-->
     <style>
     	body {
             font-family: sans-serif;
@@ -192,8 +191,8 @@ function login(){
 	};
 	$.ajax({
 		type:"post",
-//		url:URL+"Member/member_login",//在接口确定之后修改
-		url:"http://localhost/PersonalGarden/index.php/Home/Admin/login",//在接口确定之后修改
+		url:URL+"Admin/login",//在接口确定之后修改
+//		url:"http://localhost:8080/PersonalGarden/index.php/Home/Admin/login",//在接口确定之后修改
 		data:JSON.stringify(Data),
 		async:true,
 		dataType:'json',

@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册</title>
+    <link rel="stylesheet" href="../../css/foundation.min.css">
+    <link rel="stylesheet" href="../../css/login.css">
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/foundation-5.3.3.min.js"></script>
+    <script src="../../js/vendor/modernizr.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
 </head>
-<body>
-
+<body class="register-page">
+<input id="username" name="username" placeholder="用户名" maxlength="100" type="text">
+<input id="password1" name="password" placeholder="密码" maxlength="80" type="password">
+<input id="password2" name="password" placeholder="确认密码" maxlength="80" type="password">
+<button class="button warning radius" id="btn">test button</button>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            hello();
+        });
+    });
+    function hello(){
+        var pass1 = $("#password1").val();
+        var pass2 = $("#password2").val();
+        if($("#username").val()&&pass1&&pass2){
+            var Data={
+                data:{
+                    username:$("#username").val(),//在接口确定之后修改字段名称
+                    password1:pass1,
+                    password2:pass2
+                }
+            };
+            $.ajax({
+                type:"post",
+                url:"http://localhost:8080/PersonalGarden/index.php/Home/Login/register",
+                data:JSON.stringify(Data),
+                async:true,
+                dataType:'json',
+                success:function(data){
+                    //信息输入正确的时候
+                    if(data.resultcode==0){
+                        console.log("resultmsg"+data.resultmsg);
+                        alert("注册成功！");
+                    }else{
+                        console.log(data.resultmsg);
+                        alert(data.resultmsg);
+                    }
+                }
+            });
+        }else{
+            alert("用户名和密码不能为空");
+        }
+    }
+</script>
 </body>
 </html>
