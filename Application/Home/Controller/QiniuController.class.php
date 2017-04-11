@@ -2,7 +2,7 @@
 namespace Home\Controller;
 use Qiniu\Storage\UploadManager;
 use Think\Controller\RestController;
-require 'Public/php-sdk-7.1.3/autoload.php';
+require '../../../Public/php-sdk-7.1.3/autoload.php';
 use Qiniu\Auth;//七牛云存储鉴权
 use Qiniu\Storage\BucketManager;
 

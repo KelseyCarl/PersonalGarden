@@ -3,26 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>注册</title>
-    <link rel="stylesheet" href="../../css/foundation.min.css">
+    <title>密码重置</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css">
     <link rel="stylesheet" href="../../css/login.css">
-    <script src="../../js/jquery-2.1.1.min.js"></script>
-    <script src="../../js/foundation-5.3.3.min.js"></script>
-    <script src="../../js/vendor/modernizr.min.js"></script>
+    <script src="../../js/vendor/jquery.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
 </head>
 <body class="register-page">
-<input id="username" name="username" placeholder="用户名" maxlength="100" type="text">
-<input id="password1" name="password" placeholder="密码" maxlength="80" type="password">
-<input id="password2" name="password" placeholder="确认密码" maxlength="80" type="password">
-<button class="button warning radius" id="btn">test button</button>
+<div class="register-box">
+    <div class="register-box-content">
+        <div class="register-logo">
+            <a href="../HomePage/home.html"><img src="../../img/Atmosfero_50.png"></a>
+        </div>
+        <div class="register-box-body">
+            <p class="register-box-msg">密码重置</p>
+            <!--<form id="registerForm" action="" method="post">-->
+            <script type="text/javascript">
+                $(function () {//将第一个输入框聚焦
+                    $(':input:enabled:visible').filter(function() {
+                        return $(this).val() == "";
+                    }).first().focus();
+                });
+            </script>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input id="username" name="username" placeholder="用户名" maxlength="100" type="tel">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input id="password1" name="password" placeholder="密码" maxlength="80" type="password">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input id="password2" name="password" placeholder="确认密码" maxlength="80" type="password">
+                    <!--<p>两次输入的密码不一致</p>-->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <!--<button class="button  radius" id="reset_btn">test button</button>-->
+                    <input value="修改密码" id="reset_btn" class="button radius" maxlength="100" type="submit">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns text-left"><a href="login.html">返回</a>
+                </div>
+            </div>
+            <!--</form>-->
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+
 <script>
     $(function(){
-        $("#btn").click(function(){
-            hello();
+        $("#reset_btn").click(function(){
+            reset_pass();
         });
     });
-    function hello(){
+    function reset_pass(){
         var pass1 = $("#password1").val();
         var pass2 = $("#password2").val();
         if($("#username").val()&&pass1&&pass2){
@@ -35,7 +89,7 @@
             };
             $.ajax({
                 type:"post",
-                url:"http://localhost:8080/PersonalGarden/index.php/Home/Login/register",
+                url:"http://localhost:8080/PersonalGarden/index.php/Home/Login/reset_pass",
                 data:JSON.stringify(Data),
                 async:true,
                 dataType:'json',
@@ -43,9 +97,9 @@
                     //信息输入正确的时候
                     if(data.resultcode==0){
                         console.log("resultmsg"+data.resultmsg);
-                        alert("注册成功！");
+                        alert(data.resultmsg);
+                        window.location = "../UserCenter/login.html";
                     }else{
-                        console.log(data.resultmsg);
                         alert(data.resultmsg);
                     }
                 }

@@ -1,0 +1,317 @@
+[ 2017-03-21T21:33:09+08:00 ] 127.0.0.1 /PersonalGarden/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+
+[ 2017-03-21T21:33:30+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017001' [ RunTime:0.0170s ]
+
+[ 2017-03-21T21:33:36+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017001' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:33:37+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:33:53+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017002' [ RunTime:0.0020s ]
+
+[ 2017-03-21T21:34:11+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017002' [ RunTime:0.0000s ]
+
+[ 2017-03-21T21:34:14+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017002' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:34:15+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login/token/96e79218965eb72c92a549dd5a330112
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from admin where token='96e79218965eb72c92a549dd5a330112' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:34:20+08:00 ] 127.0.0.1 /PersonalGarden/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-03-21T21:34:27+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017001' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:34:27+08:00 ] 127.0.0.1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:35:53+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:36:43+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0020s ]
+
+[ 2017-03-21T21:36:47+08:00 ] ::1 /PersonalGarden/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-21T21:36:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from admin where admin_account='2017001' [ RunTime:0.0000s ]
+
+[ 2017-03-21T21:36:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:37:03+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: select * from admin where admin_account='2017002' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:37:03+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login/token/96e79218965eb72c92a549dd5a330112
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from admin where token='96e79218965eb72c92a549dd5a330112' [ RunTime:0.0000s ]
+
+[ 2017-03-21T21:45:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: select user_phone from userinfor where user_phone=18408243828 [ RunTime:0.0010s ]
+ERR: 1048:Column 'user_id' cannot be null
+ [ SQL语句 ] : insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408243828','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0')
+ERR: 1048:Column 'user_id' cannot be null
+ [ SQL语句 ] : insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408243828','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0')
+
+[ 2017-03-21T21:49:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select user_phone from userinfor where user_phone=18408243828 [ RunTime:0.0010s ]
+ERR: 1048:Column 'user_id' cannot be null
+ [ SQL语句 ] : insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408243828','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0')
+ERR: 1048:Column 'user_id' cannot be null
+ [ SQL语句 ] : insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408243828','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0')
+
+[ 2017-03-21T21:52:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where user_phone=18408243828 [ RunTime:0.0010s ]
+SQL: insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408243828','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0') [ RunTime:0.0160s ]
+
+[ 2017-03-21T21:53:26+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:53:31+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:53:35+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0010s ]
+
+[ 2017-03-21T21:54:47+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where user_phone=18408245117 [ RunTime:0.0000s ]
+SQL: insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'18408245117','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','111111','96e79218965eb72c92a549dd5a330112','0') [ RunTime:0.0060s ]
+
+[ 2017-03-21T21:56:11+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select user_phone from userinfor where user_phone=123 [ RunTime:0.0010s ]
+SQL: insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'123','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123','202cb962ac59075b964b07152d234b70','0') [ RunTime:0.0030s ]
+
+[ 2017-03-21T21:57:39+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where user_phone=456 [ RunTime:0.0010s ]
+SQL: insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'456','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','456','250cf8b51c773f3f8dc8b4be867a9a02','0') [ RunTime:0.0170s ]
+
+[ 2017-03-21T22:06:47+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/reset_pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_pho' at line 1
+ [ SQL语句 ] : update set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_phone=123
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_pho' at line 1
+ [ SQL语句 ] : update set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_phone=123
+
+[ 2017-03-21T22:10:23+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/reset_pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: update userinfor set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_phone=123 [ RunTime:0.0350s ]
+
+[ 2017-03-21T22:11:19+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/reset_pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: update userinfor set login_pass='123456',token='e10adc3949ba59abbe56e057f20f883e' where  user_phone=123 [ RunTime:0.0150s ]
+
+[ 2017-03-21T22:12:27+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/reset_pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: update userinfor set login_pass='456789',token='e35cf7b66449df565f93c607d5a81d09' where  user_phone=456 [ RunTime:0.0030s ]
+
+[ 2017-03-21T22:13:42+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/reset_pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: update userinfor set login_pass='123',token='202cb962ac59075b964b07152d234b70' where  user_phone=123 [ RunTime:0.0210s ]
+
+[ 2017-03-21T22:24:58+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0020s ]
+

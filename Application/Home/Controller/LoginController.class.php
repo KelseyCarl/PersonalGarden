@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller\RestController;
-use Think\Verify;
+//use Think\Verify;
 
 class LoginController extends RestController{
     public function login($token=""){
@@ -102,25 +102,54 @@ class LoginController extends RestController{
         }
     }
 
-    public function login_page(){
-        $this->theme('blue')->display('login');
+//    public function login_page(){
+//        $this->theme('blue')->display('login');
+//    }
+
+//    public function verify(){
+//        $config = array(
+//            'fontSize'=> 19,
+//            'length'=>4,
+//            'imageH'=>35
+//        );
+//        $verify = new Verify($config);
+//        $verify->entry();
+//    }
+
+//    public function check_verify($code,$id=''){
+//        $verify = new \Think\Verify();
+//        $temp = $verify->check($code,$id);
+//        $res['resultcode'] = 0;
+//        $res["data"]["flag"] = $temp;
+//        $this->ajaxReturn($res,"JSON");
+//    }
+    public function reset_pass(){
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case 'post':{
+//                $json = '{"data":{"username":"18408245117","password1":"admin","password2":"admin"}}';//获取用户写入的个人信息
+                $data = json_decode(file_get_contents("php://input"), true);
+//                $data = json_decode($json, true);
+                $phone = safe($data['data']['username']);
+                $pass1 = safe($data['data']['password1']);
+                $pass2 = safe($data['data']['password2']);
+                $token = md5($pass1);
+                if($pass1 != $pass2){
+                    $this->response(retmsg(-1,null,"两次密码输入不一致，请重新输入"),'json');
+                }else {
+                    //修改用户密码
+                    $sql_update = "update userinfor set login_pass='$pass1',token='$token' where  user_phone=".$phone;
+                    $sql_result = $Model->execute($sql_update);
+                    if (is_bool($sql_result)) {
+                        $this->response(retmsg(-1, null, "密码修改失败！"), 'json');
+                    } else {
+                        $this->response(retmsg(0, null, "密码修改成功！"), 'json');
+                    }
+                }
+                break;
+            }
+        }
     }
 
-    public function verify(){
-        $config = array(
-            'fontSize'=> 19,
-            'length'=>4,
-            'imageH'=>35
-        );
-        $verify = new Verify($config);
-        $verify->entry();
-    }
-
-    public function check_verify($code,$id=''){
-        $verify = new \Think\Verify();
-        $temp = $verify->check($code,$id);
-        $res['resultcode'] = 0;
-        $res["data"]["flag"] = $temp;
-        $this->ajaxReturn($res,"JSON");
-    }
 }

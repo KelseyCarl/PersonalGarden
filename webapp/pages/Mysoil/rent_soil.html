@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电商平台</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+      .container{
+        width: 80%;
+        margin: 20px auto;
+      }
+      .title-top{
+      	/*border: 1px solid red;*/
+      	text-align: center;
+      	background: #06c673;
+      	color: #fff;
+      }
+      .title-top h5{
+      	font-size: 16px;
+      	font-weight: bold;
+      	padding: 5px;
+      	margin-top: 8px;
+      }
+      .apply{
+      	/*width: 30%;*/
+      	margin: 10px auto;
+      	font-weight: bold;
+      }
+      .button.success{
+      	color:#fff;
+      	border-radius: 25px;
+      }
+      .button.success:hover, .button.success:focus {
+          color: #fff;
+      }
+
+    </style>
+  </head>
+  <body>
+  	<div class="">
+  		<div class="row">
+  			<div class="small-12 columns title-top">
+  				<h5><i class="fi-arrow-left float-left"></i>租赁申请</h5>
+			</div>
+  		</div>
+  		<div class="container">
+  			<div class="row">
+  				<div class="small-12 columns text-center">土地租赁信息提交</div>
+  			</div>
+  		</div>
+  		<div class="container">
+  			<form>
+  				<!-- <fieldset class="fieldset"> -->
+  					<!-- <legend>确认信息准确无误</legend> -->
+  					<div class="row">
+		  			    <div class="small-4 columns">
+		  			      <label for="right-label1" class="text-right">申请人：</label>
+		  			    </div>
+		  			    <div class="small-8 columns">
+		  			      <input type="text" id="right-label1" placeholder="person">
+		  			    </div>
+	  			    </div>
+	  			    <div class="row">
+		  			    <div class="small-4 columns">
+		  			      <label for="right-label2" class="text-right">申请电话：</label>
+		  			    </div>
+		  			    <div class="small-8 columns">
+		  			      <input type="text" id="right-label2" placeholder="telephone">
+		  			    </div>
+	  			    </div>
+	  			    <div class="row">
+		  			    <div class="small-4 columns">
+		  			      <label for="right-label3" class="text-right">选择农场：</label>
+		  			    </div>
+		  			    <div class="small-8 columns">
+		  			        <select>
+		  			            <option value="西瓜籽有机农场">西瓜籽有机农场</option>
+		  			            <option value="一点田生态农场">一点田生态农场</option>
+		  			            <option value="03号大鹏">03号大鹏</option>
+		  			        </select>
+		  			    </div>
+	  			    </div>
+	  			    <div class="row">
+		  			    <div class="small-4 columns">
+		  			      <label for="right-label4" class="text-right">租赁面积：</label>
+		  			    </div>
+		  			    <div class="small-8 columns">
+		  			        <select>
+		  			            <option value="0.5*0.8">0.5*0.8</option>
+		  			            <option value="0.5*0.9">0.5*0.9</option>
+		  			            <option value="0.5*1.0">0.5*1.0</option>
+		  			            <option value="0.5*1.2">0.5*1.2</option>
+		  			        </select>
+		  			    </div>
+	  			    </div>
+	  			    <button type="button" class="button success float-center expanded apply">提交申请</button>
+  				<!-- </fieldset> -->
+  			</form>
+
+  		</div>
+  	</div>
+    
+    
+    
+
+    <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/what-input.js"></script>
+    <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

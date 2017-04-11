@@ -1,0 +1,205 @@
+.off-canvas{
+	background: #ffffff;
+}
+.head img{
+    width: 60px;
+    height: 60px;
+	border-radius: 30px;
+    border: 1px solid #999;
+}
+ul li{
+	list-style-type: none;
+}
+.off-canvas-list i{
+	margin-right: 10px;
+}
+.off-canvas-list li a{
+	display: block;
+	width: 90%;
+	margin-left: 0;
+	margin-right: 0;
+}
+.off-canvas-list li a:hover{
+	background: #06c673
+}
+.button.expanded {
+	margin-top: 50px;
+	border-radius: 12px;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+
+
+
+
+.img-responsive{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.text-center{
+	text-align: center;
+}
+.h35{
+  height: 35px;
+}
+.h25{
+  height: 25px;
+}
+.cont a {
+    padding: 10px 25px;
+    background: #0099ec;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+}
+.service-box {
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
+    text-align: center;
+}
+.service-box .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #444444;
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+}
+.service-box .icon:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #06C673;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  transition: all 0.3s ease 0s;
+}
+.service-box h5 {
+    font-family: 'Merriweather', serif;
+    color: #000;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 1.5em 0 1em 0;
+}
+.service-box p {
+    color: #333333;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.8em;
+    font-weight: 400;
+}
+.service-box .icon img {
+    position: relative;
+    z-index: 100;
+    transition: all 0.3s ease 0s;
+}
+.service-box:hover .icon img {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+}
+.service-box:hover .icon:before {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.desc {
+    background: url(../img/i5.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    min-height: 331px;
+    padding: 3em 0;
+    position: relative;
+    text-align: center;
+}
+.desc h3 {
+    font-family: 'Merriweather', serif;
+    color: #FFF;
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+}
+.desc p {
+    color: #FFF;
+    margin-top: 30px;
+}
+.events .time,.events .detail {
+    color: #000;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.8em;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.events .detail{
+	text-indent: 2em;
+}
+.events .come-from {
+    color: #333333;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.8em;
+    font-weight: 400;
+    margin-top: 10px;
+}
+img.zoom-img {
+  -webkit-transform: scale(1, 1);
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 250ms;
+  -moz-transform: scale(1, 1);
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 250ms;
+}
+img.zoom-img:hover {
+  -webkit-transform: scale(1.18);
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 750ms;
+  -moz-transform: scale(1.15);
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 750ms;
+  overflow: hidden;
+}
+a.mask {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+}
+footer{
+    background: #4D4D4D;
+    padding: 1em 0;
+}
+footer p{
+	color: #fff;
+	font-size: 15px;
+}

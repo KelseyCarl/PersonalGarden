@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>登录</title>
-    <link rel="stylesheet" href="../../css/foundation.min.css">
+    <title>注册</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css">
     <link rel="stylesheet" href="../../css/login.css">
-    <script src="../../js/jquery-2.1.1.min.js"></script>
-    <script src="../../js/foundation-5.3.3.min.js"></script>
-    <script src="../../js/vendor/modernizr.min.js"></script>
+    <script src="../../js/vendor/jquery.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
 </head>
 <body class="register-page">
@@ -50,6 +48,7 @@
                 <div class="row">
                     <div class="small-12 columns">
                         <input value="注册" id="register_btn" class="button radius" maxlength="100" type="submit">
+                        <!--<input value="注册" id="register_btn" class="button radius" maxlength="100" type="submit"/>-->
                     </div>
                 </div>
 
@@ -62,6 +61,8 @@
     </div>
 </div>
 </body>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
 <!--控件初始化-->
 <script type="text/javascript">
     $(function(){
@@ -96,14 +97,13 @@
                     if(data.resultcode==0){
                         console.log("resultmsg"+data.resultmsg);
                         alert("注册成功！");
-//                        window.location="login.html";
+                        window.location="../UserCenter/login.html";
                     }
                     else{
                         alert(data.resultmsg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown, data) {
-                    alert("failed");
                     alert(errorThrown);
                 }
             });

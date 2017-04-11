@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>系统设置</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+      .container{
+        width: 94%;
+        margin: 20px auto;
+      }
+      .dianshang{
+      	/*display: inline-block;*/
+      	/*font-size: 20px;*/
+      	padding-top: 6px;
+      	color: #fefefe;
+      	vertical-align: middle;
+      	font-weight: bold;
+      }
+      .each_hang{
+      	background: #fff;
+      	/*padding: 10px;*/
+      }
+      .switch.round label {
+          border-radius: 2rem;
+      }
+      .switch label:after {
+        border-radius: 50%;
+      }
+      input:checked ~ .switch-paddle {
+          background: #06c673;
+      }
+      .each_hang p,.switch.round{
+        font-size: 14px;
+        /*padding: 15px 4px;*/
+        margin-top: 10px;
+        margin-left: 10px;
+        /*color: #444;*/
+        /*font-family: sans-serif,,"微软雅黑";*/
+        font-family:"Microsoft YaHei","微软雅黑";
+      }
+      .each_hang p a{
+      	color: #444;
+      }
+      .switch.round{
+      	margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="off-canvas-wrapper">
+	    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
+	    	    <!-- 头像部分 -->
+	    	    <div class="container">
+	    	    	<div class="media-object">
+	    	    	    <div class="media-object-section head">
+		    	    	    <img src="http://placeimg.com/60/60/people" alt="women">
+		    	    	</div>
+		    	    	<div class="media-object-section">
+		    	    	    <h5>Hello World</h5>
+		    	    	    <a href="">点此编辑</a>
+		    	    	</div>
+	    	    	</div>
+	    	    	<hr>
+	    	    </div>
+    	        <ul class="off-canvas-list">
+    	    	    <li><a href="" target="_blank"><i class="fi-home"></i>首页</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-mail"></i>电子商务</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-eye"></i>我的土地</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-female"></i>  个人中心</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
+    	        </ul>
+    	        <div class="container">
+	    	        <button type="button" class="alert button expanded">退出登录</button>
+    	        </div>
+		    </div>
+			<div class="off-canvas-content" data-off-canvas-content>
+			    <div class="title-bar hide-for-medium">
+				    <div class="title-bar-left">
+					    <button class="menu-icon" type="button" data-open="offCanvas"></button>
+					    <span class="title-bar-title">设置</span>
+				    </div>
+				</div>
+				<!-- 导航栏开始 -->
+				<nav class="marketing-topbar show-for-medium">
+				    <!-- <ul class="menu">
+				      <li class="topbar-title text-center"><a href="">电子商务中心</a></li>
+				    </ul> -->
+				    <div class="menu">
+				    	<h5 class="topbar-title text-center dianshang">设置</h5>
+				    </div>
+				</nav>
+				<!-- 导航栏结束 -->
+				<!-- 页面主体内容开始 -->
+				<div style="height: auto;background: #eee;">
+					<div style="height: 15px;"></div>
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<p class="float-left">接收系统消息</p>
+						</div>
+						<div class="small-6 columns">
+							<!-- <p class="float-right">here</p> -->
+							<div class="switch round float-right">
+								<input class="switch-input" id="yes-no1" type="checkbox" name="exampleSwitch">
+								<label class="switch-paddle" for="yes-no1">
+								    <span class="switch-active" aria-hidden="true">On</span>
+								    <span class="switch-inactive" aria-hidden="true">Off</span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div style="height: 15px;"></div>
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<p class="float-left">声音</p>
+						</div>
+						<div class="small-6 columns">
+							<!-- <p class="float-right">here</p> -->
+							<div class="switch round float-right">
+								<input class="switch-input" id="yes-no2" type="checkbox" name="exampleSwitch">
+								<label class="switch-paddle" for="yes-no2">
+								    <span class="switch-active" aria-hidden="true">On</span>
+								    <span class="switch-inactive" aria-hidden="true">Off</span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div style="height: 15px;"></div>
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<div class="container">
+								<div class="reveal" id="exampleModal1" data-reveal data-overlay="false">
+								    <h1 class="text-center">关于我们</h1>
+								    <hr>
+								    <p style="text-indent: 2em;"> “MyGarden”都市菜园是一种虚拟与现实为一体的新型休闲农业，本次设计借助“互联网+现代农业”的创新思维，实现了为都市家庭居民提供便捷服务的在线种植平台。该平台主要由农业生产环境数据采集、远程监控、视频监控、智能数据分析、电子商务等五个软硬件模块组成。</p>
+								    <button class="close-button" data-close aria-label="Close modal" type="button">
+								        <span aria-hidden="true">&times;</span>
+								    </button>
+								</div>
+							</div>							
+							<p class="float-left">
+								<a data-open="exampleModal1">关于我们</a>
+							</p>
+						</div>
+						<hr>
+					</div>
+
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<p class="float-left">检查更新</p>
+						</div>
+						<hr>
+					</div>
+
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<p class="float-left">清除缓存</p>
+						</div>
+						<hr>
+					</div>
+
+					<div class="row each_hang">
+						<div class="small-6 columns">
+							<p class="float-left">意见反馈</p>
+						</div>
+						<hr>
+					</div>
+
+
+				</div>
+			</div>
+		</div>	
+	</div>
+    
+    
+    
+
+    <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/what-input.js"></script>
+    <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

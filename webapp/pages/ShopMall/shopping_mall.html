@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电商平台</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+      .container{
+        width: 90%;
+        margin: 20px auto;
+      }
+      .orbit-bullets {
+          position: relative;
+          margin-top: -2.5rem;
+          margin-bottom: 0.8rem;
+          text-align: center;
+      }
+      .orbit-bullets button {
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: 0.2rem;
+          border-radius: 50%;
+          background-color: #fff;
+      }
+      .orbit-bullets button.is-active {
+          background-color: #06c673;
+      }
+      .dianshang{
+      	/*display: inline-block;*/
+      	/*font-size: 20px;*/
+      	padding-top: 6px;
+      	color: #fefefe;
+      	vertical-align: middle;
+      	font-weight: bold;
+      }
+      .settings .icon {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background: #eeeeee;
+          /*margin: 10px auto;*/
+          text-align: center;
+          position: relative;
+      }
+      .settings img{
+      	width: 21px;
+      	height: 21px;
+      	margin: 12px auto;
+      }
+      .settings h6{
+      	margin-top: 7px;
+      	font-size: 12px;
+      }
+      .recommand .shucai{
+      	padding-left: 6%;
+      	padding-top: 8px;
+      	padding-bottom: 8px;
+      	font-size: 15px;
+      	font-weight: bold;
+      	color:#444;
+      	background: #ccc;
+      }
+      /*遮罩效果*/
+      .post-format-content {
+          position: relative;  
+          background: #111;  
+      }
+      .content-wrap {  
+          padding: 0;  
+          position: absolute;  
+          text-align: center;  
+          width: 100%;  
+          top: 0;  
+          bottom: 0;  
+          display: table-cell;  
+          vertical-align: middle;  
+          overflow: hidden;  
+      }  
+      .content-wrap h1.entry-title {  
+          display: table;  
+          font-size: 110%;  
+          height: 100%;  
+          text-transform: uppercase;  
+          width: 100%;  
+          margin:0;  
+      }
+      .featured-image {   
+          display: table-cell;  
+          position: relative;  
+          vertical-align: middle;  
+          z-index: 1;  
+          color: #fff;  
+          text-decoration: none;  
+          opacity: 0.7;  
+          padding: 10%;  
+          background: rgba(0,0,0,0.8);
+      } 
+    </style>
+  </head>
+  <body>
+    <div class="off-canvas-wrapper">
+	    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
+	    	    <!-- 头像部分 -->
+	    	    <div class="container">
+	    	    	<div class="media-object">
+	    	    	    <div class="media-object-section head">
+		    	    	    <img src="http://placeimg.com/60/60/people" alt="women">
+		    	    	</div>
+		    	    	<div class="media-object-section">
+		    	    	    <h5>Hello World</h5>
+		    	    	    <a href="">点此编辑</a>
+		    	    	</div>
+	    	    	</div>
+	    	    	<hr>
+	    	    </div>
+    	        <ul class="off-canvas-list">
+    	    	    <li><a href="" target="_blank"><i class="fi-home"></i>首页</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-mail"></i>电子商务</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-eye"></i>我的土地</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-female"></i>  个人中心</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
+    	        </ul>
+    	        <div class="container">
+	    	        <button type="button" class="alert button expanded">退出登录</button>
+    	        </div>
+		    </div>
+			<div class="off-canvas-content" data-off-canvas-content>
+			    <div class="title-bar hide-for-medium">
+				    <div class="title-bar-left">
+					    <button class="menu-icon" type="button" data-open="offCanvas"></button>
+					    <span class="title-bar-title">电子商务中心</span>
+				    </div>
+				</div>
+				<!-- 导航栏开始 -->
+				<nav class="marketing-topbar show-for-medium">
+				    <!-- <ul class="menu">
+				      <li class="topbar-title text-center"><a href="">电子商务中心</a></li>
+				    </ul> -->
+				    <div class="menu">
+				    	<h5 class="topbar-title text-center dianshang">电子商务中心</h5>
+				    </div>
+				    
+				</nav>
+				<!-- 导航栏结束 -->
+				<!-- 轮播开始 -->
+				<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+				    <ul class="orbit-container">
+				        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+					    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+					    <!-- <li class="is-active orbit-slide">
+					      <img class="orbit-image" src="http://placehold.it/914x457" alt="Space">
+					      <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+					    </li>
+					    <li class="orbit-slide">
+					      <img class="orbit-image" src="http://placehold.it/914x457/000000/ffffff" alt="Space">
+					      <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+					    </li> -->
+					    <li class="orbit-slide">
+					      <img class="orbit-image" src="../../img/02.jpg" alt="Space">
+					      <!-- <figcaption class="orbit-caption">Lets Rocket!</figcaption> -->
+					    </li>
+					    <li class="orbit-slide">
+					      <img class="orbit-image" src="../../img/03.jpg" alt="Space">
+					      <!-- <figcaption class="orbit-caption">Encapsulating</figcaption> -->
+					    </li>
+					    <li class="orbit-slide">
+					      <img class="orbit-image" src="../../img/04.jpg" alt="Space">
+					      <!-- <figcaption class="orbit-caption">Outta This World</figcaption> -->
+					    </li>
+					</ul>
+					<nav class="orbit-bullets">
+					    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+					    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+					    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+					</nav>
+				</div>
+				<!-- 轮播结束 -->
+				<!-- 页面主体内容开始 -->
+				<div class="container">
+					<div class="h25"></div>
+					<div class="row">
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/tool.png" alt="tool"></figure>
+							<h6>农资工具</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/seeds.png" alt="tool"></figure>
+							<h6>种子种苗</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/shucai.png" alt="tool"></figure>
+							<h6>时令蔬菜</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/apply.png" alt="tool"></figure>
+							<h6>售卖申请</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/tool.png" alt="tool"></figure>
+							<h6>农资工具</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/seeds.png" alt="tool"></figure>
+							<h6>种子种苗</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/shucai.png" alt="tool"></figure>
+							<h6>时令蔬菜</h6>
+						</div>
+						<div class="small-3 columns settings">
+							<figure class="icon"><img src="../../pics/apply.png" alt="tool"></figure>
+							<h6>售卖申请</h6>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="recommand">
+					<p class="shucai">时令蔬菜推荐</p>
+					<div class="container">
+						<div class="row">
+							<div class="small-6 columns">
+								<div class="post-format-content">  
+								    <img src="../../img/img1.jpg" width="600" alt="105694702">
+								    <div class="content-wrap">  
+								        <h1 class="entry-title">
+								            <a href="" class="featured-image">根菜类</a>
+								        </h1>  
+								    </div>  
+								</div> 
+							</div>
+							<div class="small-6 columns">
+								<div class="post-format-content">  
+								    <img src="../../img/img1.jpg" width="600" alt="105694702">
+								    <div class="content-wrap">  
+								        <h1 class="entry-title">
+								            <a href="" class="featured-image">根菜类</a>
+								        </h1>  
+								    </div>  
+								</div> 
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="small-6 columns">
+								<div class="post-format-content">  
+								    <img src="../../img/img1.jpg" width="600" alt="105694702">
+								    <div class="content-wrap">  
+								        <h1 class="entry-title">
+								            <a href="" class="featured-image">根菜类</a>
+								        </h1>  
+								    </div>  
+								</div> 
+							</div>
+							<div class="small-6 columns">
+								<div class="post-format-content">  
+								    <img src="../../img/img1.jpg" width="600" alt="105694702">
+								    <div class="content-wrap">  
+								        <h1 class="entry-title">
+								            <a href="" class="featured-image">根菜类</a>
+								        </h1>  
+								    </div>  
+								</div> 
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="small-12 columns">
+								<p class="text-center" style="padding:20px;">敬请期待更多惊喜</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!-- 页脚部分 -->
+				<footer>
+					<div class="container">
+						<p class="text-center">Copyright &copy; 2017.Kelsey Carl All rights reserved.</p>
+					</div>
+				</footer>
+				<div class="clearfix"></div>
+			</div>
+	    </div>
+    </div>
+    
+    
+    
+
+    <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/what-input.js"></script>
+    <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

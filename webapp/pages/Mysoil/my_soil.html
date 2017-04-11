@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电商平台</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+      .container{
+        width: 94%;
+        margin: 10px auto;
+      }
+      .dianshang{
+      	/*display: inline-block;*/
+      	/*font-size: 20px;*/
+      	padding-top: 6px;
+      	color: #fefefe;
+      	vertical-align: middle;
+      	font-weight: bold;
+      }
+      .tabs{
+      	/*width: 30%;*/
+      	/*margin:0px auto;*/
+      	/*background: #eee;*/
+      	/*border:1px solid red;*/
+      }
+      .tabs li{
+      	width: 50%;
+      }
+      /*.tabs ul a{
+      	margin-left: 40px;
+      }*/
+      /*.tabs-title{
+      	padding-left: 80px;
+      }*/
+      /*.tabs .is-active{
+      	width: 50%;
+      } */
+      .tabs-content{
+      	border:none;
+      }
+      .diff{
+      	margin: 20px auto;
+      }
+      .tabs-panel .btn{
+      	width: 50%;
+      	margin-top: 50px;
+      	border-radius: 28px;
+      	color: #fff;
+      }
+      .label.warning,.label.success {
+        color: #fff;
+      }
+      .right_set h5 a{
+      	font-size: 14px;
+      	font-weight: bold;
+      	color: #444;
+      }
+      .right_set i{
+      	color:blue;
+      	width: 20px;
+      	height: 20px;
+      }
+      .right_set .labels span{
+      	border-radius: 8px;
+      }
+      .right_set .miaoshu{
+      	font-size: 13px;
+      	text-indent: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="off-canvas-wrapper">
+	    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
+	    	    <!-- 头像部分 -->
+	    	    <div class="container">
+	    	    	<div class="media-object">
+	    	    	    <div class="media-object-section head">
+		    	    	    <img src="http://placeimg.com/60/60/people" alt="women">
+		    	    	</div>
+		    	    	<div class="media-object-section">
+		    	    	    <h5>Hello World</h5>
+		    	    	    <a href="">点此编辑</a>
+		    	    	</div>
+	    	    	</div>
+	    	    	<hr>
+	    	    </div>
+    	        <ul class="off-canvas-list">
+    	    	    <li><a href="" target="_blank"><i class="fi-home"></i>首页</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-mail"></i>电子商务</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-eye"></i>我的土地</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-female"></i>  个人中心</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
+    	        </ul>
+    	        <div class="container">
+	    	        <button type="button" class="alert button expanded">退出登录</button>
+    	        </div>
+		    </div>
+			<div class="off-canvas-content" data-off-canvas-content>
+			    <div class="title-bar hide-for-medium">
+				    <div class="title-bar-left">
+					    <button class="menu-icon" type="button" data-open="offCanvas"></button>
+					    <span class="title-bar-title">我的土地</span>
+				    </div>
+				</div>
+				<!-- 导航栏开始 -->
+				<nav class="marketing-topbar show-for-medium">
+				    <!-- <ul class="menu">
+				      <li class="topbar-title text-center"><a href="">电子商务中心</a></li>
+				    </ul> -->
+				    <div class="menu">
+				    	<h5 class="topbar-title text-center dianshang">我的土地</h5>
+				    </div>
+				</nav>
+				<!-- 导航栏结束 -->
+				<!-- 页面主体内容开始 -->
+				<div class="">
+					<ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+						<li class="tabs-title text-center is-active"><a href="#panel1c" aria-selected="true">我的土地</a></li>
+						<li class="tabs-title text-center"><a href="#panel2c">查看农场</a></li>
+					</ul>
+
+					<div class="tabs-content" data-tabs-content="collapsing-tabs">
+						<!-- 用户没有土地的时候显示的内容 -->
+						<!-- <div class="tabs-panel diff is-active" id="panel1c">
+							<img class="float-center" src="img/smile.png" alt="nothing" width="300" height="200">
+						    <p class="text-center">还没有私家地块，快来申请一个吧！</p>
+						    <button type="button" class="float-center button success large btn">租赁申请</button>
+						</div> -->
+						<div class="tabs-panel is-active" id="panel1c">
+							<!-- 有土地的时候显示该用户的土地信息 -->
+							<div class="container">
+						        <div class="media-object">
+						            <div class="media-object-section">
+						              <img src="http://placeimg.com/100/100/people" alt="women">
+						            </div>
+						            <div class="media-object-section right_set">
+						                <h5><a href="">hello world 的土地</a></h5>
+						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
+						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
+						                	一点田生态农场
+						                	<span class="label primary">蔬菜</span>
+						              		<span class="label success">天然</span>
+						              		<span class="label warning">养生</span>
+						                </p>
+						                <p class="miaoshu">
+						                	这是一块白菜地，它主要种植白菜，白菜生长周期短...
+						                	<span><a href="">更多&gt;&gt;</a></span>
+					              	    </p>
+						            </div>
+						        </div>
+					        </div>
+
+						</div>
+						<div class="tabs-panel" id="panel2c">
+							<!-- 农庄查看:媒体对象 -->
+						    <div class="container">
+						        <div class="media-object">
+						            <div class="media-object-section">
+						              <img src="http://placeimg.com/100/100/people" alt="women">
+						            </div>
+						            <div class="media-object-section right_set">
+						                <h5><a href="">一点田生态农场</a></h5>
+						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
+						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
+						                	青白江
+						                	<span class="label primary">蔬菜</span>
+						              		<span class="label success">天然</span>
+						              		<span class="label warning">养生</span>
+						                </p>
+						                <p class="miaoshu">
+						                	一点田生态农场位于青白江农田生产基地...
+						                	<span><a href="">更多&gt;&gt;</a></span>
+					              	    </p>
+						            </div>
+						        </div>
+					        </div>
+
+					        <div class="container">
+						        <div class="media-object">
+						            <div class="media-object-section">
+						              <img src="http://placeimg.com/100/100/people" alt="women">
+						            </div>
+						            <div class="media-object-section right_set">
+						                <h5><a href="">一点田生态农场</a></h5>
+						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
+						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
+						                	青白江
+						                	<span class="label primary">蔬菜</span>
+						              		<span class="label success">天然</span>
+						              		<span class="label warning">养生</span>
+						                </p>
+						                <p class="miaoshu">
+						                	一点田生态农场位于青白江农田生产基地...
+						                	<span><a href="">更多&gt;&gt;</a></span>
+					              	    </p>
+						            </div>
+						        </div>
+					        </div>
+
+					        <div class="container">
+						        <div class="media-object">
+						            <div class="media-object-section">
+						              <img src="http://placeimg.com/100/100/people" alt="women">
+						            </div>
+						            <div class="media-object-section right_set">
+						                <h5><a href="">一点田生态农场</a></h5>
+						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
+						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
+						                	青白江
+						                	<span class="label primary">蔬菜</span>
+						              		<span class="label success">天然</span>
+						              		<span class="label warning">养生</span>
+						                </p>
+						                <p class="miaoshu">
+						                	一点田生态农场位于青白江农田生产基地...
+						                	<span><a href="">更多&gt;&gt;</a></span>
+					              	    </p>
+						            </div>
+						        </div>
+					        </div>
+
+						</div>
+					</div>
+				</div>
+				
+				
+				<!-- 页脚部分 -->
+				<!-- <footer>
+					<div class="container">
+						<p class="text-center">Copyright &copy; 2017.Kelsey Carl All rights reserved.</p>
+					</div>
+				</footer>
+				<div class="clearfix"></div> -->
+			</div>
+	    </div>
+    </div>
+    
+    
+    
+
+    <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/what-input.js"></script>
+    <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+      .container{
+        width: 94%;
+        margin: 20px auto;
+      }
+      .dianshang{
+      	/*display: inline-block;*/
+      	/*font-size: 20px;*/
+      	padding-top: 6px;
+      	color: #fefefe;
+      	vertical-align: middle;
+      	font-weight: bold;
+      }
+      .personal_part{
+      	height: 220px;
+      	/*border: 1px solid red;*/
+      	background: url(http://placehold.it/100x100) no-repeat;
+      	/*background: url(../../img/female.jpg) no-repeat;*/
+      	/*background: #06c673;*/
+      	background-size: 100% auto;
+      	/*opacity: 0.8;*/
+      	/*filter: url(blur.svg#blur);  FireFox, Chrome, Opera */
+	    -webkit-filter: blur(2px); /* Chrome, Opera */
+        -moz-filter: blur(1px);
+        -ms-filter: blur(1px);    
+        filter: blur(2px);
+        position: relative;
+	    /*filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+      }
+      .head_img{
+      	width: 80px;
+      	height: 80px;
+      	border-radius: 40px;
+      	margin-top: 35px;
+      	border:2px solid #fff;
+      	
+      }
+      .head_set,.settings{
+      	position: absolute;
+      	/*margin-top: -1%;*/
+      	/*top:26%;
+      	left: 40%;*/
+      }
+      .settings{
+      	top:50px;
+      	right: 25px;
+      }
+       .settings i{
+       	/*color: #fff;*/
+       	font-size: 20px;
+      }
+      .card{
+      	background: none;
+      	border: none;
+      	/*color: #fff;*/
+      	/*margin-top: 10px;*/
+      }
+      .card-section h4{
+      	font-size: 14px;
+      }
+      .card-section h6{
+      	font-size: 12px;
+      } 
+      .card-section p{
+      	font-size: 10px;
+      }
+      .card-section h4,.card-section h6{
+      	font-weight: bold;
+      }
+      .card-section h4,.card-section h6,.card-section p{
+      	color: #fff;
+      }
+      .card-section i{
+      	font-size: 16px;
+      	color: #06c673;
+      	margin-left: 10px;
+      }
+      .shopping img{
+      	width: 35px;
+      	height: 35px;
+      }
+      .shopping h6{
+      	font-size: 13px;
+      	margin-top: 3px;
+      	color:#444;
+      }
+      .btn_radius{
+      	padding: 6px 10px;
+      	border-radius: 5px;
+      	margin-top: 10px;
+      }
+      .btn_radius i{
+      	font-size: 18px;
+      }
+	  .media-a a{
+		  padding: 5px 10px;
+		  color: #444444;
+		  font-size: 14px;
+		  border:1px solid #EEEEEE;
+		  margin-left:6px;
+	  }
+	  .media-a a:hover{
+		  border:1px solid #06c673;
+	  }
+    </style>
+  </head>
+  <body>
+    <div class="off-canvas-wrapper">
+	    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
+	    	    <!-- 头像部分 -->
+	    	    <div class="container">
+	    	    	<div class="media-object">
+	    	    	    <div class="media-object-section head">
+		    	    	    <!--<img src="http://placeimg.com/60/60/people" alt="women">-->
+		    	    	    <img class="" src="../../img/person.png" alt="women">
+		    	    	</div>
+		    	    	<div class="media-object-section media-a">
+		    	    	    <h5></h5>
+		    	    	    <a href="login.html">登录</a>
+		    	    	    <a href="register.html">注册</a>
+		    	    	</div>
+	    	    	</div>
+	    	    	<hr>
+	    	    </div>
+    	        <ul class="off-canvas-list">
+    	    	    <li><a href="" target="_blank"><i class="fi-home"></i>首页</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-mail"></i>电子商务</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-eye"></i>我的土地</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-female"></i>  个人中心</a></li>
+    	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
+    	        </ul>
+    	        <div class="container">
+	    	        <button type="button" class="alert button expanded">退出登录</button>
+    	        </div>
+		    </div>
+			<div class="off-canvas-content" data-off-canvas-content>
+			    <div class="title-bar hide-for-medium">
+				    <div class="title-bar-left">
+					    <button class="menu-icon" type="button" data-open="offCanvas"></button>
+					    <span class="title-bar-title">个人中心</span>
+				    </div>
+				</div>
+				<!-- 导航栏开始 -->
+				<nav class="marketing-topbar show-for-medium">
+				    <!-- <ul class="menu">
+				      <li class="topbar-title text-center"><a href="">电子商务中心</a></li>
+				    </ul> -->
+				    <div class="menu">
+				    	<h5 class="topbar-title text-center dianshang">个人中心</h5>
+				    </div>
+				</nav>
+				<!-- 导航栏结束 -->
+				<!-- 页面主体内容开始 -->
+				<div>
+					<div class="row">
+						<div class="small-12 columns personal_part" style="">
+							<!-- <img class="head_set float-center" src="img/female.jpg" alt="head" width="80" height="80" style="opacity: 1;-webkit-filter: blur(0px);filter: blur(0px);"> -->
+						</div>
+						<div class="settings">
+							<a href="userinfor_setting.html"><i class="fi-widget"></i></a>
+						</div>
+						<div class="small-12 columns head_set">
+							<a href="#"><img class="head_img float-center" src="http://placehold.it/100x100" alt="head"></a>
+							<!--<a href="#"><img class="head_img float-center" src="../../img/female.jpg" alt="head"></a>-->
+							<div class="card" style="height: auto;">
+								<div class="card-section float-center">
+									<h4 class="text-center"></h4>
+									<h6 class="text-center"></h6>
+									<p class="text-center"></p>
+								</div>
+								<!--<div class="card-section float-center">-->
+									<!--<h4 class="text-center">hello world</h4>-->
+									<!--<h6 class="text-center">tel：<span>18408243828</span></h6>-->
+									<!--<p class="text-center">这个人很懒，一句话也没留下<i class="fi-clipboard-pencil"></i></p>-->
+								<!--</div>-->
+							</div>  
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="small-3 columns shopping">
+							<img class="float-center" src="../../img/wait3.png" alt="wait to pay">
+							<h6 class="text-center">待付款</h6>
+						</div>
+						<div class="small-3 columns shopping">
+							<img class="float-center" src="../../img/wait2.png" alt="wait to pay">
+							<h6 class="text-center">待发货</h6>
+						</div>
+						<div class="small-3 columns shopping">
+							<img class="float-center" src="../../img/wait2.png" alt="wait to pay">
+							<h6 class="text-center">待收货</h6>
+						</div>
+						<div class="small-3 columns shopping">
+							<img class="float-center" src="../../img/wait4.png" alt="wait to pay">
+							<h6 class="text-center">待评价</h6>
+						</div>
+					</div>
+				</div>
+				
+				<div class="" style="background: #eee;height: 500px;">
+					<hr style="margin-top: -10px;" >
+					<div class="row" style="background: #fff;margin-top: -20px;">
+						<div class="small-10 columns" >
+							<button type="button" class="button alert btn_radius">
+								<i class="fi-clipboard-notes"></i>
+								<!-- <span>我的订单</span> -->
+							</button><span>&nbsp;&nbsp;我的订单</span>
+						</div>
+						<div class="small-2 columns float-right">
+							<img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+						</div>
+					</div>
+
+					<div class="row" style="background: #fff;margin-top: 15px;">
+						<div class="small-10 columns" >
+							<button type="button" class="button alert btn_radius">
+								<i class="fi-clipboard-notes"></i>
+								<!-- <span>我的订单</span> -->
+							</button><span>&nbsp;&nbsp;我的购物车</span>
+						</div>
+						<div class="small-2 columns float-right">
+							<img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+						</div>
+					</div>
+					<hr style="margin-top: -10px;" >
+					<div class="row" style="background: #fff;margin-top: -20px;">
+						<div class="small-10 columns" >
+							<button type="button" class="button alert btn_radius">
+								<i class="fi-clipboard-notes"></i>
+								<!-- <span>我的订单</span> -->
+							</button><span>&nbsp;&nbsp;我的收藏</span>
+						</div>
+						<div class="small-2 columns float-right">
+							<img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+						</div>
+					</div>
+
+					<div class="row" style="background: #fff;margin-top: 15px;">
+						<div class="small-10 columns" >
+							<button type="button" class="button alert btn_radius">
+								<i class="fi-clipboard-notes"></i>
+								<!-- <span>我的订单</span> -->
+							</button><span>&nbsp;&nbsp;我的土地</span>
+						</div>
+						<div class="small-2 columns float-right">
+							<img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+						</div>
+					</div>
+					<hr style="margin-top: -10px;" >
+					<div class="row" style="background: #fff;margin-top: -20px;">
+						<div class="small-10 columns" >
+							<button type="button" class="button alert btn_radius">
+								<i class="fi-clipboard-notes"></i>
+								<!-- <span>我的订单</span> -->
+							</button><span>&nbsp;&nbsp;我的账户</span>
+						</div>
+						<div class="small-2 columns float-right">
+							<img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+    
+    
+    
+
+    <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/what-input.js"></script>
+    <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

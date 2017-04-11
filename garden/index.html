@@ -191,8 +191,8 @@ function login(){
 	};
 	$.ajax({
 		type:"post",
-		url:URL+"Admin/login",//在接口确定之后修改
-//		url:"http://localhost:8080/PersonalGarden/index.php/Home/Admin/login",//在接口确定之后修改
+//		url:URL+"Admin/login",//在接口确定之后修改
+		url:"http://localhost:8080/PersonalGarden/index.php/Home/Admin/login",//在接口确定之后修改
 		data:JSON.stringify(Data),
 		async:true,
 		dataType:'json',

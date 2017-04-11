@@ -1,0 +1,38 @@
+[ 2017-04-11T14:31:31+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from admin where admin_account='2017001' [ RunTime:0.0010s ]
+
+[ 2017-04-11T14:31:32+08:00 ] ::1 /PersonalGarden/index.php/Home/Admin/login/token/c20ad4d76fe97759aa27a0c99bff6710
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from admin where token='c20ad4d76fe97759aa27a0c99bff6710' [ RunTime:0.0010s ]
+
+[ 2017-04-11T14:36:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where user_phone=12345678910 [ RunTime:0.0210s ]
+SQL: insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums) values (null,'12345678910','','','保密','','image/jpg','http://placehold.it/80x80/000000/ffffff?text=head','123456','e10adc3949ba59abbe56e057f20f883e','0') [ RunTime:0.0130s ]
+
+[ 2017-04-11T14:36:48+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from userinfor where user_phone='12345678910' [ RunTime:0.0010s ]
+
