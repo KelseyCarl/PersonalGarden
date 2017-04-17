@@ -4,24 +4,24 @@ use Think\Controller;
 
 class SessionController extends Controller{
     public function setSession(){
-        //1.Æô¶¯»á»°
+        //1.å¯åŠ¨ä¼šè¯
 //        $time = 1*60;
 //        session_set_cookie_params($time);
 //        session_start();
         session_start();
         $time = 1*60;
         setcookie(session_name(),session_id(),time()+$time,"/");
-        //2.×¢²á»á»°
+        //2.æ³¨å†Œä¼šè¯
         $_SESSION["admin"] = "mr.right";
 //        if(empty($_SESSION["admin"]))
-//            //3.Ê¹ÓÃ»á»°
+//            //3.ä½¿ç”¨ä¼šè¯
 //            $myvalue = $_SESSION["admin"];
 //        echo "myvalue: ".$myvalue."<br>";
-        //4.É¾³ı»á»°
+        //4.åˆ é™¤ä¼šè¯
 //        unset($_SESSION["admin"]);
-        //É¾³ı¶à¸ö»á»°£º
+        //åˆ é™¤å¤šä¸ªä¼šè¯ï¼š
 //        $_SESSION = array();
-        //³¹µ×Ïú»Ùsession
+        //å½»åº•é”€æ¯session
 //        session_destroy();
     }
 }

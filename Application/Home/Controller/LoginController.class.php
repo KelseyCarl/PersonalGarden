@@ -5,6 +5,7 @@ use Think\Controller\RestController;
 
 class LoginController extends RestController{
     public function login($token=""){
+        session_start();
         header("Access-Control-Allow-Origin:*");
         $Model = M();
         switch($this->_method) {
@@ -34,7 +35,7 @@ class LoginController extends RestController{
             }
             case 'post':{
                 //取得输入的值
-//                $data = '{"data":{"username":"2017001","password":"123456"}}';
+//                $data = '{"data":{"username":"18408245117","password":"123456"}}';
                 $json = json_decode(file_get_contents("php://input"),true);
 //                $json = json_decode($data,true);
                 $user = $json["data"]["username"];
@@ -50,11 +51,24 @@ class LoginController extends RestController{
                         $data = array();
                         $data["subitem"] = array();
                         $pass = $re[0]["login_pass"];
+                        $token2 = md5($user);
                         if($pswd != $pass){
                             $this->response(retmsg(-1,null,"用户名或密码错误！"),'json');
                         }else{
                             $data["subitem"] = $re;
-                            $this->response(retmsg(0,$data,"登录成功！"),'json');
+                            $time = date("Y-m-d H:i:s");
+                            $log_time = "update userinfor set login_time='$time',token='$token2' where user_phone='$user'";
+                            $log_result = $Model->execute($log_time);
+                            //用户登录之后产生令牌
+                            //将令牌保存在session中
+//                            session("token",$token2);
+//                            $token_val = session("token");
+//                            echo "session token".$token_val;
+                            if(is_bool($log_result)){
+                                $this->response(retmsg(-1,null,"登录失败！"),'json');
+                            }else{
+                                $this->response(retmsg(0,$data,"登录成功！"),'json');
+                            }
                         }
                     }
                 }
@@ -75,8 +89,8 @@ class LoginController extends RestController{
                 $pass1 = safe($data['data']['password1']);
                 $pass2 = safe($data['data']['password2']);
                 $sex = "保密";
-                $head = "http://placehold.it/80x80/000000/ffffff?text=head";
-                $token = md5($pass1);
+                $head = "http://placehold.it/80x80?text=我是头像";
+//                $token = md5($pass1);
                 $sql_query = "select user_phone from userinfor where user_phone=".$phone;
                 $sql_result = $Model->query($sql_query);
                 if($sql_result != null){
@@ -87,9 +101,9 @@ class LoginController extends RestController{
                     //注册用户入库
                     $sql_insert = "insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
                                    photo_type,photo_url,login_pass,token,soil_nums) values (" . safe("null") . ",'" .
-                        safe($phone) . "','" . safe("") . "','" . safe("") . "','" . safe($sex) . "','" .
-                        safe("") . "','" . safe("image/jpg") . "','" . safe($head) .
-                        "','" . safe($pass1) . "','" . safe($token) . "','" . safe("0") . "'" . ")";
+                        safe($phone) . "','" . safe("") . "','" . safe("") . "','" . safe("") . "','" .
+                        safe("") . "','" . safe("") . "','" . safe($head) .
+                        "','" . safe($pass1) . "','" . safe("") . "','" . safe("0") . "'" . ")";
                     $insert_result = $Model->execute($sql_insert);
                     if (is_bool($insert_result)) {
                         $this->response(retmsg(-1, null, "注册失败"), 'json');
@@ -97,6 +111,16 @@ class LoginController extends RestController{
                         $this->response(retmsg(0, null, "注册成功"), 'json');
                     }
                 }
+                break;
+            }
+        }
+    }
+
+    public function checktoken(){
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case 'get':{
                 break;
             }
         }

@@ -4,7 +4,7 @@ use Think\Controller\RestController;
 
 class UploadController extends RestController{
 
-    public function upload(){
+    public function upload($token){
         header("Access-Control-Allow-Origin:*");
         $Model = M();
         switch($this->_method) {
@@ -29,12 +29,14 @@ class UploadController extends RestController{
                         $type = $value["type"];
                         $savename = $value["savename"];
                         $savepath = $value["savepath"];
-                        $sql = "replace into photo(id,name,type,savename,savepath) values(" . "null" . ",'" . $name . "','" . $type . "','" . $savename . "','" . $savepath . "'" . ")";
+                        $url = $savepath.$savename;
+//                        $sql = "replace into photo(id,name,type,savename,savepath) values(" . "null" . ",'" . $name . "','" . $type . "','" . $savename . "','" . $savepath . "'" . ")";
+                        $sql = "update userinfor set photo_url='$url' where token='$token' ";
                         $result = $Model->execute($sql);
                         if (is_bool($result)) {
                             $this->response(retmsg(-1,null,"保存到数据库失败"),'json');
                         } else {
-                            $this->response(retmsg(0,null,"上传成功"),'json');
+                            $this->response(retmsg(0,null,"图片上传成功"),'json');
 //                            $this->success('上传成功！');
                         }
                     }

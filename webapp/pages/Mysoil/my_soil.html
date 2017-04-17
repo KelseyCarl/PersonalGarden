@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>电商平台</title>
+    <title>我的土地</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
     <!-- <link rel="stylesheet" href="css/icons.css" /> -->
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
@@ -72,6 +72,10 @@
       	font-size: 13px;
       	text-indent: 2em;
       }
+	  .item_img{
+		  width: 100px;
+		  height: 100px;
+	  }
     </style>
   </head>
   <body>
@@ -99,7 +103,7 @@
     	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
     	        </ul>
     	        <div class="container">
-	    	        <button type="button" class="alert button expanded">退出登录</button>
+	    	        <button type="button" class="alert button expanded" id="logout">退出登录</button>
     	        </div>
 		    </div>
 			<div class="off-canvas-content" data-off-canvas-content>
@@ -127,129 +131,132 @@
 					</ul>
 
 					<div class="tabs-content" data-tabs-content="collapsing-tabs">
-						<!-- 用户没有土地的时候显示的内容 -->
-						<!-- <div class="tabs-panel diff is-active" id="panel1c">
-							<img class="float-center" src="img/smile.png" alt="nothing" width="300" height="200">
-						    <p class="text-center">还没有私家地块，快来申请一个吧！</p>
-						    <button type="button" class="float-center button success large btn">租赁申请</button>
-						</div> -->
 						<div class="tabs-panel is-active" id="panel1c">
+							<!-- 用户没有土地的时候显示的内容 -->
+							<div class="container no-soil" style="margin-top: 20px;">
+								<img src="../../img/smile.png" alt="no data" class="float-center" width="100" height="100">
+								<p class="text-center">没有土地？</p>
+								<p class="text-center">来申请一个，开启你的种菜之旅吧！</p>
+								<button type="button" class="button success expanded rent_soil">土地租赁申请</button>
+							</div>
 							<!-- 有土地的时候显示该用户的土地信息 -->
-							<div class="container">
-						        <div class="media-object">
-						            <div class="media-object-section">
-						              <img src="http://placeimg.com/100/100/people" alt="women">
-						            </div>
-						            <div class="media-object-section right_set">
-						                <h5><a href="">hello world 的土地</a></h5>
-						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
-						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
-						                	一点田生态农场
-						                	<span class="label primary">蔬菜</span>
-						              		<span class="label success">天然</span>
-						              		<span class="label warning">养生</span>
-						                </p>
-						                <p class="miaoshu">
-						                	这是一块白菜地，它主要种植白菜，白菜生长周期短...
-						                	<span><a href="">更多&gt;&gt;</a></span>
-					              	    </p>
-						            </div>
-						        </div>
-					        </div>
-
+							<div class="container result1"></div>
+							<script id="theTemp1" type="x-jsrender">
+								{{for subitem}}
+									<div class="media-object">
+										<div class="media-object-section">
+										  <img class="item_img" src={{:soil_photo}} alt="my soil">
+										</div>
+										<div class="media-object-section right_set">
+											<h5><a href="">{{:soil_name}}</a></h5>
+											<p class="labels" style="margin-top: 10px;font-size: 12px;">
+												<i class="fi-marker success">&nbsp;&nbsp;</i>
+												{{:farm_name}}
+												<span class="label primary">蔬菜</span>
+						              			<span class="label success">天然</span>
+						              			<span class="label warning">养生</span>
+											</p>
+											<p class="miaoshu">
+												{{:soil_desc}}
+												<span><a href="">详细&gt;&gt;</a></span>
+											</p>
+										</div>
+									</div>
+								{{/for}}
+							</script>
 						</div>
 						<div class="tabs-panel" id="panel2c">
 							<!-- 农庄查看:媒体对象 -->
-						    <div class="container">
-						        <div class="media-object">
-						            <div class="media-object-section">
-						              <img src="http://placeimg.com/100/100/people" alt="women">
-						            </div>
-						            <div class="media-object-section right_set">
-						                <h5><a href="">一点田生态农场</a></h5>
-						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
-						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
-						                	青白江
-						                	<span class="label primary">蔬菜</span>
-						              		<span class="label success">天然</span>
-						              		<span class="label warning">养生</span>
-						                </p>
-						                <p class="miaoshu">
-						                	一点田生态农场位于青白江农田生产基地...
-						                	<span><a href="">更多&gt;&gt;</a></span>
-					              	    </p>
-						            </div>
-						        </div>
-					        </div>
-
-					        <div class="container">
-						        <div class="media-object">
-						            <div class="media-object-section">
-						              <img src="http://placeimg.com/100/100/people" alt="women">
-						            </div>
-						            <div class="media-object-section right_set">
-						                <h5><a href="">一点田生态农场</a></h5>
-						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
-						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
-						                	青白江
-						                	<span class="label primary">蔬菜</span>
-						              		<span class="label success">天然</span>
-						              		<span class="label warning">养生</span>
-						                </p>
-						                <p class="miaoshu">
-						                	一点田生态农场位于青白江农田生产基地...
-						                	<span><a href="">更多&gt;&gt;</a></span>
-					              	    </p>
-						            </div>
-						        </div>
-					        </div>
-
-					        <div class="container">
-						        <div class="media-object">
-						            <div class="media-object-section">
-						              <img src="http://placeimg.com/100/100/people" alt="women">
-						            </div>
-						            <div class="media-object-section right_set">
-						                <h5><a href="">一点田生态农场</a></h5>
-						                <p class="labels" style="margin-top: 10px;font-size: 12px;">
-						                	<i class="fi-marker success">&nbsp;&nbsp;</i>
-						                	青白江
-						                	<span class="label primary">蔬菜</span>
-						              		<span class="label success">天然</span>
-						              		<span class="label warning">养生</span>
-						                </p>
-						                <p class="miaoshu">
-						                	一点田生态农场位于青白江农田生产基地...
-						                	<span><a href="">更多&gt;&gt;</a></span>
-					              	    </p>
-						            </div>
-						        </div>
-					        </div>
-
+							<div class="container result2"></div>
+							<script id="theTemp2" type="x-jsrender">
+								{{for subitem}}
+									<div class="media-object">
+										<div class="media-object-section">
+											<img class="item_img" src={{:farm_photo}} alt="farm">
+										</div>
+										 <div class="media-object-section right_set">
+												<h5><a href="">{{:farm_name}}</a></h5>
+												<p class="labels" style="margin-top: 10px;font-size: 12px;">
+													<i class="fi-marker success">&nbsp;&nbsp;</i>
+													{{:farm_address}}
+													<span class="label alert">{{:farm_label}}</span>
+												 </p>
+												 <p class="miaoshu">
+												{{:farm_desc}}
+													<span><a href={{:jump_url}}>更多&gt;&gt;</a></span>
+												</p>
+										 </div>
+									</div>
+								{{/for}}
+							</script>
 						</div>
 					</div>
 				</div>
-				
-				
-				<!-- 页脚部分 -->
-				<!-- <footer>
-					<div class="container">
-						<p class="text-center">Copyright &copy; 2017.Kelsey Carl All rights reserved.</p>
-					</div>
-				</footer>
-				<div class="clearfix"></div> -->
 			</div>
 	    </div>
     </div>
-    
-    
-    
 
     <script src="../../js/vendor/jquery.js"></script>
     <script src="../../js/vendor/what-input.js"></script>
     <script src="../../js/vendor/foundation.6.3.0.js"></script>
+	<script src="../../js/vendor/jsrender.js"></script>
     <script>
-      $(document).foundation();
+      	$(document).foundation();
+		$(function(){
+			var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+			console.log(token);
+//        alert(token);
+			$(".rent_soil").click(function(){
+				window.location.href = "rent_soil.html";
+			});
+			//退出登录
+			$("#logout").click(function(){
+//				localStorage.clear();//清除全部保存的对象
+//				localStorage.removeItem("log_status");
+				window.location.href = "../UserCenter/login.html";
+			});
+
+			//未登陆则跳转登陆页面
+			if(token == null) {
+				alert("请先登陆！");
+				window.location.href = "../UserCenter/login.html";
+			}
+			else {
+				//获取用户个人的土地信息
+				$.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/my_soil/token/"+token, function(json) {
+					if(json.resultcode == -2) {
+						alert("token已失效，请重新登录！");
+						window.location.href = "login.html";
+					}
+					else {
+//						$(".no-soil").addClass("hide");
+						console.log(json.data.subitem);
+//						if(json.data.subitem == null){
+//							$(".no-soil").css("display","block");//隐藏的部分显示
+//						}else{
+//							$(".no-soil").addClass("hide");
+//						}
+						var template = $.templates("#theTemp1");
+						var html = template.render(json.data);
+						console.log(json.data);
+						$(".result1").html(html);
+					}
+				});
+				//获取所有的合作农场的信息
+				$.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/get_farm", function(json) {
+					if(json.resultcode == -2) {
+						alert("token已失效，请重新登录！");
+						window.location.href = "login.html";
+					}
+					else {
+						var template = $.templates("#theTemp2");
+						var html = template.render(json.data);
+						console.log(json.data);
+						$(".result2").html(html);
+					}
+				});
+			}
+		});
     </script>
 
   </body>

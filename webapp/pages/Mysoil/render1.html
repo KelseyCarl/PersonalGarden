@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电商平台</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+        .container{
+            width: 94%;
+            margin: 10px auto;
+        }
+        .dianshang{
+            /*display: inline-block;*/
+            /*font-size: 20px;*/
+            padding-top: 6px;
+            color: #fefefe;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        .tabs{
+            /*width: 30%;*/
+            /*margin:0px auto;*/
+            /*background: #eee;*/
+            /*border:1px solid red;*/
+        }
+        .tabs li{
+            width: 50%;
+        }
+        /*.tabs ul a{
+            margin-left: 40px;
+        }*/
+        /*.tabs-title{
+            padding-left: 80px;
+        }*/
+        /*.tabs .is-active{
+            width: 50%;
+        } */
+        .tabs-content{
+            border:none;
+        }
+        .diff{
+            margin: 20px auto;
+        }
+        .tabs-panel .btn{
+            width: 50%;
+            margin-top: 50px;
+            border-radius: 28px;
+            color: #fff;
+        }
+        .label.warning,.label.success {
+            color: #fff;
+        }
+        .right_set h5 a{
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+        }
+        .right_set i{
+            color:blue;
+            width: 20px;
+            height: 20px;
+        }
+        .right_set .labels span{
+            border-radius: 8px;
+        }
+        .right_set .miaoshu{
+            font-size: 13px;
+            text-indent: 2em;
+        }
+        .item_img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--在后面追加三个container的媒体对象-->
+<!--<div id="panel2c">-->
+    <div class="container result2"></div>
+    <script id="theTemp" type="x-jsrender">
+        {{for subitem}}
+            <div class="media-object">
+                <div class="media-object-section">
+                    <img class="item_img" src={{:farm_photo}} alt="farm">
+                </div>
+                 <div class="media-object-section right_set">
+                        <h5><a href="">{{:farm_name}}</a></h5>
+                        <p class="labels" style="margin-top: 10px;font-size: 12px;">
+                            <i class="fi-marker success">&nbsp;&nbsp;</i>
+                            {{:farm_address}}
+                            <span class="label alert">{{:farm_label}}</span>
+                         </p>
+                         <p class="miaoshu">
+                        {{:farm_desc}}
+                            <span><a href={{:jump_url}}>更多&gt;&gt;</a></span>
+                        </p>
+                 </div>
+            </div>
+        {{/for}}
+    </script>
+<!--</div>-->
+
+
+<!--<div id="resultset"></div>-->
+<!--<script id="theTmpl" type="text/x-jsrender">-->
+<!--{{for people}}-->
+<!--<label>Name:</label> {{:name}}-->
+<!--{{/for}}-->
+<!--</script>-->
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script>
+    $(document).foundation();
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
+//        alert(token);
+        $("#edit_user").click(function(){
+            $("#edit_user").attr("href","userinfor_setting.html");
+        });
+        //未登陆则跳转登陆页面
+        if(token == null) {
+            alert("请先登陆！");
+            window.location.href = "login.html";
+        }
+        else {
+            //获取农场信息
+//            $("#panel2c").click(function(){
+                $.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/get_farm", function(json) {
+                    if(json.resultcode == -2) {
+                        alert("token已失效，请重新登录！");
+                        window.location.href = "login.html";
+                    }
+                    else {
+                        var template = $.templates("#theTemp");
+                        var html = template.render(json.data);
+                        console.log(json.data);
+                        $(".result").html(html);
+                    }
+                });
+//            });
+        }
+//        var data = {
+//            "resultcode": 0,
+//            "resultmsg": "查询成功",
+//            "data": {
+//                "subitem": [
+//                    {
+//                        "fid": "1",
+//                        "farm_id": "001",
+//                        "farm_name": "一点田西江月农场",
+//                        "farm_address": "成都市青白江祥福镇西江月生态园",
+//                        "farm_desc": "位于成都市青白江祥福镇西江月生态园区的一点田西江月农场，拥有上风上水的地理优势。农场占地2000余亩，以种植生态蔬菜、水果为主。小朋友在这里可以进行很多与农事相关的活动，整个农场配套设施还是不错滴，同时接待600个人都莫得问题的。",
+//                        "farm_label": "有机",
+//                        "farm_photo": "http://placehold.it/100x100"
+//                    },
+//                    {
+//                        "fid": "2",
+//                        "farm_id": "002",
+//                        "farm_name": "疯狂农场",
+//                        "farm_address": "崇州花果山",
+//                        "farm_desc": "这里的农田，保留着农田最原始的风味\n在这里，没有豪华的建筑物，农田保留着农田该有的样子。农场的接待人小熊老师也不止一次强调：“我们不是观光农场，一个农夫该怎么在田地里劳作，来到这里就怎么做。”实打实的来学习有机农业的理念，做一个真正的农人，才是来这里该做的正经事。",
+//                        "farm_label": "天然",
+//                        "farm_photo": "http://placehold.it/100x100"
+//                    },
+//                    {
+//                        "fid": "3",
+//                        "farm_id": "003",
+//                        "farm_name": "翔生有机生态农场",
+//                        "farm_address": "成都市新津县兴义镇三新路388号",
+//                        "farm_desc": "可以亲自感受的有机蔬菜生产过程\n翔生生态有机农场是一家严格按照百欧欢有机种植体系进行农业生产的 农场。其目标不仅仅是推广有机种植，更是向大众推广健康饮食理念和科普教育。",
+//                        "farm_label": "美味",
+//                        "farm_photo": "http://placehold.it/100x100"
+//                    }
+//                ]
+//            }
+//        };
+//        var data = {"people":[{"name": "Adriana"},{"name":"Kelseycarl"},{"name":"xft"}]
+//        };
+
+//        template.link("#result", data);
+    });
+
+    
+</script>
+
+</body>
+</html>

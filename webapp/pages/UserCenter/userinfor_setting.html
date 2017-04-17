@@ -15,8 +15,7 @@
         margin: 20px auto;
       }
       .title-top{
-        /*border-bottom: 1px solid #e8e6e8;*/
-      	border: 1px solid red;
+        border-bottom: 1px solid #e8e6e8;
       	/*text-align: center;*/
       	background: #06c673;
       	color: #fff;
@@ -63,6 +62,16 @@
         font-size: 12px;
         color: #999;
       }
+      .infor{
+          /*width: 100px;*/
+          /*border:0;*/
+          /*border-bottom:1px solid #eee;*/
+          /*background:transparent;*/
+          margin: 10px auto;
+          color: #999;
+          font-size: 14px;
+          /*padding: 20px 15px;*/
+      }
 
     </style>
   </head>
@@ -70,13 +79,13 @@
 	<div class="">
     	<div class="row title-top">
           <div class="small-2 columns">
-            <i class="fi-arrow-left float-left"></i>
+            <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
           </div>
       		<div class="small-7 columns">
-        			<h5 class="text-center">我的资料</h5>
+        			<h5 class="text-center">资料完善</h5>
       	  </div>
           <div class="small-3 columns">
-            <a href="" class="save float-right">保存</a>
+            <a href="" class="save float-right" id="save">保存</a>
           </div>
     	</div>
       <div class="" style="background: #eee;height: auto;">
@@ -86,7 +95,7 @@
                 <p class="first_p">更换头像</p>
               </div>
               <div class="small-6 columns">
-                <img class="head_img float-right" src="../../img/love.png" alt="head change" width="80">
+                <img id="changehead" class="head_img float-right" src="http://placehold.it/100x100?text=我是头像" alt="head change" width="80">
               </div>
               <div class="small-2 columns">
                 <img class="arrow_img" src="../../img/right_arrow.png" alt="arrow">
@@ -97,10 +106,11 @@
                 <p class="first_p">昵称</p>
               </div>
               <div class="small-6 columns">
-                <p class="second_p float-right">lamboson</p>
+                  <input type="text" name="nickname" id="nickname1" class="infor hide"/>
+                  <p class="second_p float-right" id="nickname2"></p>
               </div>
               <div class="small-2 columns">
-                <img class="arrow_img" src="../../img/right_arrow.png" alt="arrow">
+                    <img class="arrow_img arrow_here1" src="../../img/right_arrow.png" alt="arrow">
               </div>
           </div> 
           <div class="row change_head">
@@ -108,10 +118,12 @@
                 <p class="first_p">tel</p>
               </div>
               <div class="small-6 columns">
-                <p class="second_p float-right">12345678910</p>
+                  <input type="tel" name="telephone" id="tel1" class="infor hide"/>
+                  <p class="second_p float-right" id="tel_num"></p>
+                <!--<p class="second_p float-right" id="tel_num"></p>-->
               </div>
               <div class="small-2 columns">
-                <img class="arrow_img" src="../../img/right_arrow.png" alt="arrow">
+                <img class="arrow_img arrow_here2" src="../../img/right_arrow.png" alt="arrow">
               </div>
           </div> 
           <div class="row change_head">
@@ -119,10 +131,12 @@
                 <p class="first_p">收货地址</p>
               </div>
               <div class="small-6 columns">
-                <p class="second_p float-right">四川省成都市郫县红光镇西华大学</p>
+                  <input type="text" name="addr" id="addr1" class="infor hide"/>
+                  <p class="second_p float-right" id="address"></p>
+                <!--<p class="second_p float-right" id="address">四川省成都市郫县红光镇西华大学</p>-->
               </div>
               <div class="small-2 columns">
-                <img class="arrow_img" src="../../img/right_arrow.png" alt="arrow">
+                <img class="arrow_img arrow_here3" src="../../img/right_arrow.png" alt="arrow">
               </div>
           </div>
 
@@ -143,16 +157,138 @@
         <button type="button" class="button success expanded">退出登录</button>
       </div>
 	</div>
-    
-    
-    
 
     <script src="../../js/vendor/jquery.js"></script>
+    <script src="../../js/vendor/public.js"></script>
     <script src="../../js/vendor/what-input.js"></script>
     <script src="../../js/vendor/foundation.6.3.0.js"></script>
     <script>
       $(document).foundation();
-    </script>
+        $(function(){
+            var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+            console.log(token);
+            $("#backto_center").click(function(){//回退到个人中心界面
+                $("#backto_center").attr("href","login.html");
+            });
+            $("#changehead").click(function(){
+                window.location.href = "change_head.html";
+            });
+            //昵称的修改
+            $(".arrow_here1").click(function(){
+                $("#nickname1").removeClass("hide");//输入框出现
+                $(".arrow_here").addClass("hide");//箭头消失
+                $("#nickname2").addClass("hide");//文本元素消失
 
+            });
+            $("#nickname1").blur(function(){
+                $("#nickname1").addClass("hide");//失去焦点隐藏
+                $("#nickname2").removeClass("hide");
+                var put_val = $("#nickname1").val();
+                $("#nickname2").text(put_val);
+                $(".arrow_here").removeClass("hide");
+            });
+            //电话号码的修改
+            $(".arrow_here2").click(function(){
+                $("#tel1").removeClass("hide");//输入框出现
+                $(".arrow_here2").addClass("hide");//箭头消失
+                $("#tel_num").addClass("hide");//文本元素消失
+
+            });
+            $("#tel1").blur(function(){
+                $("#tel1").addClass("hide");//失去焦点隐藏
+                $("#tel_num").removeClass("hide");
+                var put_val = $("#tel1").val();
+                $("#tel_num").text(put_val);
+                $(".arrow_here2").removeClass("hide");
+            });
+            //收货地址的修改
+            $(".arrow_here3").click(function(){
+                $("#addr1").removeClass("hide");//输入框出现
+                $(".arrow_here3").addClass("hide");//箭头消失
+                $("#address").addClass("hide");//文本元素消失
+
+            });
+            $("#addr1").blur(function(){
+                $("#addr1").addClass("hide");//失去焦点隐藏
+                $("#address").removeClass("hide");
+                var put_val = $("#addr1").val();
+                $("#address").text(put_val);
+                $(".arrow_here3").removeClass("hide");
+            });
+
+            if(token == null) {
+//                alert("2:"+token);
+                alert("请先登陆！");
+                window.location.href = "login.html";
+            }
+            else {
+                //获取用户信息
+                $.get("http://localhost:8080/PersonalGarden/index.php/Home/Login/login/token/"+token, function(json) {
+                    if(json.resultcode == -2) {
+                        alert("token已失效，请重新登录！");
+                        window.location.href = "login.html";
+                    }
+                    else {
+                        user_head = json.data.subitem[0].photo_url;//获取用户头像
+                        nickname = json.data.subitem[0].nickname;//获取用户昵称
+                        user_tel = json.data.subitem[0].user_phone;//获取用户电话
+                        user_addr = json.data.subitem[0].user_addr;//获取用户收货地址
+                        console.log(nickname);
+                        if(user_tel){
+                            //添加欢迎信息
+                            $(".head_img").attr('src',user_head);
+                            $("#nickname2").text(nickname);
+                            $("#tel_num").text(user_tel);
+                            $("#address").text(user_addr);
+                        }
+                    }
+                });
+            }
+
+            //点击保存将用户资料存入数据库中
+            $("#save").click(function(){
+                var nickname = $("#nickname2").text();
+                var tel = $("#tel_num").text();
+                var address = $("#address").text();
+                if(tel != null){
+                    var Data={
+                        data:{
+                            nickname:nickname,//在接口确定之后修改字段名称
+                            tel:tel,
+                            address:address
+                        }
+                    };
+                    $.ajax({
+                        type:"post",
+                        url:"http://localhost:8080/PersonalGarden/index.php/Home/Setting/save/token/"+token,
+                        data:JSON.stringify(Data),
+                        async:false,
+                        dataType:'json',
+                        success:function(data){
+                            //信息输入正确的时候
+                            if(data.resultcode==0){
+                                console.log("resultmsg"+data.resultmsg);
+//                                alert(data.resultmsg);
+                                setTimeout(function(){
+                                    window.location.href = "user_center.html";
+//                                    window.location.href = "../ShopMall/shopping_mall.html";
+//                                    window.location.href = "http://www.baidu.com";
+                                },1);
+                            }
+                            else{
+                                alert(data.resultmsg);
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown, data) {
+                            alert(errorThrown);
+                        }
+                    });
+                }else{
+                    alert("电话号码不可为空")
+                }
+            });
+
+        });
+    </script>
   </body>
 </html>

@@ -2,11 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/AdminController.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Application/Home/Controller/FarmController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/LoginController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/QiniuController.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Application/Home/Controller/SessionController.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Application/Home/Controller/SettingController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/UploadController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Application/Home/Controller/YZMController.class.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/webapp/css/login.css" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

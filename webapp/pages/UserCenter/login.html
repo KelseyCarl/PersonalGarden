@@ -70,9 +70,9 @@
     function login(){
         if($("#username").val()&&$("#password").val()){
             var Data={
-                data:{
-                    username:$("#username").val(),//在接口确定之后修改字段名称
-                    password:$("#password").val()
+                "data":{
+                    "username":$("#username").val(),
+                    "password":$("#password").val()
                 }
             };
             $.ajax({
@@ -84,9 +84,12 @@
                 success:function(data){
                     //登录信息正确的时候
                     if(data.resultcode==0){
-                        var token=data.data.subitem[0].token;
-                        console.log(token);
-                        window.location="../HomePage/home.html?token="+token;
+                        var token =data.data.subitem[0].token;
+                        //本地缓存
+                        localStorage.setItem("log_status",token);
+                        var log_local = localStorage.getItem("log_status");
+                        console.log(log_local);
+                        window.location="userinfor_setting.html";//登录之后跳转到资料完善页面
                     }
                     else{
                         alert("用户名或密码错误！");
@@ -113,51 +116,4 @@
         }
     }
 </script>
-<!--<script>-->
-    <!--$(document).ready(function() {-->
-        <!--$("#login_btn").focus();-->
-        <!--$("#login_btn").click(function(){-->
-            <!--login();-->
-        <!--});-->
-        <!--$(document).foundation();-->
-    <!--});-->
-
-    <!--function login(){-->
-        <!--if($("#username").val()&&$("#password").val()){-->
-            <!--var Data={-->
-                <!--data:{-->
-                    <!--username:$("#username").val(),-->
-                    <!--password:$("#password").val()-->
-                <!--}-->
-            <!--};-->
-            <!--$.ajax({-->
-                <!--type:"post",-->
-                <!--url:"http://localhost/PersonalGarden/index.php/Home/Login/login",-->
-                <!--data:JSON.stringify(Data),-->
-                <!--async:true,-->
-                <!--dataType:'json',-->
-                <!--success:function(data){-->
-                    <!--//登录信息正确的时候-->
-                    <!--console.log("hello");-->
-                    <!--if(data.resultcode==0){-->
-<!--//                        var token=data.data.subitem[0].token;-->
-                        <!--var token=data.data;-->
-                        <!--console.log(token);-->
-<!--//                        window.location="../HomePage/home.html?token="+token;-->
-<!--//                        window.location="register.html?token="+token;-->
-                    <!--}-->
-                    <!--else{-->
-                        <!--alert("用户名或密码错误！");-->
-                    <!--}-->
-                <!--},-->
-                <!--error: function(XMLHttpRequest, textStatus, errorThrown, data) {-->
-                    <!--alert(errorThrown);-->
-                <!--}-->
-            <!--});-->
-        <!--}-->
-        <!--else {-->
-            <!--alert("账号密码不能为空");-->
-        <!--}-->
-    <!--}-->
-<!--</script>-->
 </html>
