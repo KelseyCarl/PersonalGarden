@@ -1,0 +1,1449 @@
+[ 2017-05-12T22:36:28+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/2b75cef81ebd9c278c2613948b70d1b0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='2b75cef81ebd9c278c2613948b70d1b0' [ RunTime:0.0010s ]
+
+[ 2017-05-12T22:37:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0000s ]
+SQL: update userinfor set login_time='2017-05-12 22:37:12',token='8cbfacea76e34f6bf956afb40fc8e384' where user_phone='18408243828' [ RunTime:0.0150s ]
+
+[ 2017-05-12T22:37:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0025s ]
+
+[ 2017-05-12T22:49:17+08:00 ] ::1 /PersonalGarden/index.php/Home/Setting/save/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002500s ]
+SQL: update userinfor set nickname='KelseyCarl',user_phone='18408243828',user_addr='四川省成都市郫县西华大学' where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0225s ]
+
+[ 2017-05-12T22:49:17+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0025s ]
+
+[ 2017-05-12T22:49:18+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:18:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/get_farm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from farm [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:18:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0030s ]
+
+[ 2017-05-12T23:18:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/my_soil/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select nickname,soil_nums from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='002' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='001' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='003' [ RunTime:0.0000s ]
+
+[ 2017-05-12T23:18:56+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:19:09+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:19:09+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/get_farm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from farm [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:19:09+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/my_soil/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from soil where rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select nickname,soil_nums from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='002' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='001' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='003' [ RunTime:0.0180s ]
+
+[ 2017-05-12T23:21:07+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:24+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:21:31+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:32+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/shucai/type/dangji
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from items where item_type='dangji' and is_verify=1 [ RunTime:0.0390s ]
+
+[ 2017-05-12T23:21:33+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0030s ]
+
+[ 2017-05-12T23:21:35+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0050s ]
+
+[ 2017-05-12T23:21:35+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/get_farm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from farm [ RunTime:0.0030s ]
+
+[ 2017-05-12T23:21:35+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/my_soil/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select nickname,soil_nums from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='002' [ RunTime:0.0000s ]
+SQL: select farm_name from farm where farm_id='001' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='003' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:39+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:43+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:43+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/shucai/type/taocan
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from items where item_type='taocan' and is_verify=1 [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0060s ]
+
+[ 2017-05-12T23:21:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:21:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/get_farm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from farm [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:21:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Farm/my_soil/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select nickname,soil_nums from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='002' [ RunTime:0.0010s ]
+SQL: select farm_name from farm where farm_id='001' [ RunTime:0.0020s ]
+SQL: select farm_name from farm where farm_id='003' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:22:31+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:22:31+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:22:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:22:57+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where user_phone='18408243828' [ RunTime:0.0010s ]
+SQL: update userinfor set login_time='2017-05-12 23:22:57',token='8cbfacea76e34f6bf956afb40fc8e384' where user_phone='18408243828' [ RunTime:0.0240s ]
+
+[ 2017-05-12T23:22:57+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:23:00+08:00 ] ::1 /PersonalGarden/index.php/Home/Setting/save/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: update userinfor set nickname='KelseyCarl',user_phone='18408243828',user_addr='四川省成都市郫县西华大学' where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0140s ]
+
+[ 2017-05-12T23:23:00+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:00+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:23:05+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:05+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_collect/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from collect where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='3' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='1' [ RunTime:0.0030s ]
+
+[ 2017-05-12T23:23:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/del_collect_item/token/8cbfacea76e34f6bf956afb40fc8e384/id/9
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: delete from collect where id='9' [ RunTime:0.0200s ]
+
+[ 2017-05-12T23:23:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_collect/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from collect where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='1' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/del_collect_item/token/8cbfacea76e34f6bf956afb40fc8e384/id/8
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: delete from collect where id='8' [ RunTime:0.0150s ]
+
+[ 2017-05-12T23:23:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_collect/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from collect where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0000s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:20+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:22+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:23+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:41+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:23:50+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:23:50+08:00 ] ::1 /PersonalGarden/index.php/Home/Account/my_account/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:24:33+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:24:33+08:00 ] ::1 /PersonalGarden/index.php/Home/Account/my_account/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:24:53+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:24:53+08:00 ] ::1 /PersonalGarden/index.php/Home/Account/my_account/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:25:08+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:25:08+08:00 ] ::1 /PersonalGarden/index.php/Home/Account/my_account/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:25:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:25:19+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0030s ]
+
+[ 2017-05-12T23:25:20+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:25:20+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0000s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:27:00+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:27:01+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:27:01+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:33:56+08:00 ] ::1 /PersonalGarden/index.php/Home/Qiniu/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.025001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.025001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.022002s ]
+INFO: [ app_end ] --END-- [ RunTime:0.022002s ]
+
+[ 2017-05-12T23:34:15+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 参数错误或者未定义:token
+
+[ 2017-05-12T23:34:25+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 参数错误或者未定义:token
+
+[ 2017-05-12T23:34:34+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''8cbfacea76e34f6bf956afb40fc8e384' at line 1
+ [ SQL语句 ] : select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''8cbfacea76e34f6bf956afb40fc8e384' at line 1
+ [ SQL语句 ] : select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384
+
+[ 2017-05-12T23:34:55+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:38:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0040s ]
+
+[ 2017-05-12T23:38:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:38:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0020s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:38:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0040s ]
+
+[ 2017-05-12T23:38:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:38:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:38:37+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:38:37+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0000s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:11+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0020s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:39:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:39:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:39:45+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:40:40+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0020s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0020s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0010s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:40:40+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:40:40+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:40:41+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:42:02+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-12T23:45:24+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:45:58+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_rent/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select user_phone from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select * from rent_soil where user_phone='18408243828' [ RunTime:0.0020s ]
+SQL: select * from soil where soil_id='17001' [ RunTime:0.0030s ]
+SQL: select * from soil where soil_id='17003' [ RunTime:0.0030s ]
+SQL: select * from soil where soil_id='17011' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:45:58+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_transfer/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from soil where status_desc='转让待租赁' and rent_to_who='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:45:58+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:45:58+08:00 ] ::1 /PersonalGarden/index.php/Home/Apply/query_sale/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: select * from items where item_from='KelseyCarl' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:46:12+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0100s ]
+
+[ 2017-05-12T23:46:17+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:46:17+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:47:11+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:47:11+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0000s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:48:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:48:16+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0000s ]
+
+[ 2017-05-12T23:48:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:48:54+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:49:29+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:49:29+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:49:37+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:49:37+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0000s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0000s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0000s ]
+
+[ 2017-05-12T23:49:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:49:52+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:50:04+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:04+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:26+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:26+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0000s ]
+
+[ 2017-05-12T23:50:44+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:50:44+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:52:10+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:52:10+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:52:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0000s ]
+
+[ 2017-05-12T23:52:14+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:52:47+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0070s ]
+
+[ 2017-05-12T23:52:47+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='2' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:52:51+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/del_cart_item/token/8cbfacea76e34f6bf956afb40fc8e384/id/22
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: delete from cart where id='22' [ RunTime:0.0260s ]
+
+[ 2017-05-12T23:55:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0020s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:55:13+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:55:25+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_total/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: select balance from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:55:25+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_more/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: update items set item_amount=item_amount-'1',item_sale_out=item_sale_out+'1' where id='' [ RunTime:0.0180s ]
+SQL: select user_phone,nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+SQL: insert into `order`(order_id,buyer_phone,buyer_name,item_id,buy_amount,order_status,order_status_desc,order_money) values ('2017051223553828','18408243828','KelseyCarl','','1','yifukuan','已付款','15') [ RunTime:0.0060s ]
+
+[ 2017-05-12T23:55:25+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_more/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: update items set item_amount=item_amount-'2',item_sale_out=item_sale_out+'2' where id='' [ RunTime:0.0010s ]
+SQL: select user_phone,nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0000s ]
+SQL: insert into `order`(order_id,buyer_phone,buyer_name,item_id,buy_amount,order_status,order_status_desc,order_money) values ('2017051223553828','18408243828','KelseyCarl','','2','yifukuan','已付款','24') [ RunTime:0.0120s ]
+
+[ 2017-05-12T23:57:37+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:57:38+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:57:50+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_total/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select balance from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:58:06+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_total/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: select balance from wallet where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: update wallet set balance=balance-'27.00' where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0240s ]
+
+[ 2017-05-12T23:58:06+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_more/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: update items set item_amount=item_amount-'1',item_sale_out=item_sale_out+'1' where id='' [ RunTime:0.0070s ]
+SQL: select user_phone,nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+SQL: insert into `order`(order_id,buyer_phone,buyer_name,item_id,buy_amount,order_status,order_status_desc,order_money) values ('2017051223583828','18408243828','KelseyCarl','','1','yifukuan','已付款','15') [ RunTime:0.0100s ]
+
+[ 2017-05-12T23:58:06+08:00 ] ::1 /PersonalGarden/index.php/Home/Pay/pay_more/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: update items set item_amount=item_amount-'1',item_sale_out=item_sale_out+'1' where id='' [ RunTime:0.0070s ]
+SQL: select user_phone,nickname from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0060s ]
+SQL: insert into `order`(order_id,buyer_phone,buyer_name,item_id,buy_amount,order_status,order_status_desc,order_money) values ('2017051223583828','18408243828','KelseyCarl','','1','yifukuan','已付款','12') [ RunTime:0.0050s ]
+
+[ 2017-05-12T23:59:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:59:36+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:59:39+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0020s ]
+
+[ 2017-05-12T23:59:42+08:00 ] ::1 /PersonalGarden/index.php/Home/Login/login/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\PersonalGarden\Application\Home\Controller\LoginController.class.php 第 7 行.
+SQL: select * from userinfor where token='8cbfacea76e34f6bf956afb40fc8e384' [ RunTime:0.0010s ]
+
+[ 2017-05-12T23:59:42+08:00 ] ::1 /PersonalGarden/index.php/Home/Item/show_cart/token/8cbfacea76e34f6bf956afb40fc8e384
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select * from cart where token='8cbfacea76e34f6bf956afb40fc8e384' order by item_id desc [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='7' [ RunTime:0.0010s ]
+SQL: select * from items where is_verify=1 and id='6' [ RunTime:0.0020s ]
+

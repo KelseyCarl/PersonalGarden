@@ -1,0 +1,169 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实时生长</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+    <link href="../../layer/skin/default/layer.css" rel="stylesheet">
+
+    <style type="text/css">
+        .container{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .title-top{
+            /*border: 1px solid red;*/
+            text-align: center;
+            background: #06c673;
+            color: #fff;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        video{
+            width: 100%;
+            height: 100%;
+        }
+        .operate{
+            padding: 20px 0;
+        }
+        .operate button{
+            margin-left: 20px;
+            padding: 0.85em 2em;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .button.warning,.button.success{
+            color: #fff;
+        }
+        tspan{
+            font-size: 12px;
+        }
+        /*.jw-media{*/
+            /*border:2px solid greenyellow;*/
+            /*margin-left: 200px;*/
+        /*}*/
+        /*#xtlLive_swf_0{*/
+            /*border:2px solid red;*/
+            /*margin-left: 200px;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row">
+        <div class="small-12 columns title-top">
+            <h5>
+                <i class="fi-arrow-left float-left" onclick="window.history.back()"></i>
+                土地详情
+            </h5>
+        </div>
+    </div>
+
+    <!-- 视频直播-->
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <div class="h25"></div>
+            <p class="">现场直播：当前土地[当前土地名称]</p>
+
+            <h3>MyGarden直播间</h3>
+            <div id="mygardenLive" class="float-center"></div>
+                <script src="../../js/vendor/cyberplayer.js"></script>
+                <script type="text/javascript">
+                    var play = cyberplayer("mygardenLive").setup({
+                        width: 500,
+                        height: 264,
+                        file: "http://play.coderteam.cn/playtest/stream_xtl1.m3u8", //rtmp直播地址
+                        autostart: true,
+                        stretching: "uniform",
+                        volume: 100,
+                        controls: true,
+                        hls: {
+                            reconnecttime: 5 // hls直播的重连次数
+                        },
+                        ak: "221c3ad12e2f4f0382ebaa7addd4eb78" //自己的百度云accessKeyID
+                    });
+                </script>
+             </div>
+    </div>
+    <div class="row operate">
+        <div class="small-12 columns text-center">
+            <div class="H25"></div>
+            <p>可执行操作：</p>
+            <button type="button" class="button">浇水</button>
+            <button type="button" class="button success">除草</button>
+            <button type="button" class="button warning">施肥</button>
+            <button type="button" class="button alert">除虫</button>
+            <button type="button" class="button warning">播种</button>
+            <button id="zhuanrang" type="button" class="button">转让</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns" style="margin-bottom: 20px;">
+            <!-- 温度曲线图表-->
+            <!-- 设置采集数据的频度-->
+            <p class="text-center">采集频率：</p>
+            <select class="float-center" id="frequence" style="width: 200px;margin: 10px auto;">
+                <option>请选择：</option>
+                <option>每12小时</option>
+                <option selected>每24小时</option>
+            </select>
+            <div id="temper" style="width: 550px;height: 400px;margin:0 auto;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/highcharts.js"></script>
+<script src="../../js/temper_line.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    console.log(token);
+    var sid = getQueryString("sid");
+    $(function(){
+       $("#zhuanrang").click(function(){
+           layer.alert('确认转让当前土地？', {
+                       btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                   },
+                   function() { //点前者执行方法
+                       $.ajax({
+                           type: "get",
+                           url: URL+"Soil/transfer_soil/token/"+token+"/sid/" + sid,
+                           dataType: "json",
+                           async: true,
+                           cache: false,
+                           success: function(data) {
+                               if(data.resultcode == 0) {
+                                   layer.msg(data.resultmsg);
+                               } else {
+                                   layer.msg(data.resultmsg);
+                                   return false;
+                               }
+                           },
+                           error: function(XMLHttpRequest, textStatus, errorThrown) {
+                               layer.msg(JSON.stringify(errorThrown));
+                           }
+                       });
+                   },
+                   function() { //点后者执行方法
+                   }
+           );
+       });
+    });
+</script>
+</body>
+</html>

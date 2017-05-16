@@ -1,0 +1,225 @@
+<style>
+    .label {
+        width: 73px;
+        height: 16px;
+        font-family: "Microsoft YaHei";
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        color: #333333;
+        margin-left: 27px;
+    }
+    .adminManageTab td {
+        padding: 10px 3px;
+    }
+    .adminManageTab td label{
+        font-size: 12px;
+    }
+    .admin_manage_div table tbody tr>td{
+        padding: 10px 20px;
+    }
+    .item_img img{
+        border-radius: 2px;
+        width: 100px;
+        height: 60px;
+        margin: 10px 5% 10px 0;
+        vertical-align: middle;
+        float: left;
+    }
+    .item_img label{
+        float: left;
+        margin-top: 30px !important;
+    }
+    .order_infor td{
+        text-align: left;
+    }
+    .order_infor td p{
+        font-family: "Microsoft YaHei", "微软雅黑";
+        font-size: 13px;
+        color: #666;
+        margin: 10px;
+    }
+    .order_infor .total_price{
+        font-family: "Microsoft YaHei", "微软雅黑";
+        font-size: 15px;
+        color: firebrick;
+        font-weight: bold;
+    }
+
+</style>
+<div class="pageContent">
+    <h3 class="sub-header clearfix">
+        <span class="dib f22 fontn">用户订单管理</span>
+    </h3>
+    <div>
+        <table width="100%" class="adminManageTab adminManageBox">
+            <tr>
+                <td>
+                    <label class="label">输入订单号查询：</label>
+                    <input id="order_id" type="text" placeholder="请输入订单号">
+                    <label class="label">根据用户查询：</label>
+                    <input id="uid" type="text" placeholder="请输入用户电话">
+                    <button class="cgBtn-btn cgBtn-primary" onclick="search()"><span>查询</span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="adminManage_box">
+        <div>
+            <div>
+                <div class="admin_manage_div" id="admin_manage_div">
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>宝贝</th>
+                            <th>单价(元)</th>
+                            <th>数量</th>
+                            <th>实付款(元)</th>
+                            <th>订单状态</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr style="display: none;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody class="addAdmin_tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/x-jsrender" id="addOrder_render">
+					{{for orderinfor}}
+                        <tr class="order_infor" style="background: #E6F2F8 !important;">
+                            <td colspan="2">
+                                <p>订单编号：{{:order_id}}</p>
+                                <p>下单时间：{{:order_time}}</p>
+                            </td>
+                            <td>
+                                <p>订单总价：￥<span class="total_price">{{:iteminfor.total_money}}</span></p>
+                                <p>付款方式：余额付款</p>
+                            </td>
+                            <td colspan="2">
+                                <p>买家ID：{{:buyer_phone}}</p>
+                                <p>买家名称：{{:buyer_name}}</p>
+                            </td>
+                            <td colspan="2">
+                                <p>联系人:{{:buyer_phone}}</p>
+                                <p>收货地址:{{:addr}}</p>
+                            </td>
+                        </tr>
+                        {{for iteminfor.goods}}
+                            <tr calss="item_list">
+                                <td class="item_img"><img src={{:item_img}} alt="item img"><label>{{:item_name}}</label></td>
+                                <td>￥：{{:item_price}}</td>
+                                <td>{{:buy_amount}}</td>
+                                <td class="red_money">{{:order_money}} 元</td>
+                                <td>{{:order_status_desc}}</td>
+                                <td></td>
+                                <td class="cz_change">
+                                    <div>
+                                        <a class="admin_man_add_role" onclick="order_detail('{{:id}}');return false">查看详情</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/for}}
+					{{/for}}
+				</script>
+            </div>
+        </div>
+        <div class="pagination_live_list">
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                get_order();
+                setTimeout(function() {
+                    $("input.uid.textInput,input.uname.textInput").unbind("focus");
+                }, 500);
+            });
+            function search(){
+                get_order();
+            }
+
+            function get_order() {
+                $(".addAdmin_tbody").empty();
+                var url1 = URL + "Order/orderlist";
+                if($("#order_id").val()) {
+                    url1 = url1 +"/orderid/" + $("#order_id").val();
+                }
+                if($("#uid").val()) {
+                    url1 = url1 +"/uid/" + $("#uid").val();
+                }
+                $.ajax({
+                    type: "get",
+                    url: url1+"/token/"+token,
+                    dataType: "json",
+                    async: true,
+                    cache: false,
+                    success: function(data) {
+                        if(data.resultcode == -2) {
+                            Tools.tokenMiss("index.html");
+                            return false;
+                        }
+                        if(data.data == 'null' || data.data == null || data.data == undefined) {
+                            layer.msg("暂无数据！");
+                        } else {
+//                            alert(data.data);
+                            var addOrder_render = $("#addOrder_render").render(data.data);
+                            $(".addAdmin_tbody").html(addOrder_render);
+                            var pagecount = data.data.pagecount;
+                            var page = data.data.page;
+                            showFy(pagecount,URL+"Order/orderlist/page/"+page);//分页显示数据
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        layer.msg(errorThrown);
+                    }
+                });
+            }
+
+            //分页
+            function showFy(pagecount, pUrl) {
+                $(".pagination_live_list").createPage({
+                    pageCount: pagecount,
+                    current: 1,
+                    backFn: function(p) {
+                        $.ajax({
+                            type: "get",
+                            url: pUrl + '/page/' + p,
+                            async: true,
+                            dataType: "json",
+                            cache: false,
+                            success: function(data) {
+                                if(data.resultcode == -2) {
+                                    Tools.tokenMiss("../../index.html");
+                                    return false;
+                                }
+                                if(data.data == 'null' || data.data == null || data.data == undefined) {
+                                    layer.msg("暂无数据！");
+                                } else {
+                                    var addOrder_render = $("#addOrder_render").render(data.data);
+                                    $(".addAdmin_tbody").html(addOrder_render);
+                                }
+                            }
+                        })
+                    }
+                });
+            }
+
+            function order_detail(id){
+                layer.open({
+                    type:2,
+                    title:"订单详情",
+                    area: ['500px', '300px'],
+                    content: 'public/order/show_order.html?itemid=' + id
+                });
+                return false;
+            }
+        </script>

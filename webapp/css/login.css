@@ -1,5 +1,5 @@
 .login-page,.register-page{
-    background:#263238;
+    background:#006633;
     min-height:initial;
 }
 .login-box,.register-box{
@@ -44,4 +44,12 @@
     width: 100%;
     font-size: 16px;
     font-weight: bold;
+}
+.button.success {
+    background-color: #3adb76;
+    color: #fff;
+}
+.button:hover.success {
+    background-color: #339933;
+    color: #fff;
 }

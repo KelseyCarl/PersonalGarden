@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>蔬菜页</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
+
+    <style type="text/css">
+        .container{
+            width: 90%;
+            margin: 20px auto;
+        }
+        .title-top{
+            /*border-bottom: 1px solid #e8e6e8;*/
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        .item_img{
+            /*width: 450px;*/
+            width: 100%;
+            max-width: 100%;
+            height: 200px;
+        }
+        .cart p{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: 12px;
+            color: #2c2c2c;
+            padding: 0.5rem 1rem;
+        }
+        p{
+            margin-bottom: 0;
+        }
+        .yuyue{
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .button-group .button:last-child {
+            padding: 1.32rem 1rem;
+        }
+        .button-group{
+            border-top: 1px solid #666;
+        }
+        .button{
+            background-color: #fff;
+            /*border-right: 1px solid #777;*/
+            /*border-left: 1px solid #777;*/
+            /*border-bottom: 1px solid #777;*/
+        }
+        .button:hover{
+            background-color: #eee;
+        }
+        .item_name,.item_desc{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: 14px;
+            color: #444;
+        }
+        .item_name{
+            font-weight: bold;
+        }
+        .item_desc{
+            font-size: 12px;
+            color:#999;
+        }
+        .item_price{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            color:#cc4b37;
+            font-weight: bold;
+        }
+        .yy_right{
+            color: #666;
+            font-size: 12px;
+            font-weight: 100;
+        }
+        .badge {
+            min-width: 1.5em;
+            font-size: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 id="detail" class="text-center">商品详情</h5>
+        </div>
+    </div>
+    <div class="row">
+        <img class="item_img" src="">
+        <div class="container">
+            <div class="row">
+                <div class="small-12 columns float-left">
+                    <p class="item_name">商品的名称</p>
+                    <p class="item_desc">商品的描述商品的描述商品的描述</p>
+                    <p class="item_price">￥
+                        <span class="price">34.00</span>元
+                        <span class="float-right yy_right">
+                            <span> 10 </span>人已<span id="yueorbuy"></span>
+                        </span>
+                    </p>
+                </div>
+                <div class="small-12 columns cart">
+                    <figure class="icon float-center">
+                        <img class="float-center" src="../../img/farm.png">
+                    </figure>
+                    <p class="text-center farm"><span>田园牧歌</span>贴心为您服务</p>
+                </div>
+            </div>
+        </div>
+        <!--<hr>-->
+
+        <div class="expanded button-group">
+            <a class="button default" id="cart"><img src="../../img/cart.png"><span class="badge alert">0</span></a>
+            <a class="button default" id="collect"><img src=""></a>
+            <a class="button alert" id="buy_now" data-toggle="learnmore"><span class="yuyue" id="yuyue"></span></a>
+        </div>
+    </div>
+
+
+</div>
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    //计算总价
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
+        //获取链接参数
+        var id = getQueryString("id");
+        var type = getQueryString("type");
+        $.get(URL+"Farm/item_detail/id/"+id, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data.subitem);
+                console.log(json.data.subitem[0].item_img);
+                var img = json.data.subitem[0].item_img;
+                var item_name = json.data.subitem[0].item_name;
+                var item_desc = json.data.subitem[0].item_desc;
+                var price = json.data.subitem[0].item_price;
+                var saled = json.data.subitem[0].item_sale_out;
+                var from = json.data.subitem[0].item_from;
+                $(".item_img").attr("src",img);
+                $(".item_name").text(item_name);
+                $(".item_desc").text(item_desc);
+                $(".item_price .price").text(price);
+                $(".yy_right span").text(saled);
+                $(".farm span").text(from);
+                if(type == "tools"){
+                    $("#yueorbuy").text("预约");
+                    $(".yuyue").text("在线预约");
+                }else{
+                    $("#yueorbuy").text("购买");
+                    $(".yuyue").text("立即购买");
+                }
+            }
+        });
+        //添加到购物车的数量
+        $.get(URL+"Item/cart_num/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data.subitem);
+                var num = json.data.subitem[0].total;
+                $("#cart .badge").text(num);
+            }
+        });
+
+        $("#cart").click(function(){
+            if(token == null){
+                layer.alert('请先登录', {
+                        btn: ['确认', '取消'], //按钮文字 ，默认为确认，取消
+                    },
+                    function() {
+                        window.location.href = "../UserCenter/login.html";
+                    },
+                    function() { //点后者执行方法
+                    }
+                );
+            }else{
+                $.get(URL+"Item/add_to_cart/token/"+token+"/id/"+id,function(json){
+                    if(json.resultcode == -1){
+                        layer.msg("重新登录");
+                    }else if(json.resultcode == -2){
+                        layer.msg(json.resultmsg);
+                    }else{
+                        console.log(json.resultmsg);
+                        var num = $("#cart .badge").text();
+                        $("#cart .badge").text(parseInt(num)+1);
+                        layer.msg("添加购物车成功！");
+                    }
+                });
+            }
+        });
+        //是否收藏
+        $.get(URL+"Item/is_collect/token/"+token+"/id/"+id, function(json) {
+            if(json.resultcode == -2) {
+                alert("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data.status);
+                if(json.data.status == 1){//实心的收藏
+                    $("#collect img").attr("src","../../img/collect.png");
+                }else{//空心的收藏
+                    $("#collect img").attr("src","../../img/collect_kong.png");
+                }
+            }
+        });
+        $("#collect").click(function(){
+            if(token == null){
+                layer.alert('请先登录', {
+                        btn: ['确认', '取消'], //按钮文字 ，默认为确认，取消
+                    },
+                    function() {
+                        window.location.href = "../UserCenter/login.html";
+                    },
+                    function() { //点后者执行方法
+                    }
+                );
+            }else{
+                $.get(URL+"Item/collect/token/"+token+"/id/"+id,function(json){
+                    if(json.resultcode == -1){
+                        layer.msg(json.resultmsg);
+                    }else{
+                        layer.msg(json.resultmsg);
+                        $("#collect img").attr("src","../../img/collect.png");
+                    }
+                });
+            }
+        });
+        //立即购买、立即预约支付
+        $("#buy_now").click(function(){
+            if(token == null){
+                layer.alert('请先登录', {
+                        btn: ['确认', '取消'], //按钮文字 ，默认为确认，取消
+                    },
+                    function() {
+                        window.location.href = "../UserCenter/login.html";
+                    },
+                    function() { //点后者执行方法
+                    }
+                );
+            }else{
+                layer.alert('确认购买并使用当前余额支付?', {
+                    btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                },
+                    function() { //点前者执行方法
+                        //将商品所需支付的总金额传给后台
+                        var data = {
+                            data: {
+                                pay_money: $(".item_price .price").text(),
+                                item_id:id,
+                                sale_out:$(".yy_right span").text(),
+                                token:token
+                            }
+                        };
+                        $.ajax({
+                            data: JSON.stringify(data),
+                            type: "post",
+                            url: URL+"Pay/pay/token/" + token,
+                            dataType: "json",
+                            async: true,
+                            cache: false,
+                            success: function(data) {
+                                if(data.resultcode == 0) {
+                                    layer.msg(data.resultmsg);
+                                } else {
+                                    layer.msg(data.resultmsg);
+                                    return false;
+                                }
+                            },
+                            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                layer.msg(JSON.stringify(errorThrown));
+                            }
+                        });
+                    },
+                    function() { //点后者执行方法
+                    }
+                );
+            }
+        });
+    });
+</script>
+</body>
+</html>

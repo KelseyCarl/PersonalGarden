@@ -1,0 +1,231 @@
+<style>
+    .label {
+        width: 73px;
+        height: 16px;
+        font-family: "Microsoft YaHei";
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        color: #333333;
+        margin-left: 27px;
+    }
+    .adminManageTab select {
+        width: 120px;
+        height: 30px;
+        padding: 2px 3px;
+        margin: 20px;
+    }
+    .u_select {
+        width: 80px;
+        height: 26px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        border: solid 1px #d0d2d8;
+    }
+    .soil_img{
+        width: 120px;
+        height: 80px;
+        margin: 10px 4px;
+    }
+</style>
+<div class="pageContent">
+    <h3 class="sub-header clearfix">
+        <span class="dib f22 fontn">在线售卖管理</span>
+        <a class="cgBtn-a cgBtn-danger fr" href="../../../../PersonalGarden/garden/public/goods/add_goods.html"  width='650' height="390" target="dialog">
+            <i class="iconfont icon add"><span>添加商品</span></i>
+        </a>
+    </h3>
+    <div>
+        <table width="100%" class="adminManageTab adminManageBox">
+            <tr>
+                <td>
+                    <label class="label">商品分类：</label>
+                    <select class="u_select" id="u_select3" onchange="editGoods('')">
+                        <option value="" selected="selected">所有商品</option>
+                        <option value="root">根菜类</option>
+                        <option value="jing">茎菜类</option>
+                        <option value="leaf" >叶菜类</option>
+                        <option value="flower" >花菜类</option>
+                        <option value="fruit" >果菜类</option>
+                        <option value="tools" >农资工具</option>
+                        <option value="seeds" >种子种苗</option>
+                        <option value="taocan" >套餐推荐</option>
+                        <option value="dangji" >时令蔬菜</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="adminManage_box">
+        <div>
+            <div>
+                <div class="admin_manage_div" id="admin_manage_div">
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>商品ID</th>
+                            <th>商品图片</th>
+                            <th>商品名称</th>
+                            <th>商品数量</th>
+                            <th>商品价格</th>
+                            <th>商品类型</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr style="display: none;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody class="addAdmin_tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/x-jsrender" id="addGoods_render">
+					{{for data}}
+					<tr>
+						<td>{{:item_id}}</td>
+						<td><img class="soil_img" src={{:item_img}} alt="goods picture"></td>
+						<td>{{:item_name}}</td>
+						<td>{{:item_amount}}</td>
+						<td>{{:item_price}}</td>
+						<td>{{:type_desc}}</td>
+						<td class="cz_change">
+							<div>
+							    <a class="admin_man_add_role" onclick="goods_update('{{:id}}','{{:item_id}}','{{:item_name}}','{{:item_desc}}','{{:item_amount}}','{{:item_price}}');return false">商品修改</a>
+								<a class="del_admin" onclick="del_goods('{{:id}}');return false">删除商品</a>
+							</div>
+						</td>
+					</tr>
+					{{/for}}
+				</script>
+            </div>
+        </div>
+        <div class="pagination_live_list">
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                get_goods();
+            });
+
+            function get_goods() {
+                $(".addAdmin_tbody").empty();
+                var url1 = URL + "Goods/all_goods";
+                if($("#u_select3").val()) {
+                    url1 = url1 +"/type/" + $("#u_select3").val();
+                }
+                $.ajax({
+                    type: "get",
+                    url: url1+"/token/"+token,
+                    dataType: "json",
+                    async: true,
+                    cache: false,
+                    success: function(data) {
+                        if(data.resultcode == -2) {
+                            Tools.tokenMiss("index.html");
+                            return false;
+                        }
+                        if(data.data == 'null' || data.data == null || data.data == undefined) {
+                            layer.msg("暂无数据！");
+                        } else {
+                            var addGoods_render = $("#addGoods_render").render(data);
+                            $(".addAdmin_tbody").html(addGoods_render);
+                            var pagecount = data.pagecount;
+                            var page = data.page;
+                            showFy(pagecount,URL+"Goods/all_goods/token/"+token);//分页显示数据
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        layer.msg(JSON.stringify(errorThrown));
+                    }
+                });
+            }
+
+            //选择不同农场加载该农场数据
+            function editGoods(select){
+                if (select) {
+                    $("#u_select3").find("option[value='"+select+"']").prop("selected",true);
+                }
+                var farm = $("#u_select3").val();
+                get_goods();
+            }
+
+            //分页
+            function showFy(pagecount, pUrl) {
+                $(".pagination_live_list").createPage({
+                    pageCount: pagecount,
+                    current: 1,
+                    backFn: function(p) {
+                        $.ajax({
+                            type: "get",
+                            url: pUrl + '/page/' + p,
+                            async: true,
+                            dataType: "json",
+                            cache: false,
+                            success: function(data) {
+                                if(data.resultcode == -2) {
+                                    Tools.tokenMiss("../../index.html");
+                                    return false;
+                                }
+                                if(data.data == 'null' || data.data == null || data.data == undefined) {
+                                    layer.msg("暂无数据！");
+                                } else {
+                                    var addGoods_render = $("#addGoods_render").render(data);
+                                    $(".addAdmin_tbody").html(addGoods_render);
+                                }
+                            }
+                        })
+                    }
+                });
+            }
+            //删除商品
+            function del_goods(id) {
+                layer.alert('确认删除该商品？', {
+                            btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                        },
+                        function() { //点前者执行方法
+                            $.ajax({
+                                type: "post",
+                                url: URL+"Goods/del_goods/token/" + token + "/id/" + id,
+                                dataType: "json",
+                                async: true,
+                                cache: false,
+                                success: function(data) {
+                                    if(data.resultcode == 0) {
+                                        layer.msg(data.resultmsg);
+                                        get_goods();
+                                    } else if(data.resultcode == -2) {
+                                        Tools.tokenMiss("index.html");
+                                        return false;
+                                    } else {
+                                        layer.msg(data.resultmsg);
+                                        return false;
+                                    }
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                    layer.msg(JSON.stringify(errorThrown));
+                                }
+                            });
+                        },
+                        function() { //点后者执行方法
+                        }
+                );
+            }
+            //修改商品信息
+            function goods_update(id,item_id,name,desc,amount,price) {
+                $.pdialog.open("public/goods/update_goods.html?id=" + id+"&item_id="+item_id+"&name="+name+"&desc="+desc+"&amount="+amount+"&price="+price, "pdialogid", "修改商品信息", {
+                    maxable: false,
+                    minable: false,
+                    mask: true,
+                    width: 550,
+                    height: 320
+                });
+                return false;
+            }
+        </script>

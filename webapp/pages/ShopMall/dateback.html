@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品追溯</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
+    <style type="text/css">
+        *{
+            font-family: "Microsoft YaHei", "微软雅黑";
+        }
+        .cd-timeline-img .cd-timeline-desc{
+            position: relative;
+            left: 20%;
+            top: 30%;
+            font-size: 10px;
+            color: #fff;
+
+        }
+        .cd-timeline-img img{
+            left: 55%;
+            top: 30%;
+            width: 20px;
+            height: 20px;
+        }
+        .cd-timeline-content p {
+            margin: 0.5em 0;
+            line-height: 1.6;
+            text-indent: 2em;
+        }
+        .cd-timeline-content .cd-date{
+            text-indent: 0em;
+        }
+        .cd-timeline-content img{
+            width: 280px;
+            height: 150px;
+            margin: 1em auto;
+        }
+        .cd-timeline-content h2{
+            font-weight: 800;
+        }
+        #cd-timeline::before {
+            top: -20px;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        h2.top_title{
+            /*border-bottom: 3px solid #d7e4ed;*/
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="row title-top">
+    <div class="small-2 columns">
+        <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+    </div>
+    <div class="small-10 columns">
+        <h5 id="vegetable" class="text-center">追本溯源</h5>
+    </div>
+</div>
+
+<h2 class="top_title">农产品追溯</h2>
+
+<section id="cd-timeline" class="cd-container">
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <img src="../../img/shucai.png" alt="Picture">
+            <p class="cd-timeline-desc">采摘</p>
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>采摘</h2>
+            <p class="cd-date">2017-05-04 17:05:43</p>
+            <img src="../../img/leaf.jpg" alt="caizhai">
+            <p>生长发育到一定阶段，符合采摘要求，产量与营养成分积累动态已达到最佳程度时，采取一定的技术措施，从田间将其收集运回。</p>
+
+        </div>
+    </div>
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-movie">
+            <img src="../../img/shucai.png" alt="Movie">
+            <p class="cd-timeline-desc">除虫</p>
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>除虫</h2>
+            <p class="cd-date">2017-05-04 17:05:43</p>
+            <img src="../../img/flower.jpg" alt="caizhai">
+            <p>使用人工和物理方式除去会对植物生长发育产生危害以及影响其品质的害虫。</p>
+        </div>
+    </div>
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-soil">
+            <img src="../../img/shucai.png" alt="Picture">
+            <p class="cd-timeline-desc">施肥</p>
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>施肥</h2>
+            <p class="cd-date">2017-05-04 17:05:43</p>
+            <img src="../../img/fruit.jpg" alt="caizhai">
+            <p>为了让蔬菜良好生长，对蔬菜施用有机肥以弥补土壤养分的不足。</p>
+        </div>
+    </div>
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-grass">
+            <img src="../../img/shucai.png" alt="Movie">
+            <p class="cd-timeline-desc">浇水</p>
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>浇水</h2>
+            <p class="cd-date">2017-05-04 17:05:43</p>
+            <img src="../../img/jing.jpg" alt="caizhai">
+            <p>通过人工或者机器方式补充土壤水分而使蔬菜健康生长发育的田间管理手段。</p>
+        </div>
+    </div>
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-seed">
+            <img src="../../img/shucai.png" alt="Location">
+            <p class="cd-timeline-desc">播种</p>
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>播种</h2>
+            <p class="cd-date">2017-05-04 17:05:43</p>
+            <img src="../../img/root.jpg" alt="caizhai">
+            <p>在做好种子处理工作之后将蔬菜种子按照合适密度、采用合适播撒方法，播入适宜的土层中。</p>
+        </div>
+    </div>
+</section>
+
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+</html>

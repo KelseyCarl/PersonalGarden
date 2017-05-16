@@ -6,14 +6,16 @@
     <title>密码重置</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css">
     <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <script src="../../js/vendor/jquery.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="https://app.atmosfero.com/javax.faces.resource/atmosfero/img/favicon.png.xhtml">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+
 </head>
 <body class="register-page">
 <div class="register-box">
     <div class="register-box-content">
         <div class="register-logo">
-            <a href="../HomePage/home.html"><img src="../../img/Atmosfero_50.png"></a>
+            <a href="../HomePage/home.html"><img src="../../img/mygarden.png"></a>
         </div>
         <div class="register-box-body">
             <p class="register-box-msg">密码重置</p>
@@ -28,7 +30,7 @@
 
             <div class="row">
                 <div class="small-12 columns">
-                    <input id="username" name="username" placeholder="用户名" maxlength="100" type="tel">
+                    <input id="username" name="username" placeholder="电话号码" maxlength="100" type="tel">
                 </div>
             </div>
 
@@ -48,7 +50,7 @@
             <div class="row">
                 <div class="small-12 columns">
                     <!--<button class="button  radius" id="reset_btn">test button</button>-->
-                    <input value="修改密码" id="reset_btn" class="button radius" maxlength="100" type="submit">
+                    <input value="修改密码" id="reset_btn" class="button success radius" maxlength="100" type="submit">
                 </div>
             </div>
 
@@ -65,12 +67,11 @@
 <script src="../../js/vendor/jquery.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../layer/layer.js"></script>
 <script>
+    URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
     $(document).foundation();
-</script>
-
-
-<script>
     $(function(){
         $("#reset_btn").click(function(){
             reset_pass();
@@ -79,33 +80,48 @@
     function reset_pass(){
         var pass1 = $("#password1").val();
         var pass2 = $("#password2").val();
-        if($("#username").val()&&pass1&&pass2){
-            var Data={
-                data:{
-                    username:$("#username").val(),//在接口确定之后修改字段名称
-                    password1:pass1,
-                    password2:pass2
-                }
-            };
-            $.ajax({
-                type:"post",
-                url:"http://localhost:8080/PersonalGarden/index.php/Home/Login/reset_pass",
-                data:JSON.stringify(Data),
-                async:true,
-                dataType:'json',
-                success:function(data){
-                    //信息输入正确的时候
-                    if(data.resultcode==0){
-                        console.log("resultmsg"+data.resultmsg);
-                        alert(data.resultmsg);
-                        window.location = "../UserCenter/login.html";
-                    }else{
-                        alert(data.resultmsg);
+        if($("#username").val() && pass1 && pass2){
+            if($("#username").val().length != 11){
+                checkForm($("#username").val());
+            }else if(pass1 != pass2){
+                layer.msg("两次密码输入不一致！");
+            }else{
+                var Data={
+                    data:{
+                        username:$("#username").val(),//在接口确定之后修改字段名称
+                        password1:pass1,
+                        password2:pass2
                     }
-                }
-            });
-        }else{
-            alert("用户名和密码不能为空");
+                };
+                $.ajax({
+                    type:"post",
+                    url:URL+"Login/reset_pass",
+                    data:JSON.stringify(Data),
+                    async:true,
+                    dataType:'json',
+                    success:function(data){
+                        //信息输入正确的时候
+                        if(data.resultcode==0){
+                            console.log("resultmsg"+data.resultmsg);
+                            layer.msg(data.resultmsg);
+                            window.location = "../UserCenter/login.html";
+                        }else if(data.resultcode==-2){
+                            layer.msg(data.resultmsg);
+                        }else{
+                            layer.msg(data.resultmsg);
+                        }
+                    }
+                });
+            }
+        }else if($("#username").val()) {
+            if ($("#username").val().length != 11) {
+                checkForm($("#username").val());
+            } else {
+                layer.msg("密码不能为空");
+            }
+        }
+        else{
+            layer.msg("用户名和密码不能为空");
         }
     }
 </script>

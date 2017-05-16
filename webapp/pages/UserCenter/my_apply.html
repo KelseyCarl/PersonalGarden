@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的申请记录</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+        .container{
+            width: 94%;
+            margin: 10px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        .tabs-panel img{
+            width:100px;
+            height: 100px;
+        }
+        .tabs-title > a {
+            /*padding: 1.25rem 1.5rem;*/
+            padding: 1.25rem 2.17rem;
+            font-size: 0.65rem;
+        }
+        .media-object-section h4{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: 14px;
+            color: #444;
+            font-weight: bold;
+        }
+        .media-object-section h4 span{
+            color: #cc4b37;
+        }
+        .media-object-section p{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="row title-top">
+    <div class="small-2 columns">
+        <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+    </div>
+    <div class="small-10 columns">
+        <h5 class="text-center">申请记录查询</h5>
+    </div>
+</div>
+
+<ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
+    <li class="tabs-title is-active"><a href="#panel1c" aria-selected="true">租赁申请</a></li>
+    <li class="tabs-title"><a href="#panel2c">售卖申请</a></li>
+    <li class="tabs-title"><a href="#panel3c">转让申请</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="collapsing-tabs">
+    <div class="tabs-panel is-active" id="panel1c">
+        <p class="hide apply1">暂无租赁申请记录</p>
+        <div id="render"></div>
+        <script id="theTemp" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img src={{:soil_photo}} alt="women">
+                    </div>
+                    <div class="media-object-section">
+                        <h4>{{:soil_name}}  状态：[<span class="status">{{:status_desc}}</span>]</h4>
+                        <p>申请时长：{{:rent_period}}个月</p>
+                        <p>租赁面积：{{:soil_area}} 平方米</p>
+                        <p>土地来源：{{:farm_belong}}</p>
+                    </div>
+                </div>
+            {{/for}}
+        </script>
+    </div>
+
+    <div class="tabs-panel" id="panel2c">
+        <p class="hide apply2">暂无售卖申请记录</p>
+        <div id="render1"></div>
+        <script id="theTemp1" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img src={{:item_img}} alt="women">
+                    </div>
+                    <div class="media-object-section">
+                        <h4>{{:item_name}}  状态：[<span class="status">{{:status_desc}}</span>]</h4>
+                        <p>售卖数量：{{:item_amount}}  斤</p>
+                        <p>蔬菜类型：{{:type_desc}}  </p>
+                        <p>申请时间：{{:apply_time}}</p>
+                    </div>
+                </div>
+            {{/for}}
+        </script>
+    </div>
+    <div class="tabs-panel" id="panel3c">
+        <p class="hide apply3">暂无转让申请记录</p>
+        <div id="render2"></div>
+        <script id="theTemp2" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img src={{:soil_photo}} alt="women">
+                    </div>
+                    <div class="media-object-section">
+                        <h4>{{:soil_id}}  状态：[<span class="status">{{:status_desc}}</span>]</h4>
+                        <p>土地名称：{{:soil_name}}</p>
+                        <p>土地面积：{{:soil_area}} 平方米</p>
+                        <p>所属农场：{{:farm}}  </p>
+                    </div>
+                </div>
+            {{/for}}
+        </script>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
+        //获取所有租赁申请的信息
+        $.get(URL+"Apply/query_rent/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data);
+                if(json.data.subitem.length == 0){
+                    $(".apply1").removeClass("hide");
+                }else{
+                    $(".apply1").addClass("hide");
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    $("#render").html(html);
+                }
+            }
+        });
+        //获取所有售卖申请的信息
+        $.get(URL+"Apply/query_sale/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data);
+                if(json.data.subitem.length == 0){
+                    $(".apply2").removeClass("hide");
+                }else{
+                    $(".apply2").addClass("hide");
+                    var template = $.templates("#theTemp1");
+                    var html = template.render(json.data);
+                    $("#render1").html(html);
+                }
+            }
+        });
+
+        //获取所有转让申请的信息
+        $.get(URL+"Apply/query_transfer/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data);
+                if(json.data.subitem.length == 0){
+                    $(".apply3").removeClass("hide");
+                }else{
+                    $(".apply3").addClass("hide");
+                    var template = $.templates("#theTemp2");
+                    var html = template.render(json.data);
+                    console.log(json.data);
+                    $("#render2").html(html);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

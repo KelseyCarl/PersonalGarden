@@ -2,11 +2,10 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>待评价</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
@@ -58,7 +57,7 @@
 <div class="">
     <div class="row title-top">
         <div class="small-2 columns">
-            <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
         <div class="small-10 columns">
             <h5 class="text-center">待评价</h5>
@@ -92,17 +91,15 @@
 </div>
 
 <script src="../../js/vendor/jquery.js"></script>
-<script src="../../js/vendor/public.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
 <script>
     //计算总价
     $(function(){
         var token = localStorage.getItem("log_status");//从本地缓存取得token数据
         console.log(token);
-        $("#backto_center").click(function(){//回退到个人中心界面
-            $("#backto_center").attr("href","user_center.html");
-        });
     })
 </script>
 </body>

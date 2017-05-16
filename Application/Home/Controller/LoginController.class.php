@@ -1,7 +1,6 @@
 <?php
 namespace Home\Controller;
 use Think\Controller\RestController;
-//use Think\Verify;
 
 class LoginController extends RestController{
     public function login($token=""){
@@ -16,7 +15,6 @@ class LoginController extends RestController{
                     $this->response(retmsg(-1,"查询失败！"),'json');
                 }else{
                     $data = array();
-                    $data["subitem"] = array();
                     //用过foreach循环取数据
 //                    foreach($result as $key=>$value){
 //                        $temp = array(
@@ -46,7 +44,7 @@ class LoginController extends RestController{
                     $this->response(retmsg(-1,null,"查询失败"),'json');
                 }else{
                     if($re == null){
-                        $this->response(retmsg(-1,null,"该用户不存在！"),'json');
+                        $this->response(retmsg(-2,null,"该用户不存在！"),'json');
                     }else{
                         $data = array();
                         $data["subitem"] = array();
@@ -90,7 +88,7 @@ class LoginController extends RestController{
                 $pass2 = safe($data['data']['password2']);
                 $sex = "保密";
                 $head = "http://placehold.it/80x80?text=我是头像";
-//                $token = md5($pass1);
+                $token = md5($phone);
                 $sql_query = "select user_phone from userinfor where user_phone=".$phone;
                 $sql_result = $Model->query($sql_query);
                 if($sql_result != null){
@@ -99,12 +97,14 @@ class LoginController extends RestController{
                     $this->response(retmsg(-1,null,"两次密码输入不一致，请重新输入"),'json');
                 }else {
                     //注册用户入库
-                    $sql_insert = "insert into userinfor(user_id,user_phone,user_name,nickname,user_sex,user_addr,
-                                   photo_type,photo_url,login_pass,token,soil_nums) values (" . safe("null") . ",'" .
-                        safe($phone) . "','" . safe("") . "','" . safe("") . "','" . safe("") . "','" .
-                        safe("") . "','" . safe("") . "','" . safe($head) .
-                        "','" . safe($pass1) . "','" . safe("") . "','" . safe("0") . "'" . ")";
+                    $sql_insert = "insert into userinfor(user_id,user_phone,nickname,user_addr,
+                                   photo_type,photo_url,login_pass,token,soil_nums,apply_sale) values (" . safe("null") . ",'" .
+                        safe($phone) . "','" . safe("") . "','" . safe("") . "','" . safe("image/jpeg") . "','" .
+                        safe($head) ."','" . safe($pass1) . "','" . safe($token) . "','" . safe("0") ."',".safe("0"). ")";
                     $insert_result = $Model->execute($sql_insert);
+                    //为注册用户赠送初始钱包：200元
+                    $insert = "insert into wallet(token,balance) values ("."'".safe($token)."','".safe("200")."')";
+                    $Model->execute($insert);
                     if (is_bool($insert_result)) {
                         $this->response(retmsg(-1, null, "注册失败"), 'json');
                     } else {
@@ -126,27 +126,6 @@ class LoginController extends RestController{
         }
     }
 
-//    public function login_page(){
-//        $this->theme('blue')->display('login');
-//    }
-
-//    public function verify(){
-//        $config = array(
-//            'fontSize'=> 19,
-//            'length'=>4,
-//            'imageH'=>35
-//        );
-//        $verify = new Verify($config);
-//        $verify->entry();
-//    }
-
-//    public function check_verify($code,$id=''){
-//        $verify = new \Think\Verify();
-//        $temp = $verify->check($code,$id);
-//        $res['resultcode'] = 0;
-//        $res["data"]["flag"] = $temp;
-//        $this->ajaxReturn($res,"JSON");
-//    }
     public function reset_pass(){
         header("Access-Control-Allow-Origin:*");
         $Model = M();
@@ -158,17 +137,22 @@ class LoginController extends RestController{
                 $phone = safe($data['data']['username']);
                 $pass1 = safe($data['data']['password1']);
                 $pass2 = safe($data['data']['password2']);
-                $token = md5($pass1);
                 if($pass1 != $pass2){
                     $this->response(retmsg(-1,null,"两次密码输入不一致，请重新输入"),'json');
                 }else {
                     //修改用户密码
-                    $sql_update = "update userinfor set login_pass='$pass1',token='$token' where  user_phone=".$phone;
-                    $sql_result = $Model->execute($sql_update);
-                    if (is_bool($sql_result)) {
-                        $this->response(retmsg(-1, null, "密码修改失败！"), 'json');
-                    } else {
-                        $this->response(retmsg(0, null, "密码修改成功！"), 'json');
+                    $sql = "select user_phone from userinfor where user_phone='$phone'";
+                    $result = $Model->query($sql);
+                    if($result[0]["user_phone"] != null){
+                        $sql_update = "update userinfor set login_pass='$pass1' where  user_phone=".$phone;
+                        $sql_result = $Model->execute($sql_update);
+                        if (is_bool($sql_result)) {
+                            $this->response(retmsg(-1, null, "密码修改失败！"), 'json');
+                        } else {
+                            $this->response(retmsg(0, null, "密码修改成功！"), 'json');
+                        }
+                    }else{
+                        $this->response(retmsg(-2, null, "该用户不存在！"), 'json');
                     }
                 }
                 break;

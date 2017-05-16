@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的账户</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <style type="text/css">
+        .container{
+            width: 100%;
+            margin: 20px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        .balance{
+            height: 220px;
+            background: #06c673;
+            background-size: 100% auto;
+        }
+        .balance p,.balance h1{
+            font-family: "Microsoft YaHei", "微软雅黑";
+            color: #fff;
+            margin-left: 10%;
+            margin-top: 10%;
+        }
+        .balance h1{
+            font-size: 45px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 class="text-center">我的账户</h5>
+        </div>
+    </div>
+    <div class="row balance">
+        <p>账户余额(元):</p>
+        <h1 >￥<span class="money"></span></h1>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    //计算总价
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
+        $.get(URL+"Account/my_account/token/"+token,function(json){
+            if(json.resultcode == -1) {
+                layer.msg("查询失败");
+            }
+            else {
+                var balance = json.data.subitem[0].balance;
+                $(".money").text(balance);
+                console.log(json.data.subitem[0].balance);
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>转让申请</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style type="text/css">
+        .container{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .title-top{
+            /*border: 1px solid red;*/
+            text-align: center;
+            background: #06c673;
+            color: #fff;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        .apply{
+            /*width: 30%;*/
+            margin: 10px auto;
+            font-weight: bold;
+        }
+        .button.success{
+            color:#fff;
+            border-radius: 25px;
+        }
+        .button.success:hover, .button.success:focus {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row">
+        <div class="small-12 columns title-top">
+            <h5><i class="fi-arrow-left float-left" onclick="window.history.back()"></i>转让申请</h5>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="small-12 columns text-center">土地转让申请</div>
+        </div>
+    </div>
+    <div class="container">
+        <!--http://localhost:8080/PersonalGarden/index.php/Home/Apply/trans-->
+        <form method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Apply/trans">
+            <div class="row">
+                <div class="small-4 columns">
+                    <label for="apply_person" class="text-right">申请人：</label>
+                </div>
+                <div class="small-8 columns">
+                    <input type="tel" id="apply_person" name="apply_person" placeholder="telephone">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 columns">
+                    <label for="soil" class="text-right">选择转让土地：</label>
+                </div>
+                <div class="small-8 columns">
+                    <select id="soil" name="soil">
+                        <!--<option>-请选择-</option>-->
+                        <!--<option value="0.5*0.8">0.5*0.8</option>-->
+                        <!--<option value="0.5*0.9">0.5*0.9</option>-->
+                        <!--<option value="0.5*1.0">0.5*1.0</option>-->
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label for="out_person" class="text-right">转让方：</label>
+                </div>
+                <div class="small-8 columns">
+                    <input type="tel" id="out_person" name="out_person" placeholder="telephone">
+                </div>
+            </div>
+            <button type="submit" class="button success float-center expanded apply">提交申请</button>
+        </form>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        //获取用户当前可以选择转租的土地
+        $.get(URL+"Apply/transfer/token/"+token,function(json){
+            console.log(json.data.subitem);
+            var count = json.data.subitem.length;
+            $("#soil").append("<option>-请选择-</option>");
+            for(var i = 0;i < count;i++){
+                var area = json.data.subitem[i].soil_area;
+                var id = json.data.subitem[i].soil_id;
+                $("#soil").append("<option value='"+id+"'>"+area+"</option>");
+            }
+        });
+    });
+</script>
+</body>
+</html>

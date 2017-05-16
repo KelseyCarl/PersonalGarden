@@ -1,0 +1,148 @@
+<style>
+    button:hover,
+    a:hover,
+    .buttonActive:hover {
+        cursor: pointer;
+    }
+
+    .dialogContent {
+        overflow-x: hidden !important;
+    }
+
+    .buttonActive,
+    .buttonContent {
+        background: none;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 15px;
+    }
+
+    select {
+        width: 194px;
+    }
+
+    .formBar ul {
+        margin-right: 20px;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+        line-height: 0;
+    }
+
+    .formBar .close {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+        line-height: 0;
+    }
+    .resizable_f_r {
+        display: none;
+    }
+</style>
+<div class="pageContent">
+    <form class="pageForm required-validate">
+        <div class="pageFormContent">
+            <p>
+                <label>当前商品ID：</label>
+                <span class="userid_addAdmin" id="item_id"></span>
+                <input type="hidden" name="id" id="id">
+            </p>
+            <p>
+                <label>商品名称：</label>
+                <input class="uname_addAdmin" id="goods_name" name="goods_name" type="text" size="30" value="" />
+            </p>
+            <p>
+                <label>商品描述：</label>
+                <textarea class="uname_addAdmin" id="goods_desc" name="goods_desc"></textarea>
+            </p>
+            <p style="margin-top: 15px;">
+                <label>商品数量：</label>
+                <input class="uname_addAdmin" id="goods_amount" name="goods_amount" type="number" min="10" size="30" value="" />
+            </p>
+            <p>
+                <label>商品价格：</label>
+                <input class="uname_addAdmin" id="goods_price" name="goods_price" type="text" size="30" value="" />
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="save_addAdmin" id="saveThis">
+                    <button type="button" class="buttonActive">保存</button>
+                </li>
+                <li>
+                    <button type="button" class="close">取消</button>
+                </li>
+            </ul>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    var params = parseUrl_dialog();
+    var id = params.id;
+    var item_id = params.item_id;
+    var name = params.name;
+    var desc = params.desc;
+    var amount = params.amount;
+    var price = params.price;
+    $("#id").val(id);
+    $('#item_id').text(item_id);
+    $("#goods_name").val(name);
+    $("#goods_desc").val(desc);
+    $("#goods_amount").val(amount);
+    $("#goods_price").val(price);
+    $("#saveThis").click(function() {
+        var data = {
+            data: {
+                id: $("#id").val(),
+                itemid: $("#item_id").val(),
+                itemname: $("#goods_name").val(),
+                itemdesc: $("#goods_desc").val(),
+                itemamount: $("#goods_amount").val(),
+                itemprice: $("#goods_price").val(),
+            }
+        };
+
+        $.ajax({
+            data: JSON.stringify(data),
+            type: "post",
+            url:URL+ "Goods/change" + "/token/" + token,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data) {
+                if(data.resultcode == 0) {
+                    layer.msg(data.resultmsg, {
+                        icon: 1
+                    });
+                    $.pdialog.closeCurrent();
+                    get_goods();
+                }  else {
+                    layer.msg(data.resultmsg, {
+                        icon: 2
+                    });
+                    return false;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                layer.msg(JSON.stringify(errorThrown));
+            }
+        });
+    });
+</script>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>售卖申请</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
+    <style type="text/css">
+        .container{
+            width: 90%;
+            margin: 20px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 id="vegetable" class="text-center">售卖申请</h5>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="small-12 columns">
+                <!--"-->
+                <form method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Apply/sale" enctype="multipart/form-data">
+                    <div class="row">
+                        <p class="text-center">蔬菜售卖申请单填写</p>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="apply_person" class="middle text-right">申请人:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="tel" id="apply_person" name="apply_person" class="" placeholder="apply person">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="shucai_name" class="middle text-right">蔬菜名称:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="text" id="shucai_name" name="shucai_name" class="" placeholder="vegetable name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="detail" class="middle text-right">蔬菜详情:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <textarea id="detail" name="detail" placeholder="vegetable detail"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="amount" class="middle text-right">蔬菜数量:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="number" id="amount" name="amount" placeholder="vegetable amount"min="10" value="10">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="classify" class="middle text-right">蔬菜类别:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <select id="classify" name="classify">
+                                <option value="root">根菜</option>
+                                <option value="jing">茎菜</option>
+                                <option value="leaf">叶菜</option>
+                                <option value="flower">花菜</option>
+                                <option value="fruit">果蔬</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="img_up" class="middle text-right">图像上传:</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input name="token" type="hidden" value="<upload_token>">
+                            <input name="myfile" type="file" id="img_up"/>
+                        </div>
+                    </div>
+                    <button id="submit" type="submit" class="button alert expanded">提交申请</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="result"></div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    console.log(token);
+    $(function(){
+        if(token == null){
+            layer.alert('请先登录', {
+                        btn: ['确认', '取消'], //按钮文字 ，默认为确认，取消
+                    },
+                    function() {
+                        window.location.href = "../UserCenter/login.html";
+                    },
+                    function() { //点后者执行方法
+                    }
+            );
+        }else{
+            $.get(URL+"Login/login/token/"+token,function(json){
+                if(json.resultcode == 0){
+                    var username = json.data.subitem[0].user_phone;
+                    $("#apply_person").val(username);
+                }else{
+                    layer.msg(json.resultmsg);
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

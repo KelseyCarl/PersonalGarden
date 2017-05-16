@@ -2,12 +2,12 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>个人中心</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
     <link rel="stylesheet" href="../../css/app.css" />
     <style type="text/css">
         .container{
@@ -24,10 +24,8 @@
         }
         .personal_part{
             height: 220px;
-            /*border: 1px solid red;*/
             background: url(http://placehold.it/100x100) no-repeat;
-            /*background: url(../../img/female.jpg) no-repeat;*/
-            /*background: #06c673;*/
+            /*background: dimgrey;*/
             background-size: 100% auto;
             /*opacity: 0.8;*/
             /*filter: url(blur.svg#blur);  FireFox, Chrome, Opera */
@@ -131,24 +129,28 @@
             <div class="container">
                 <div class="media-object">
                     <div class="media-object-section head">
-                        <img src="http://placeimg.com/60/60/people" alt="women">
+                        <img class="hide" src="../../img/person.png" alt="women">
                     </div>
-                    <div class="media-object-section">
-                        <h5>用户昵称</h5>
-                        <a href="" id="edit_user">点此编辑</a>
+                    <div class="media-object-section user_infor">
+                        <ul class="no-data hide">
+                            <li><a href="../UserCenter/login.html">登录</a></li>
+                            <li><a href="../UserCenter/register.html">注册</a></li>
+                        </ul>
+                        <!--<h5>Hello World</h5>-->
+                        <!--<a href="">点此编辑</a>-->
                     </div>
                 </div>
                 <hr>
             </div>
             <ul class="off-canvas-list">
                 <li><a href="../HomePage/home.html" target="_self"><i class="fi-home"></i>首页</a></li>
-                <li><a href="../ShopMall/shopping_mall.html" target="_self"><i class="fi-mail"></i>电子商务</a></li>
-                <li><a href="../Mysoil/my_soil.html" target="_self"><i class="fi-eye"></i>我的土地</a></li>
-                <li><a href="user_center.html" target="_self"><i class="fi-female"></i>  个人中心</a></li>
-                <li><a href="../SystemSettings/system_setting.html" target="_self"><i class="fi-share"></i>设置</a></li>
+                <li><a href="../ShopMall/shopping_mall.html" target="_self"><i class="fi-shopping-cart"></i>电子商务</a></li>
+                <li><a href="../Mysoil/my_soil.html" target="_self"><i class="fi-layout"></i>我的土地</a></li>
+                <li><a href="user_center.html" target="_self"><i class="fi-torso"></i>  个人中心</a></li>
+                <li><a href="../SystemSettings/system_setting.html" target="_self"><i class="fi-widget"></i>设置</a></li>
             </ul>
             <div class="container">
-                <button type="button" class="alert button expanded">退出登录</button>
+                <button type="button" id="logout" class="alert button expanded">退出登录</button>
             </div>
         </div>
         <div class="off-canvas-content" data-off-canvas-content>
@@ -178,7 +180,8 @@
                         <a href="userinfor_setting.html" id="settings"><i class="fi-widget"></i></a>
                     </div>
                     <div class="small-12 columns head_set">
-                        <a href="#"><img class="head_img float-center" src="http://placehold.it/100x100" alt="head"></a>
+                        <a href="#"><img class="head_img float-center" src="../../img/person.png" alt="head"></a>
+                        <!--<a href="#"><img class="head_img float-center" src="http://placehold.it/100x100" alt="head"></a>-->
                         <!--<a href="#"><img class="head_img float-center" src="../../img/female.jpg" alt="head"></a>-->
                         <div class="card" style="height: auto;">
                             <div class="card-section float-center">
@@ -241,7 +244,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="background: #fff;margin-top: 15px;">
+                <div id="my_cart" class="row" style="background: #fff;margin-top: 15px;">
                     <div class="small-10 columns" >
                         <button type="button" class="button alert btn_radius">
                             <i class="fi-clipboard-notes"></i>
@@ -253,7 +256,7 @@
                     </div>
                 </div>
                 <hr style="margin-top: -10px;" >
-                <div class="row" style="background: #fff;margin-top: -20px;">
+                <div id="my_collect" class="row" style="background: #fff;margin-top: -20px;">
                     <div class="small-10 columns" >
                         <button type="button" class="button alert btn_radius">
                             <i class="fi-clipboard-notes"></i>
@@ -265,19 +268,19 @@
                     </div>
                 </div>
 
-                <div class="row" style="background: #fff;margin-top: 15px;">
+                <div id="my_apply" class="row" style="background: #fff;margin-top: 15px;">
                     <div class="small-10 columns" >
                         <button type="button" class="button alert btn_radius">
                             <i class="fi-clipboard-notes"></i>
                             <!-- <span>我的订单</span> -->
-                        </button><span>&nbsp;&nbsp;我的土地</span>
+                        </button><span>&nbsp;&nbsp;我的申请记录</span>
                     </div>
                     <div class="small-2 columns float-right">
                         <img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
                     </div>
                 </div>
                 <hr style="margin-top: -10px;" >
-                <div class="row" style="background: #fff;margin-top: -20px;">
+                <div id="my_account" class="row" style="background: #fff;margin-top: -20px;">
                     <div class="small-10 columns" >
                         <button type="button" class="button alert btn_radius">
                             <i class="fi-clipboard-notes"></i>
@@ -294,33 +297,26 @@
 </div>
 
 
-
-
 <script src="../../js/vendor/jquery.js"></script>
-<script src="../../js/vendor/public.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../layer/layer.js"></script>
 <script>
-    $(document).foundation();
-    $(document).foundation();
     $(function(){
         //登陆的token
         var token = localStorage.getItem("log_status");//从本地缓存取得token数据
         console.log(token);
-//        alert(token);
-        $("#edit_user").click(function(){
-            $("#edit_user").attr("href","userinfor_setting.html");
-        });
         //未登陆则跳转登陆页面
         if(token == null) {
-            alert("请先登陆！");
+            layer.msg("请先登录！");
             window.location.href = "login.html";
         }
         else {
             //获取用户信息
-            $.get("http://localhost:8080/PersonalGarden/index.php/Home/Login/login/token/"+token, function(json) {
+            $.get(URL+"Login/login/token/"+token, function(json) {
                 if(json.resultcode == -2) {
-                    alert("token已失效，请重新登录！");
+                    layer.msg("token已失效，请重新登录！");
                     window.location.href = "login.html";
                 }
                 else {
@@ -352,32 +348,27 @@
                         "sign":sign
                     }
                 };
-//                alert(sign);
                 $.ajax({
                     type:"post",
-                    url:"http://localhost:8080/PersonalGarden/index.php/Home/Setting/update_sign/token/"+token,
+                    url:URL+"Setting/update_sign/token/"+token,
                     data:JSON.stringify(Data),
                     async:false,
                     dataType:'json',
                     success:function(data){
-//                        alert(JSON.stringify(data));
                         if(data.resultcode==0){
-//                            alert(data.resultcode);
-                            alert(data.resultmsg);
+                            layer.msg(data.resultmsg);
                             console.log(data.resultmsg);
-//                        window.location="../HomePage/home.html?token="+token;
-//                            window.location="user_center.html?token="+token;
                         }
                         else{
-                            alert("签名修改失败！");
+                            layer.msg("签名修改失败！");
                         }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown, data) {
-                        alert("111"+errorThrown);
+                        layer.msg(errorThrown);
                     }
                 });
             }else{
-                alert("签名未设置");
+                layer.msg("签名未设置");
             }
         });
 
@@ -401,8 +392,23 @@
         $("#my_order").click(function(){
             window.location.href = "my_order.html";
         });
-
-
+        //我的购物车
+        $("#my_cart").click(function(){
+            window.location.href = "my_cart.html";
+//            window.location.href = "wait_to_pay.html";
+        });
+        //我的收藏
+        $("#my_collect").click(function(){
+            window.location.href = "my_collect.html";
+        });
+        //我的申请记录
+        $("#my_apply").click(function(){
+            window.location.href = "my_apply.html";
+        });
+        //我的账户
+        $("#my_account").click(function(){
+            window.location.href = "my_account.html";
+        });
     });
 </script>
 

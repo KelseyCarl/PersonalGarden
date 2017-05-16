@@ -24,11 +24,11 @@
     </style>
 </head>
 <body>
-    <form enctype="multipart/form-data" method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Upload/upload/token/e10adc3949ba59abbe56e057f20f883e">
-        <!--<input type="file" name="photo1" value="上传"/>-->
-        <input type="file" name="photo[]" />
-        <input type="file" name="photo[]" />
-        <input type="file" name="photo[]" />
+    <form enctype="multipart/form-data" method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Upload/upload">
+        <input type="file" name="photo1" value="上传"/>
+        <!--<input type="file" name="photo[]" />-->
+        <!--<input type="file" name="photo[]" />-->
+        <!--<input type="file" name="photo[]" />-->
         <input type="submit" value="提交" >
     </form>
 

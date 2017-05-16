@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>待付款</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
@@ -44,8 +44,8 @@
             vertical-align: middle;
         }
         .media-object img{
-            width: 100px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
         }
         .fahuo{
             font-size: 14px;
@@ -86,105 +86,249 @@
         }
         .count_btn{
         }
+        .del_cart_item{
+            padding:0.25em 0.25em;
+            font-size: 11px;
+            /*margin-right: 15px;*/
+        }
 
     </style>
 </head>
 <body>
-    <div class="">
-        <div class="row title-top">
-            <div class="small-2 columns">
-                <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
-            </div>
-            <div class="small-10 columns">
-                <h5 class="text-center">待付款的订单</h5>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 class="text-center">待付款的订单</h5>
+        </div>
+    </div>
+    <div class="container hide"><!--hide隐藏区域-->
+        <div class="row touxiang">
+            <div class="small-12 columns">
+                <img id="touxiang" src="../../img/wait2.png" class="float-center round" alt="tou xiang">
             </div>
         </div>
-        <div class="container hide"><!--hide隐藏区域-->
-            <div class="row touxiang">
+        <div class="row">
+            <div class="small-12 columns">
+                <div style="height: 20px;"></div>
+                <p class="text-center">暂无数据</p>
+            </div>
+        </div>
+    </div>
+    <!-- 如果有待付款的项-->
+    <div class="container">
+        <div class="no-cart hide"><!--hide隐藏区域-->
+            <div class="row">
                 <div class="small-12 columns">
-                    <img id="touxiang" src="../../img/wait2.png" class="float-center round" alt="tou xiang">
+                    <img id="empty" src="../../img/empty.jpg" class="float-center" alt="tou xiang">
                 </div>
             </div>
             <div class="row">
                 <div class="small-12 columns">
                     <div style="height: 20px;"></div>
-                    <p class="text-center">暂无待支付订单</p>
+                    <p class="text-center">暂无数据</p>
                 </div>
-            </div>
-         </div>
-        <!-- 如果有待付款的项-->
-        <div class="container">
-            <p class="fahuo">该商品由私家菜园发货</p>
-            <hr>
-            <div class="media-object">
-                <div class="media-object-section">
-                    <img src="http://placeimg.com/200/200/people" alt="women">
-                </div>
-                <div class="media-object-section goods_desc">
-                    <h6>这里是商品的名称 ￥<span class="price">4.60 </span>(元/斤)</h6>
-                    <p>来自用户1的分享</p>
-                    <span class="input-number-decrement">–</span><input class="input-number" type="text" value="0" min="0" max="10"><span class="input-number-increment">+</span>
-                    <span class="kucun">&nbsp;&nbsp;(库存：100)</span>
-                    <!--<input type="number" min="0" value="0" style="width: 100px;"><span>斤</span>-->
-                </div>
-            </div>
-
-            <div class="media-object">
-                <div class="media-object-section">
-                    <img src="http://placeimg.com/200/200/people" alt="women">
-                </div>
-                <div class="media-object-section goods_desc">
-                    <h6>这里是商品的名称 ￥<span class="price">4.60 </span>(元/斤)</h6>
-                    <p>来自用户1的分享</p>
-                    <span class="input-number-decrement">–</span><input class="input-number" type="text" value="0" min="0" max="10"><span class="input-number-increment">+</span>
-                    <span class="kucun">&nbsp;&nbsp;(库存：100)</span>
-                    <!--<input type="number" min="0" value="0" style="width: 100px;"><span>斤</span>-->
-                </div>
-            </div>
-
-            <div class="container">
-                <h5 class="text-center total_money">总金额：￥ <span id="total"> 0.00</span></h5>
-                <button type="button" class="button alert expanded count_btn">结算</button>
             </div>
         </div>
+        <div id="render">
+        </div>
+        <script id="theTemp" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <a href="../ShopMall/buy_detail.html?id={{:id}}"><img src={{:item_img}} alt="women"></a>
+                    </div>
+                    <div class="media-object-section goods_desc">
+                        <p class="hide get_item_id">{{:id}}</p>
+                        <h6>{{:item_name}} ￥:<span class="price">{{:item_price}}</span>元</h6>
+                        <p>来自:{{:item_from}}<button class="button float-right del_cart_item" onclick="del_cart('{{:cart_id}}');return false">删除</button></p>
+                        <span id=sub{{:id}} class="input-number-decrement">–</span>
+                        <input class="input-number" type="text" value="0" min="0" max="10">
+                        <span id=add{{:id}} class="input-number-increment">+</span>
+                        <span class="kucun">&nbsp;&nbsp;(库存：{{:item_amount}})</span>
+                        <!--<input type="number" min="0" value="0" style="width: 100px;"><span>斤</span>-->
+                    </div>
+                </div>
+            {{/for}}
+        </script>
+
+        <div class="jisuan container hide">
+            <h5 class="text-center total_money">总金额：￥ <span id="total"> 0.00</span></h5>
+            <button type="button" id="count_btn" class="button alert expanded count_btn">结算</button>
+        </div>
     </div>
+</div>
 
 <script src="../../js/vendor/jquery.js"></script>
-<script src="../../js/vendor/public.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
 <script>
-    //计算总价
+    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    console.log(token);
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-        console.log(token);
-        $("#backto_center").click(function(){//回退到个人中心界面
-            $("#backto_center").attr("href","user_center.html");
-        });
-        $(".input-number-increment").click(function(){
-            var t=$(this).parent().find('input[class*=input-number]');
-            t.val(parseInt(t.val())+1)
-            setTotal();
-        });
-        $(".input-number-decrement").click(function(){
-            var t=$(this).parent().find('input[class*=input-number]');
-            t.val(parseInt(t.val())-1)
-            if(parseInt(t.val())<0){
-                t.val(0);
-            }
-            setTotal();
-        });
-        function setTotal(){
-            var s=0;
-            $(".media-object .goods_desc").each(function(){
-                var num = $(this).find('input[class*=input-number]').val();
-                var price = $(this).find('span[class*=price]').text();
-                s+=num*price;
-            });
-            $("#total").html(s.toFixed(2));
+        if(token == null) {
+            layer.msg("请先登录！");
+            window.location.href = "login.html";
         }
-        setTotal();
-    })
+        else {
+            //获取我的购物车
+            get_cart();
+        }
+    });
+
+    //结算的实现:单独结算功能
+    $("#count_btn").click(function(){
+        layer.alert('确认结算商品？', {
+                    btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                },
+                function() { //点前者执行方法
+                    var json2 = {
+                        "data2":{
+                            "total":$("#total").text()
+                        }
+                    };
+                    $.ajax({
+                        data: JSON.stringify(json2),
+                        type: "post",
+                        url: URL+"Pay/pay_total/token/" + token,
+                        dataType: "json",
+                        async: true,
+                        cache: false,
+                        success: function(data) {
+                            if(data.resultcode == 0) {
+                                layer.msg(data.resultmsg);
+                                order_create();
+                            } else {
+                                layer.msg(data.resultmsg);
+                                return false;
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            layer.msg(errorThrown);
+                        }
+                    });
+                },
+                function() { //点后者执行方法
+                }
+        );
+    });
+
+    function order_create(){
+        $(".goods_desc").each(function(){
+            var single_price = $(this).children("h6").children(".price").text();//获取商品的单价
+            var item_id = $(this).children(".get_item_id").text();//获取商品的id
+            var amount = $(this).children(".input-number").val();//获取商品需要购买的数量
+            var part_pay = single_price*amount;
+            var json = {
+                data:{
+                    single_price:single_price,
+                    item_id:item_id,
+                    item_amount:amount,
+                    part_pay:part_pay
+                }
+            };
+            $.ajax({
+                data: JSON.stringify(json),
+                type: "post",
+                url: URL+"Pay/pay_more/token/" + token,
+                dataType: "json",
+                async: true,
+                cache: false,
+                success: function(data) {
+                    if(data.resultcode == 0) {
+                        layer.msg(data.resultmsg);
+                    } else {
+                        layer.msg(data.resultmsg);
+                        return false;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    layer.msg(errorThrown);
+                }
+            });
+        });
+    }
+
+    function get_cart(){
+        $.get(URL+"Item/show_cart/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                if(json.data.subitem.length == 0){
+                    $(".no-cart").removeClass("hide");
+                    $("#render").addClass("hide");
+                    $(".jisuan").addClass("hide");
+                }else{
+                    $(".jisuan").removeClass("hide");
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    console.log(json.data);
+                    $("#render").html(html);
+                    //渲染完成之后计算总价
+                    $(" .input-number-increment").click(function(){
+                        var t=$(this).parent().find('input[class*=input-number]');
+                        t.val(parseInt(t.val())+1)
+                        setTotal();
+                    });
+                    $(".input-number-decrement").click(function(){
+                        var t=$(this).parent().find('input[class*=input-number]');
+                        t.val(parseInt(t.val())-1)
+                        if(parseInt(t.val())<0){
+                            t.val(0);
+                        }
+                        setTotal();
+                    });
+                    function setTotal(){
+                        var s=0;
+                        $(".media-object .goods_desc").each(function(){
+                            var num = $(this).find('input[class*=input-number]').val();
+                            var price = $(this).find('span[class*=price]').text();
+                            s+=num*price;
+                        });
+                        $("#total").html(s.toFixed(2));
+                    }
+                    setTotal();
+                }
+            }
+        });
+    }
+
+    function del_cart(id) {
+        layer.alert('确认不买此商品了？', {
+                    btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                },
+                function() { //点前者执行方法
+                    $.ajax({
+                        type: "post",
+                        url: URL+"Item/del_cart_item/token/" + token + "/id/" + id,
+                        dataType: "json",
+                        async: true,
+                        cache: false,
+                        success: function(data) {
+                            if(data.resultcode == 0) {
+                                layer.msg(data.resultmsg);
+                                get_cart();
+                            } else {
+                                layer.msg(data.resultmsg);
+                                return false;
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            layer.msg(JSON.stringify(errorThrown));
+                        }
+                    });
+                },
+                function() { //点后者执行方法
+                }
+        );
+    }
 </script>
 </body>
 </html>

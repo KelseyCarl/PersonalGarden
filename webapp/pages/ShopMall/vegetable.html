@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>蔬菜页</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <style type="text/css">
+        .container{
+            width: 90%;
+            margin: 20px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        #empty{
+            width: 200px;
+            height: 170px;
+            margin-top: 40px;
+        }
+        .goods_desc h6{
+            font-size: 14px;
+            color: #222;
+            font-weight: bold;
+        }
+        .goods_desc h6 span{
+            color: #cc4b37;
+            margin-left: 12px;
+        }
+        .goods_desc p{
+            font-size: 13px;
+            color: #888;
+        }
+        .total_money span{
+            color:#cc4b37;
+            font-weight: bold;
+        }
+        .button{
+            padding: 0.25rem 0.5rem;
+            margin-left: 90px;
+        }
+        .media-object-section .item_img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 id="vegetable" class="text-center"></h5>
+        </div>
+    </div>
+    <div class="container hide no-shucai"><!--hide隐藏区域-->
+        <div class="row">
+            <div class="small-12 columns">
+                <img id="empty" src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">
+                <div style="height: 20px;"></div>
+                <p class="text-center">暂无数据</p>
+            </div>
+        </div>
+    </div>
+    <div class="result"></div>
+</div>
+<script id="theTemp" type="x-jsrender">
+        <div class="data_part">
+            {{for subitem}}
+                <div class="container">
+                    <div class="media-object">
+                        <div class="media-object-section">
+                            <img class="item_img" src={{:item_img}} alt="shucai">
+                        </div>
+                        <div class="media-object-section goods_desc">
+                            <h6>{{:item_name}}<span class="price"><i class="fi-yen"></i>{{:item_price}} </span>元</h6>
+                            <p class="who">来自:&nbsp;{{:item_from}}&nbsp;</p>
+                            <p class="float-left">已售出<span id="sale_out">&nbsp;{{:item_sale_out}}&nbsp;</span>份</p>
+                            <button id=buy{{:id}} class="button alert float-right">购买</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {{/for}}
+        </div>
+</script>
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    //计算总价
+    $(function(){
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
+        //获取链接参数
+        var type = getQueryString("type");
+        if(type == "root"){
+            $("#vegetable").text("根菜类");
+        }else if(type == "jing"){
+            $("#vegetable").text("茎菜类");
+        }else if(type == "leaf"){
+            $("#vegetable").text("叶菜类");
+        }else if(type == "flower"){
+            $("#vegetable").text("花菜类");
+        }else if(type == "fruit"){
+            $("#vegetable").text("果菜类");
+        }else if(type == "seeds"){
+            $("#vegetable").text("种子种苗");
+        }else if(type == "tools"){
+            $("#vegetable").text("农资工具");
+        }else if(type == "taocan"){
+            $("#vegetable").text("套餐推荐");
+        }else if(type == "dangji"){
+            $("#vegetable").text("当季热销");
+        }
+
+        $.get(URL+"Farm/shucai/type/"+type, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                console.log(json.data.subitem);
+                if(json.data.subitem.length == 0){
+                    $(".no-shucai").removeClass("hide");
+                }else{
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    $(".result").html(html);
+                    var count = $(".data_part .container").length;
+                    for(var i = 0;i < count;i++){
+                        var id = json.data.subitem[i].id;
+                        $("#buy"+id).click(function(){
+                            var num = this.id;
+                            if(type == "tools"){
+//                                window.location.href = "buy_detail.html?token="+token+"&type=tools&id="+num.substring(3);
+                                window.location.href = "buy_detail.html?type=tools&id="+num.substring(3);
+                            }else{
+//                                window.location.href = "buy_detail.html?token="+token+"&id="+num.substring(3);
+                                window.location.href = "buy_detail.html?id="+num.substring(3);
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -2,11 +2,10 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>电商平台</title>
+    <title>土地租赁</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+	  <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <style type="text/css">
@@ -45,7 +44,7 @@
   	<div class="">
   		<div class="row">
   			<div class="small-12 columns title-top">
-  				<h5><i class="fi-arrow-left float-left"></i>租赁申请</h5>
+  				<h5><i class="fi-arrow-left float-left" onclick="window.history.back()"></i>租赁申请</h5>
 			</div>
   		</div>
   		<div class="container">
@@ -54,66 +53,149 @@
   			</div>
   		</div>
   		<div class="container">
-  			<form>
+  			<form method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Apply/rent">
   				<!-- <fieldset class="fieldset"> -->
   					<!-- <legend>确认信息准确无误</legend> -->
   					<div class="row">
 		  			    <div class="small-4 columns">
-		  			      <label for="right-label1" class="text-right">申请人：</label>
+		  			      <label for="apply_person" class="text-right">申请人：</label>
 		  			    </div>
 		  			    <div class="small-8 columns">
-		  			      <input type="text" id="right-label1" placeholder="person">
+		  			      <input type="tel" id="apply_person" name="apply_person" placeholder="telephone">
 		  			    </div>
 	  			    </div>
-	  			    <div class="row">
-		  			    <div class="small-4 columns">
-		  			      <label for="right-label2" class="text-right">申请电话：</label>
-		  			    </div>
-		  			    <div class="small-8 columns">
-		  			      <input type="text" id="right-label2" placeholder="telephone">
-		  			    </div>
-	  			    </div>
-	  			    <div class="row">
-		  			    <div class="small-4 columns">
-		  			      <label for="right-label3" class="text-right">选择农场：</label>
-		  			    </div>
-		  			    <div class="small-8 columns">
-		  			        <select>
-		  			            <option value="西瓜籽有机农场">西瓜籽有机农场</option>
-		  			            <option value="一点田生态农场">一点田生态农场</option>
-		  			            <option value="03号大鹏">03号大鹏</option>
-		  			        </select>
-		  			    </div>
-	  			    </div>
-	  			    <div class="row">
-		  			    <div class="small-4 columns">
-		  			      <label for="right-label4" class="text-right">租赁面积：</label>
-		  			    </div>
-		  			    <div class="small-8 columns">
-		  			        <select>
-		  			            <option value="0.5*0.8">0.5*0.8</option>
-		  			            <option value="0.5*0.9">0.5*0.9</option>
-		  			            <option value="0.5*1.0">0.5*1.0</option>
-		  			            <option value="0.5*1.2">0.5*1.2</option>
-		  			        </select>
-		  			    </div>
-	  			    </div>
-	  			    <button type="button" class="button success float-center expanded apply">提交申请</button>
+
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="farm" class="text-right">选择农场：</label>
+						</div>
+						<div class="small-8 columns">
+							<select id="farm" name="farm">
+								<option value="001">一点田生态农场</option>
+								<option value="002">田园牧歌</option>
+								<option value="003">翔生有机生态农场</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="soil" class="text-right">选择土地规格：</label>
+						</div>
+						<div class="small-8 columns">
+							<select id="soil" name="soil" required>
+								<!--<option>-请选择-</option>-->
+								<!--<option value="0.5*0.8">0.5*0.8</option>-->
+								<!--<option value="0.5*0.9">0.5*0.9</option>-->
+								<!--<option value="0.5*1.0">0.5*1.0</option>-->
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="period" class="text-right">租赁时长：</label>
+						</div>
+						<div class="small-8 columns">
+							<select id="period" name="period">
+								<option value="3">三个月</option>
+								<option value="6">六个月</option>
+								<option value="12">一年</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="nickname" class="text-right">土地昵称：</label>
+						</div>
+						<div class="small-8 columns">
+							<input required type="text" id="nickname" name="nickname" placeholder="soil name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="soil_desc" class="text-right">土地描述：</label>
+						</div>
+						<div class="small-8 columns">
+							<input required type="text" id="soil_desc" name="soil_desc" placeholder="soil description">
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-4 columns">
+							<label for="rent_money" class="text-right">土地租金：</label>
+						</div>
+						<div class="small-8 columns">
+							<input type="text" id="rent_money" name="rent_money" placeholder="rent money" value="100.00">
+							<!--<span id="rent_money">200.00</span>-->
+						</div>
+					</div>
+	  			    <button type="submit" class="button success float-center expanded apply">提交申请</button>
   				<!-- </fieldset> -->
   			</form>
-
   		</div>
   	</div>
-    
-    
-    
 
     <script src="../../js/vendor/jquery.js"></script>
     <script src="../../js/vendor/what-input.js"></script>
     <script src="../../js/vendor/foundation.6.3.0.js"></script>
+	<script src="../../layer/layer.js"></script>
+	<script src="../../js/app.js"></script>
     <script>
-      $(document).foundation();
+		var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+		console.log(token);
+		$(function(){
+			$("#period").change(function(){
+				var period=$(this).children('option:selected').val();
+				if(period == 3){
+					$("#rent_money").val("100.00");
+				}else if(period == 6){
+					$("#rent_money").val("200.00");
+				}else{
+					$("#rent_money").val("300.00");
+				}
+			});
+			if(token == null){
+				layer.alert('请先登录', {
+							btn: ['确认', '取消'], //按钮文字 ，默认为确认，取消
+						},
+						function() {
+							window.location.href = "../UserCenter/login.html";
+						},
+						function() { //点后者执行方法
+						}
+				);
+			}else{
+				$.get(URL+"Login/login/token/"+token,function(json){
+					if(json.resultcode == 0){
+						var username = json.data.subitem[0].user_phone;
+						$("#apply_person").val(username);
+					}else{
+						layer.msg(json.resultmsg);
+					}
+				});
+				//获取未租赁出去的土地信息
+				$.get(URL+"Farm/soils", function(json) {
+					if(json.resultcode == -1) {
+						alert(json.resultmsg);
+					}
+					else {
+						$("#farm").change(function(){
+							var p1=$(this).children('option:selected').val();//这就是selected的值
+//							alert(p1);
+							$("#soil").empty();
+							$("#soil").append("<option>-请选择-</option>");
+							$.get(URL+"Farm/soils/farm_belong/"+p1,function(json){
+								console.log(json.data.subitem);
+								var count = json.data.subitem.length;
+								for(var i = 0;i < count;i++){
+									var area = json.data.subitem[i].soil_area;
+									var id = json.data.subitem[i].soil_id;
+									$("#soil").append("<option value='"+id+"'>"+area+"</option>");
+								}
+							});
+						});
+					}
+				});
+			}
+		});
     </script>
-
   </body>
 </html>

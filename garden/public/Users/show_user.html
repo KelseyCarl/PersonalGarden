@@ -1,0 +1,71 @@
+<style>
+    .user_show{
+        width: 80%;
+        margin: 10px;
+    }
+    .user_img{
+        float: left;
+        border-radius: 50%;
+        margin-top: 20px;
+        margin-left: 15px;
+        width: 120px;
+        height: 120px;
+    }
+    .content{
+        float: right;
+    }
+    .content p{
+        color: #3b3b3b;
+        font-size: 14px;
+        font-family: "Microsoft YaHei", "微软雅黑";
+    }
+    .content .desc ,.content  .time{
+        font-size: 13px;
+        color: #8a8a8a;
+    }
+</style>
+<div class="user_show">
+    <div class="">
+        <img class="user_img" src="http://placehold.it/100">
+    </div>
+    <div class="content">
+        <p>当前账号：<span class="tel">18408243828</span></p>
+        <p>用户昵称：<span class="nickname">helloworld</span></p>
+        <p>居住地址：<span class="addr">四川省成都市</span></p>
+        <p class="desc">个人描述：<span id="desc">大概就是反间谍法你猜到年底</span></p>
+        <p class="time">最近登录时间：<span id="time">2017-01-02</span></p>
+    </div>
+</div>
+
+<script src="../../js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+//    alert(window.location.href);
+    var id = getQueryString("id");
+    $(function(){
+        $.get("http://localhost:8080/PersonalGarden/index.php/Home/User/one_user/id/"+id,function(json){
+           if(json.resultcode == 0){
+               var tel = json.data.subitem[0]["user_phone"];
+               var img_url = json.data.subitem[0]["photo_url"];
+               var nickname = json.data.subitem[0]["nickname"];
+               var addr = json.data.subitem[0]["user_addr"];
+               var desc = json.data.subitem[0]["sentence"];
+               var time = json.data.subitem[0]["login_time"];
+               $(".user_img").attr("src",img_url);
+               $(".tel").text(tel);
+               $(".nickname").text(nickname);
+               $(".addr").text(addr);
+               $("#desc").text(desc);
+               $("#time").text(time);
+
+           }else{
+               alert(json.reslutmsg);
+           }
+        });
+    });
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>

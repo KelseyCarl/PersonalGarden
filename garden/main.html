@@ -7,6 +7,8 @@
 		<link href="themes/default/style.css" rel="stylesheet" type="text/css" media="screen" />
 		<link href="themes/css/core.css" rel="stylesheet" type="text/css" media="screen" />
 		<link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print" />
+		<link href="themes/page.css" rel="stylesheet" type="text/css" />
+		<link href="layer/skin/default/layer.css" rel="stylesheet" type="text/css"/>
 		<link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen" />
 		<!--[if IE]>
 <link href="themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -16,8 +18,11 @@
 <script src="js/speedup.js" type="text/javascript"></script>
 <![endif]-->
 
+		<!--<script src="js/jquery-2.2.4.js" type="text/javascript"></script>-->
 		<script src="js/jquery-1.7.2.js" type="text/javascript"></script>
-		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="layer/layer.js" type="text/javascript"></script>
+		<!--<script src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>-->
+		<!--<script src="js/jquery.cookie.js" type="text/javascript"></script>-->
 		<script src="js/jquery.validate.js" type="text/javascript"></script>
 		<script src="js/jquery.bgiframe.js" type="text/javascript"></script>
 		<script src="xheditor/xheditor-1.2.1.min.js" type="text/javascript"></script>
@@ -65,6 +70,7 @@
 		<script src="js/dwz.combox.js" type="text/javascript"></script>
 		<script src="js/dwz.print.js" type="text/javascript"></script>
 		<script src="js/dwz.regional.zh.js" type="text/javascript"></script>
+
 		<script src="js/publicjs/sortable_table.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/publicjs/fixed_table_rc.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jsrender.js"></script>
@@ -282,38 +288,34 @@
 									<a>用户管理</a>
 									<ul>
 										<li>
-											<a href="public/initialStage/ini_inventory.html" target="navTab" rel="w_table1">普通用户</a>
+											<a href="public/Users/user.html" target="navTab" rel="w_table1">用户管理</a>
 										</li>
 										<li>
-											<a href="public/initialStage/ini-entrydata.html" target="navTab" rel="w_table2">管理员</a>
-										</li>
-										<li>
-											<a href="public/initialStage/ini_digitalpro.html" target="navTab" rel="w_table3">超级管理员</a>
+											<a href="public/Users/manager.html" target="navTab" rel="w_table2">管理员管理</a>
 										</li>
 									</ul>
 								</li>
 								<li id="repeatPart2">
-									<a>土地分配</a>
+									<a>土地管理</a>
 									<ul>
 										<li id="repeatPart2-1li">
-											<a href="public/dailyInput/dailySale/input_dailysale.html" target="navTab" rel="w_table6">出租土地</a>
-										</li>
-										<li>
-											<a href="public/dailyInput/door-inventory.html" target="navTab" rel="w_table4">空闲土地</a>
-										</li>
-										<li>
-											<a href="public/dailyInput/digital_prod.html" target="navTab" rel="w_table5">租赁年限</a>
+											<a href="public/soil/soil_manage.html" target="navTab" rel="w_table3">土地管理</a>
 										</li>
 									</ul>
 								</li>
 								<li id="summary_tree">
-									<a>蔬菜管理</a>
+									<a>商品管理</a>
 									<ul>
 										<li>
-											<a href="public/dataSummary/summary_daily.html" target="navTab" rel="w_table7">干种子管理</a>
+											<a href="public/goods/sale.html" target="navTab" rel="w_table5">售卖商品管理</a>
 										</li>
+									</ul>
+								</li>
+								<li id="order_tree">
+									<a>订单管理</a>
+									<ul>
 										<li>
-											<a href="public/dataSummary/smcpkcbtj.html" target="navTab" rel="w_table8">活种苗管理</a>
+											<a href="public/order/order_manage.html" target="navTab" rel="w_table6">用户订单管理</a>
 										</li>
 									</ul>
 								</li>

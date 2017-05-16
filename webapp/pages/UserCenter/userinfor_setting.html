@@ -2,11 +2,10 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>个人设置</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <style type="text/css">
@@ -72,14 +71,13 @@
           font-size: 14px;
           /*padding: 20px 15px;*/
       }
-
     </style>
   </head>
   <body>
 	<div class="">
     	<div class="row title-top">
           <div class="small-2 columns">
-            <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
           </div>
       		<div class="small-7 columns">
         			<h5 class="text-center">资料完善</h5>
@@ -159,17 +157,17 @@
 	</div>
 
     <script src="../../js/vendor/jquery.js"></script>
-    <script src="../../js/vendor/public.js"></script>
     <script src="../../js/vendor/what-input.js"></script>
     <script src="../../js/vendor/foundation.6.3.0.js"></script>
+    <script src="../../layer/layer.js"></script>
+    <!--<script src="../../js/app.js"></script>-->
     <script>
-      $(document).foundation();
+        URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
+        $(document).foundation();
+        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        console.log(token);
         $(function(){
-            var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-            console.log(token);
-            $("#backto_center").click(function(){//回退到个人中心界面
-                $("#backto_center").attr("href","login.html");
-            });
+
             $("#changehead").click(function(){
                 window.location.href = "change_head.html";
             });
@@ -178,7 +176,6 @@
                 $("#nickname1").removeClass("hide");//输入框出现
                 $(".arrow_here").addClass("hide");//箭头消失
                 $("#nickname2").addClass("hide");//文本元素消失
-
             });
             $("#nickname1").blur(function(){
                 $("#nickname1").addClass("hide");//失去焦点隐藏
@@ -192,7 +189,6 @@
                 $("#tel1").removeClass("hide");//输入框出现
                 $(".arrow_here2").addClass("hide");//箭头消失
                 $("#tel_num").addClass("hide");//文本元素消失
-
             });
             $("#tel1").blur(function(){
                 $("#tel1").addClass("hide");//失去焦点隐藏
@@ -206,7 +202,6 @@
                 $("#addr1").removeClass("hide");//输入框出现
                 $(".arrow_here3").addClass("hide");//箭头消失
                 $("#address").addClass("hide");//文本元素消失
-
             });
             $("#addr1").blur(function(){
                 $("#addr1").addClass("hide");//失去焦点隐藏
@@ -215,34 +210,32 @@
                 $("#address").text(put_val);
                 $(".arrow_here3").removeClass("hide");
             });
-
             if(token == null) {
-//                alert("2:"+token);
-                alert("请先登陆！");
+                layer.msg("请先登录！");
                 window.location.href = "login.html";
             }
             else {
+                getinfor();
                 //获取用户信息
-                $.get("http://localhost:8080/PersonalGarden/index.php/Home/Login/login/token/"+token, function(json) {
-                    if(json.resultcode == -2) {
-                        alert("token已失效，请重新登录！");
-                        window.location.href = "login.html";
-                    }
-                    else {
-                        user_head = json.data.subitem[0].photo_url;//获取用户头像
-                        nickname = json.data.subitem[0].nickname;//获取用户昵称
-                        user_tel = json.data.subitem[0].user_phone;//获取用户电话
-                        user_addr = json.data.subitem[0].user_addr;//获取用户收货地址
-                        console.log(nickname);
-                        if(user_tel){
-                            //添加欢迎信息
-                            $(".head_img").attr('src',user_head);
-                            $("#nickname2").text(nickname);
-                            $("#tel_num").text(user_tel);
-                            $("#address").text(user_addr);
-                        }
-                    }
-                });
+//                $.get(URL+"Login/login/token/"+token, function(json) {
+//                    if(json.resultcode == -2) {
+//                        layer.msg("token已失效，请重新登录！");
+//                        window.location.href = "login.html";
+//                    }
+//                    else {
+//                        user_head = json.data.subitem[0].photo_url;//获取用户头像
+//                        nickname = json.data.subitem[0].nickname;//获取用户昵称
+//                        user_tel = json.data.subitem[0].user_phone;//获取用户电话
+//                        user_addr = json.data.subitem[0].user_addr;//获取用户收货地址
+//                        console.log(nickname);
+//                        if(user_tel){
+//                            $(".head_img").attr('src',user_head);
+//                            $("#nickname2").text(nickname);
+//                            $("#tel_num").text(user_tel);
+//                            $("#address").text(user_addr);
+//                        }
+//                    }
+//                });
             }
 
             //点击保存将用户资料存入数据库中
@@ -260,7 +253,7 @@
                     };
                     $.ajax({
                         type:"post",
-                        url:"http://localhost:8080/PersonalGarden/index.php/Home/Setting/save/token/"+token,
+                        url:URL+"Setting/save/token/"+token,
                         data:JSON.stringify(Data),
                         async:false,
                         dataType:'json',
@@ -268,27 +261,47 @@
                             //信息输入正确的时候
                             if(data.resultcode==0){
                                 console.log("resultmsg"+data.resultmsg);
-//                                alert(data.resultmsg);
                                 setTimeout(function(){
                                     window.location.href = "user_center.html";
-//                                    window.location.href = "../ShopMall/shopping_mall.html";
-//                                    window.location.href = "http://www.baidu.com";
                                 },1);
                             }
                             else{
-                                alert(data.resultmsg);
+                                layer.msg(data.resultmsg);
                             }
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown, data) {
-                            alert(errorThrown);
+                            layer.msg(errorThrown);
                         }
                     });
                 }else{
-                    alert("电话号码不可为空")
+                    layer.msg("电话号码不可为空");
                 }
             });
-
         });
+
+        function getinfor(){
+            //获取用户信息
+            $.get(URL+"Login/login/token/"+token, function(json) {
+                if(json.resultcode == -2) {
+                    layer.msg("token已失效，请重新登录！");
+                    window.location.href = "login.html";
+                }
+                else {
+                    console.log(json);
+                    user_head = json.data.subitem[0].photo_url;//获取用户头像
+                    nickname = json.data.subitem[0].nickname;//获取用户昵称
+                    user_tel = json.data.subitem[0].user_phone;//获取用户电话
+                    user_addr = json.data.subitem[0].user_addr;//获取用户收货地址
+                    console.log(nickname);
+                    if(user_tel){
+                        $(".head_img").attr('src',user_head);
+                        $("#nickname2").text(nickname);
+                        $("#tel_num").text(user_tel);
+                        $("#address").text(user_addr);
+                    }
+                }
+            });
+        }
     </script>
   </body>
 </html>

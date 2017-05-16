@@ -2,11 +2,10 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
-    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>个人设置</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <style type="text/css">
@@ -41,7 +40,7 @@
 <div class="">
     <div class="row title-top">
         <div class="small-2 columns">
-            <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
         <div class="small-10 columns">
             <h5 class="text-center">头像修改</h5>
@@ -53,8 +52,6 @@
         </div>
     </div>
     <div class="container">
-        <!--<button type="button" class="button success expanded">上传头像</button>-->
-        <!--action="http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload"-->
         <form id="img_form" method="post" action="" enctype="multipart/form-data">
             <input name="token" type="hidden" value="<upload_token>">
             <input id="token2" name="token2" type="hidden" value="">
@@ -65,28 +62,22 @@
 </div>
 
 <script src="../../js/vendor/jquery.js"></script>
-<script src="../../js/vendor/public.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../layer/layer.js"></script>
 <script>
-    $(document).foundation();
     $(function(){
-//        var token = getQueryString("token");
         var token = localStorage.getItem("log_status");//从本地缓存取得token数据
         $("#token2").val(token);
-//        alert(token);
         console.log(token);
-        $("#backto_center").click(function(){//回退到个人中心界面
-            $("#backto_center").attr("href","userinfor_setting.html");
-        });
         if(token == null) {
-//            alert(token);
-            alert("请先登陆！");
+            layer.msg("请先登录！");
             window.location.href = "login.html";
         }
         else {
             //获取用户信息
-            $.get("http://localhost:8080/PersonalGarden/index.php/Home/Login/login/token/"+token, function(json) {
+            $.get(URL+"Login/login/token/"+token, function(json) {
                 if(json.resultcode == -2) {
                     alert("token已失效，请重新登录！");
                     window.location.href = "login.html";
@@ -99,20 +90,12 @@
                 }
             });
         }
-//    alert(token);
-//    var url = "http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload/token/"+token;
-
-
         //修改并提交头像
         $("#img_form").submit(function(){
-//           alert("head change");
-            //jQuery设置action的值
-            var url = "http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload";
+            var url = URL+"Qiniu/upload";
             $("#img_form").attr("action",url);
-//            window.location.href("userinfor_setting.html");
         });
     });
 </script>
-
 </body>
 </html>

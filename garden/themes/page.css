@@ -1,0 +1,197 @@
+.sub-header {
+    background: white;
+    color: #1E293D;
+    padding: 20px;
+    font-size: 22px;
+    margin: 0;
+}
+th,
+td {
+    text-align: center;
+}
+.grid .gridTbody td div {
+    overflow: visible;
+}
+.grid .gridTbody .selected {
+    border-color: none;
+    background: none;
+}
+.cz_change div {
+    /*border:1px solid red;*/
+    text-align: center;
+    margin-left: 26%;
+}
+.cz_change a {
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    color: #3363A4;
+    text-decoration: none;
+}
+.layoutBox {
+    overflow: auto !important;
+}
+
+.page {
+    width: 100%;
+}
+.dialog .dialogContent {
+    overflow: hidden;
+}
+.pageContent {
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+.admin_manage_div {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.admin_manage_div thead {
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    background: #f5f5f5;
+    color: #132846;
+}
+.admin_manage_div thead tr th{
+    text-align: center;
+    font-weight: 700;
+    height: 60px;
+    border-top: 1px solid #DCDDDF;
+    border-bottom: 1px solid #DCDDDF;
+}
+.admin_manage_div thead tr th span  {
+    font-weight: 700;
+}
+.admin_manage_div tbody {
+    border: 1px solid lightgrey;
+    background-color: white;
+}
+.admin_manage_div tbody tr td {
+    border-bottom: 1px solid #DCDDDF;
+}
+.admin_manage_div tbody tr:last-child{
+    border: none;
+}
+.uid,
+.uname {
+    margin: 10px;
+}
+.adminManageTab input {
+    width: 120px;
+    padding: 2px 3px;
+    border: 1px solid #ccc;
+    height: 19px;
+}
+.formBar ul {
+    margin-right: 20px;
+}
+.dialogContent {
+    overflow: hidden !important;
+}
+
+.adminManageBox {
+    background: #F6F6F6;
+    margin-bottom: 10px;
+    border-top: 1px solid #CFD2DA;
+    border-bottom: 1px solid #CFD2DA;
+}
+
+.adminManageBox td {
+    text-align: left;
+}
+
+button:hover,
+a:hover,
+.buttonActive:hover {
+    cursor: pointer;
+}
+.f22 {
+    font-size: 22px;
+}
+.dib {
+    display: inline-block;
+}
+
+.fontn {
+    font-weight: normal;
+}
+.cgBtn-danger {
+    background: #ec513b !important;
+}
+.cgBtn-a {
+    border: none;
+    outline: none;
+    text-align: center;
+    color: white !important;
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+}
+
+.fr {
+    float: right;
+}
+a {
+    outline: none !important;
+    text-decoration: none !important;
+}
+button, a {
+    cursor: pointer !important;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.cgBtn-btn {
+    border: none;
+    outline: none;
+    text-align: center;
+    color: white !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 100;
+}
+.cgBtn-primary {
+    background: #3363a4 !important;
+}
+.pagination_live_list {
+    margin: 20px 0 20px 0;
+    width: 100%;
+    text-align: center;
+}
+.pagination_live_list a {
+    display: inline-block;
+    color: #183152;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid #183152;
+    margin: 0 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.pagination_live_list span.current {
+    color: white;
+    background-color: #183152;
+}
+.pagination_live_list span.current, .pagination_live_list span.disabled {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background: #183152;
+}
+.pagination_live_list span.disabled {
+    color: #bfbfbf;
+    background: #f2f2f2;
+    border: 1px solid #bfbfbf;
+}

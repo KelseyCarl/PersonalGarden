@@ -57,4 +57,66 @@ class FarmController extends RestController{
             }
         }
     }
+
+    public function shucai($type){//分类查询商品
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case "get":{
+                $sql = "select * from items where item_type='$type' and is_verify=1";
+                $re = $Model->query($sql);
+                if(is_bool($re)){
+                    $this->response(retmsg(0,null,"查询失败"),'json');
+                }else{
+                    $data = array();
+                    $data["subitem"] = $re;
+                    $this->response(retmsg(0,$data,"查询成功"),'json');
+                }
+                break;
+            }
+        }
+    }
+
+    public function item_detail($id){//根据id查询商品
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case "get":{
+                $sql = "select * from items where id=$id";
+                $re = $Model->query($sql);
+                if(is_bool($re)){
+                    $this->response(retmsg(0,null,"查询失败"),'json');
+                }else{
+                    $data = array();
+                    $data["subitem"] = $re;
+                    $this->response(retmsg(0,$data,"查询成功"),'json');
+                }
+                break;
+            }
+        }
+    }
+
+    //土地查询
+    public function soils($farm_belong=""){
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case "get":{
+                if($farm_belong == null){
+                    $sql = "select * from soil where soil_status=0 and rent_to_who='' order by farm_belong asc";//查询所有没有租出去的土地的信息
+                }else{
+                    $sql = "select * from soil where soil_status=0 and rent_to_who='' and  farm_belong='$farm_belong'";//分农场查询
+                }
+                $re = $Model->query($sql);
+                if(is_bool($re)){
+                    $this->response(retmsg(0,null,"查询失败"),'json');
+                }else{
+                    $data = array();
+                    $data["subitem"] = $re;
+                    $this->response(retmsg(0,$data,"查询成功"),'json');
+                }
+                break;
+            }
+        }
+    }
 }

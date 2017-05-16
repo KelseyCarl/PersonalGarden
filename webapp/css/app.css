@@ -1,3 +1,6 @@
+/**{*/
+    /*font-family: "Microsoft YaHei", "微软雅黑";*/
+/*}*/
 .off-canvas{
 	background: #ffffff;
 }
@@ -29,11 +32,6 @@ ul li{
 	font-size: 15px;
 	font-weight: bold;
 }
-
-
-
-
-
 .img-responsive{
 	display: block;
 	max-width: 100%;
@@ -116,6 +114,7 @@ ul li{
 }
 .service-box .icon img {
     position: relative;
+    top:20px;
     z-index: 100;
     transition: all 0.3s ease 0s;
 }
@@ -145,7 +144,7 @@ ul li{
 .desc h3 {
     font-family: 'Merriweather', serif;
     color: #FFF;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 300;
     margin: 0;
 }
@@ -153,9 +152,9 @@ ul li{
     color: #FFF;
     margin-top: 30px;
 }
-.events .time,.events .detail {
+.zixun .time,.zixun .detail {
     color: #000;
-    font-size: 14px;
+    font-size: 10px;
     margin: 0;
     line-height: 1.8em;
     font-weight: 400;
@@ -202,4 +201,27 @@ footer{
 footer p{
 	color: #fff;
 	font-size: 15px;
+}
+.no-data{
+    margin-top: 20px;
+}
+.no-data li{
+    float: left;
+}
+.no-data li:nth-child(2){
+    margin-left: 15px;
+}
+.no-data li a{
+    color: #555;
+    font-size: 16px;
+    padding: 8px 5px;
+}
+.no-data li a:hover{
+    border: 1px solid #009926;
+}
+.off-canvas-list li{
+    padding: 5px;
+}
+.off-canvas-list li a{
+    color: #444;
 }

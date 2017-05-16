@@ -1,0 +1,247 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
+    <style type="text/css">
+        .container{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        .touxiang{
+            width: 100px;
+            height: 100px;
+            margin-top: 50px;
+            border:1px solid #999;
+            border-radius: 50px;
+        }
+        .row img{
+            padding: 25px;
+            margin: 10px auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .media-object img{
+            width: 80px;
+            height: 80px;
+        }
+        .fahuo{
+            font-size: 14px;
+            color: #666;
+        }
+        .goods_desc h6{
+            font-size: 14px;
+            color: #222;
+            font-weight: bold;
+        }
+        .goods_desc h6 span{
+            color: #cc4b37;
+            margin-left: 12px;
+        }
+        .goods_desc p{
+            font-size: 13px;
+            color: #888;
+        }
+        .kucun{
+            margin-left: 6px;
+            font-size: 12px;
+            color: #666;
+            height: 40px;
+            line-height: 40px;
+        }
+        .total_money{
+            padding: 10px 5px;
+            margin-top: 30px;
+            font-size: 16px;
+            color:#111111;
+        }
+        .total_money span{
+            color:#cc4b37;
+            font-weight: bold;
+        }
+        .button.expanded{
+            margin-top: 10px;
+        }
+        .del_cart_item{
+            padding:0.25em 0.55em;
+            margin-left: 45px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns">
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns">
+            <h5 class="text-center">我的购物车</h5>
+        </div>
+    </div>
+    <div class="container hide"><!--hide隐藏区域-->
+        <div class="row touxiang">
+            <div class="small-12 columns">
+                <img id="touxiang" src="../../img/wait2.png" class="float-center round" alt="tou xiang">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-12 columns">
+                <div style="height: 20px;"></div>
+                <p class="text-center">暂无待支付订单</p>
+            </div>
+        </div>
+    </div>
+    <!-- 如果有待付款的项-->
+    <div class="container">
+        <div class="no-cart hide"><!--hide隐藏区域-->
+            <div class="row">
+                <div class="small-12 columns">
+                    <img id="" src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div style="height: 20px;"></div>
+                    <p class="text-center">暂无数据</p>
+                </div>
+            </div>
+        </div>
+        <div id="render">
+        </div>
+        <script id="theTemp" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <a href="../ShopMall/buy_detail.html?id={{:id}}"><img src={{:item_img}} alt="women"></a>
+                    </div>
+                    <div class="media-object-section goods_desc">
+                        <p class="hide get_item_id">{{:id}}</p>
+                        <h6>{{:item_name}} ￥:<span class="price">{{:item_price}}</span>元<button class="button float-right del_cart_item" onclick="del_cart('{{:cart_id}}');return false">删除</button></h6>
+                        <p class="item_from">来自:{{:item_from}} </p>
+                        <p class="item_from">库存量:{{:item_amount}} </p>
+                    </div>
+                </div>
+                <hr>
+            {{/for}}
+        </script>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    console.log(token);
+    $(function(){
+        if(token == null) {
+            layer.msg("请先登录！");
+            window.location.href = "login.html";
+        }
+        else {
+            //获取我的购物车
+            get_cart();
+        }
+    });
+
+    function get_cart(){
+        $.get(URL+"Item/show_cart/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                if(json.data.subitem.length == 0){
+                    $(".no-cart").removeClass("hide");
+                }else{
+                    $(".jisuan").removeClass("hide");
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    console.log(json.data);
+                    $("#render").html(html);
+                    //渲染完成之后计算总价
+                    $(" .input-number-increment").click(function(){
+                        var t=$(this).parent().find('input[class*=input-number]');
+                        t.val(parseInt(t.val())+1)
+                        setTotal();
+                    });
+                    $(".input-number-decrement").click(function(){
+                        var t=$(this).parent().find('input[class*=input-number]');
+                        t.val(parseInt(t.val())-1)
+                        if(parseInt(t.val())<0){
+                            t.val(0);
+                        }
+                        setTotal();
+                    });
+                    function setTotal(){
+                        var s=0;
+                        $(".media-object .goods_desc").each(function(){
+                            var num = $(this).find('input[class*=input-number]').val();
+                            var price = $(this).find('span[class*=price]').text();
+                            s+=num*price;
+                        });
+                        $("#total").html(s.toFixed(2));
+                    }
+                    setTotal();
+                }
+            }
+        });
+    }
+
+    function del_cart(id) {
+        layer.alert('确认从购物车移除此商品？', {
+                    btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                },
+                function() { //点前者执行方法
+                    $.ajax({
+                        type: "post",
+                        url: URL+"Item/del_cart_item/token/" + token + "/id/" + id,
+                        dataType: "json",
+                        async: true,
+                        cache: false,
+                        success: function(data) {
+                            if(data.resultcode == 0) {
+                                layer.msg(data.resultmsg);
+                                get_cart();
+                            } else {
+                                layer.msg(data.resultmsg);
+                                return false;
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            layer.msg(JSON.stringify(errorThrown));
+                        }
+                    });
+                },
+                function() { //点后者执行方法
+                }
+        );
+    }
+</script>
+</body>
+</html>

@@ -184,4 +184,139 @@ class QiniuController extends RestController{
         }
     }
 
+    public function upload3(){
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case 'post':{
+                $token2 = $_POST["token2"];
+//                echo $token2;
+                //鉴权的公钥和私钥
+                $accesskey = "I4t5AP1DslqxdG4F4HG-YpGzCQXie8hGRB-oZtsw";
+                $secretkey = "LoEFHILGp7Bt8bm2BHJ0V6-NWJS33dDWqNN0P9_M";
+                $auth = new Auth($accesskey,$secretkey);
+                $bucket = "mygardentest";
+                //生成上传的token
+                $uptoken = $auth->uploadToken($bucket);
+//                echo "token=".$uptoken;
+                $file = $_FILES["myfile"];
+//                $filePath = "./Public/img_up/".$file["name"];//获取文件原名
+                $filePath = str_replace("\\","/",getcwd()."/Public/img_up/").$file["name"];//获取文件原名
+                // 上传到七牛后保存的文件名
+                $key = $file["name"];//保存文件为原名
+                // 初始化 UploadManager 对象并进行文件的上传。
+                $uploadMgr = new UploadManager();
+                // 调用 UploadManager 的 putFile 方法进行文件的上传。
+                list($ret, $err) = $uploadMgr->putFile($uptoken, $key, $filePath);
+                if ($err !== null) {
+                    var_dump($err);
+                } else {
+                    $type = $file["type"];
+                    $savepath = "http://om2m6x1n8.bkt.clouddn.com/".$key;
+                    //上传土地的图片
+                    $sql = "select max(soil_id) as max_num from soil";
+                    $result = $Model->query($sql);
+                    $soil_id = $result[0]["max_num"]+1;
+                    $farm = $_POST["farm"];
+                    $area = $_POST["area"];
+                    $insert = "insert into soil(soil_id,farm_belong,soil_area,soil_photo) values("."'".safe($soil_id)."','".
+                        safe($farm)."','".safe($area)."','".safe($savepath)."'".")";
+                    $insert_re = $Model->execute($insert);
+                    if(is_bool($insert_re)){
+                        $this->response(retmsg(-1,null,"土地添加失败"),'json');
+                    }else{
+                        $url = "http://localhost:8080/PersonalGarden/garden/main.html?token=ddb1c8af7b5ae5cb852f580d0c04dac3#w_table3";
+                        header("refresh:1;url=$url");
+                    }
+                }
+            }
+                break;
+        }
+    }
+
+    public function upload4(){
+        header("Access-Control-Allow-Origin:*");
+        $Model = M();
+        switch($this->_method) {
+            case 'post':{
+                //鉴权的公钥和私钥
+                $accesskey = "I4t5AP1DslqxdG4F4HG-YpGzCQXie8hGRB-oZtsw";
+                $secretkey = "LoEFHILGp7Bt8bm2BHJ0V6-NWJS33dDWqNN0P9_M";
+                $auth = new Auth($accesskey,$secretkey);
+                $bucket = "mygardentest";
+                //生成上传的token
+                $uptoken = $auth->uploadToken($bucket);
+//                echo "token=".$uptoken;
+                $file = $_FILES["myfile"];
+//                $filePath = "./Public/img_up/".$file["name"];//获取文件原名
+                $filePath = str_replace("\\","/",getcwd()."/Public/img_up/").$file["name"];//获取文件原名
+                // 上传到七牛后保存的文件名
+                $key = $file["name"];//保存文件为原名
+                // 初始化 UploadManager 对象并进行文件的上传。
+                $uploadMgr = new UploadManager();
+                // 调用 UploadManager 的 putFile 方法进行文件的上传。
+                list($ret, $err) = $uploadMgr->putFile($uptoken, $key, $filePath);
+                if ($err !== null) {
+                    var_dump($err);
+                } else {
+                    $type = $file["type"];
+                    $savepath = "http://om2m6x1n8.bkt.clouddn.com/".$key;
+                    //上传商品的图片
+                    $sql = "select max(item_id) as max_num from items";
+                    $result = $Model->query($sql);
+                    $item_id = $result[0]["max_num"]+1;
+                    $item_name = $_POST["goods_name"];
+                    $item_acount = $_POST["goods_amount"];
+                    $item_price = $_POST["goods_price"];
+                    $item_type = $_POST["chose_goods"];
+                    $item_from = $_POST["goods_from"];
+                    $item_desc = $_POST["goods_desc"];
+                    $type_desc = "";
+                    if($item_type == "root"){
+                        $type_desc = "根菜类";
+                    }elseif($item_type == "jing"){
+                        $type_desc = "茎菜类";
+                    }elseif($item_type == "leaf"){
+                        $type_desc = "叶菜类";
+                    }elseif($item_type == "flower"){
+                        $type_desc = "花菜类";
+                    }elseif($item_type == "fruit"){
+                        $type_desc = "果菜类";
+                    }elseif($item_type == "tools"){
+                        $type_desc = "农资工具";
+                    }elseif($item_type == "seeds"){
+                        $type_desc = "种子种苗";
+                    }elseif($item_type == "taocan"){
+                        $type_desc = "套餐推荐";
+                    }elseif($item_type == "dangji"){
+                        $type_desc = "时令蔬菜";
+                    }
+                    $from = "";
+                    if($item_from == "001"){
+                        $from = "一点田西江月农场";
+                    }elseif($item_from == "002"){
+                        $from = "田园牧歌";
+                    }elseif($item_from == "003"){
+                        $from = "翔生有机生态农场";
+                    }
+                    $time = date("Y-m-d H:i:s");
+                    $insert = "insert into items(item_id,item_name,item_desc,item_from,item_amount,item_price,
+item_sale_out,item_img,is_verify,status_desc,apply_time,verify_time,item_type,type_desc) values("."'".safe($item_id)."','".
+                        safe($item_name)."','".safe($item_desc)."','".safe($from)."',".safe($item_acount).
+                        ",'".safe($item_price)."',".safe("0").",'".safe($savepath)."',".safe("1").",'".safe("审核通过")."','"
+                        .safe($time)."','".safe($time)."','".safe($item_type)."','".safe($type_desc)."'".")";
+//                    echo $insert;
+                    $insert_re = $Model->execute($insert);
+                    if(is_bool($insert_re)){
+                        $this->response(retmsg(-1,null,"商品添加失败"),'json');
+                    }else{
+                        $url = "http://localhost:8080/PersonalGarden/garden/main.html?token=ddb1c8af7b5ae5cb852f580d0c04dac3#w_table5";
+                        header("refresh:1;url=$url");
+                    }
+                }
+            }
+                break;
+        }
+    }
+
 }

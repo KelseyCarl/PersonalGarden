@@ -1,0 +1,62 @@
+<!--http://upload.qiniu.com/ http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload/token/61c483c5b43448e30b71b210b0ec7be6-->
+
+
+<!--<script src="../../js/jquery-1.7.2.js"></script>-->
+<style>
+    .buttonActive,
+    .buttonContent {
+        background: none;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+    }
+    .upload{
+        float: left;
+    }
+    .pageFormContent label {
+        text-align:center;
+    }
+</style>
+<div class="pageContent">
+    <form >
+
+    </form>
+    <form class="pageForm required-validate" method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload3" enctype="multipart/form-data">
+        <div class="pageFormContent" layoutH="88">
+            <p>
+                <label>土地图片：</label>
+                <input name="token" type="hidden" value="<upload_token>">
+                <input name="myfile" type="file" />
+            </p>
+            <p>
+                <label>土地面积：</label>
+                <input class="adminName_addAdmin required" name="area" type="text" size="20" value="" />
+            </p>
+            <p>
+                <label>所在农场：</label>
+                <select name="farm" id="farm">
+                    <option value="001">一点田西江月农场</option>
+                    <option value="002">田园牧歌</option>
+                    <option value="003">翔生有机生态农场</option>
+                </select>
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="save_addAdmin">
+                    <input class="buttonActive" id="up"  type="submit" value="保存" />
+                    <!--<div class="buttonActive">提交</div>-->
+                </li>
+                <li>
+                    <div class="buttonContent"><button type="button" class="close">取消</button></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

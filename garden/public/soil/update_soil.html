@@ -1,0 +1,126 @@
+<style>
+    button:hover,
+    a:hover,
+    .buttonActive:hover {
+        cursor: pointer;
+    }
+
+    .dialogContent {
+        overflow-x: hidden !important;
+    }
+
+    .buttonActive,
+    .buttonContent {
+        background: none;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 15px;
+    }
+
+    select {
+        width: 194px;
+    }
+
+    .formBar ul {
+        margin-right: 20px;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+        line-height: 0;
+    }
+
+    .formBar .close {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+        line-height: 0;
+    }
+    .resizable_f_r {
+        display: none;
+    }
+</style>
+<div class="pageContent">
+    <form class="pageForm required-validate">
+        <div class="pageFormContent">
+            <p>
+                <label>当前土地ID：</label>
+                <span class="userid_addAdmin" id="soil_id"></span>
+                <input type="hidden" name="sid" id="sid">
+            </p>
+            <p>
+                <label>土地面积：</label>
+                <input class="uname_addAdmin" id="soil_area" name="area" type="text" size="30" value="" />
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="save_addAdmin">
+                    <button type="button" class="buttonActive">保存</button>
+                </li>
+                <li>
+                    <button type="button" class="close">取消</button>
+                </li>
+            </ul>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    var params = parseUrl_dialog();
+    var sid = params.sid;
+    var soil_id = params.soil_id;
+    var area = params.area;
+    $("#sid").val(sid);
+    $('#soil_id').text(soil_id);
+    $("#soil_area").val(area);
+    $(".save_addAdmin").click(function() {
+        var data = {
+            data: {
+                soilid: $("#sid").val(),
+                area: $("#soil_area").val()
+            }
+        };
+
+        $.ajax({
+            data: JSON.stringify(data),
+            type: "post",
+            url:URL+ "Soil/change" + "/token/" + token,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data) {
+                if(data.resultcode == 0) {
+                    layer.msg(data.resultmsg, {
+                        icon: 1
+                    });
+                    $.pdialog.closeCurrent();
+                    get_soil();
+                }  else {
+                    layer.msg(data.resultmsg, {
+                        icon: 2
+                    });
+                    return false;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                layer.msg(JSON.stringify(errorThrown));
+            }
+        });
+    })
+</script>

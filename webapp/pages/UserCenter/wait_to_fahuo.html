@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>待发货</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
     <style type="text/css">
         .container{
             width: 80%;
+            margin: 20px auto;
+        }
+        .container1{
+            width: 90%;
             margin: 20px auto;
         }
         .title-top{
@@ -52,22 +56,38 @@
             color:#cc4b37;
             font-weight: bold;
         }
+        .order .status{
+            color: #999;
+            font-size: 13px;
+        }
+        .total p{
+            color: #666;
+        }
+        .total .count{
+            color: #000;
+            font-size: 14px;
+        }
+        .media-object-section .item_img{
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
 <div class="">
     <div class="row title-top">
         <div class="small-2 columns">
-            <a href="" id="backto_center"><i class="fi-arrow-left float-left"></i></a>
+            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
         <div class="small-10 columns">
             <h5 class="text-center">待发货</h5>
         </div>
     </div>
-    <div class="container"><!--hide隐藏区域-->
+    <div style="height: 15px;background: #eee;"></div>
+    <div class="container no-order hide"><!--hide隐藏区域-->
         <div class="row">
             <div class="small-12 columns">
-                <img id="empty" src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                <img id="empty" src="../../img/empty.jpg" class="float-center" alt="empty">
             </div>
         </div>
         <div class="row">
@@ -77,33 +97,101 @@
             </div>
         </div>
     </div>
-    <!-- 如果有待收货的项-->
-    <div class="container hide">
-        <div class="media-object">
-            <div class="media-object-section">
-                <img src="http://placeimg.com/200/200/people" alt="women">
-            </div>
-            <div class="media-object-section goods_desc">
-                <h6>这里是商品的名称 ￥<span class="price">4.60 </span>(元/斤)</h6>
-                <p>来自用户1的分享</p>
-            </div>
-        </div>
+    <!-- 如果有待发货的项:已付款状态-->
+    <div id="render">
     </div>
+    <script id="theTemp" type="x-jsrender">
+        {{for orderinfor}}
+            <div class="container1">
+                <div class="order">
+                    <p>订单编号：{{:order_id}}<span class="float-right status">已付款</span></p>
+                    <hr>
+                </div>
+                {{for iteminfor.goods}}
+                    <div class="media-object">
+                        <div class="media-object-section">
+                            <img class="item_img" src="{{:item_img}}" alt="item">
+                        </div>
+                        <div class="media-object-section goods_desc">
+                            <h6>{{:item_name}} ￥<span class="price">{{:item_price}} </span></h6>
+                            <p style="margin-top: 20px;">来自:{{:item_from}}</p>
+                            <p>所属类型:{{:type_desc}}<span class="float-right" style="margin-left:60px;">&times;{{:buy_amount}}</span></p>
+                        </div>
+                    </div>
+                {{/for}}
+            </div>
+            <div class="total">
+                <p class="" style="margin-left:50%;">共<span class="count howmany">{{:iteminfor.amount}}</span>件商品<span class="count" style="margin-left: 15px;">实付 ￥{{:iteminfor.total_money}} 元</span></p>
+            </div>
+        {{/for}}
+
+    </script>
+
+    <!--<div class="container1">-->
+        <!--<div class="order">-->
+            <!--<p>订单编号：201700000001<span class="float-right status">已付款</span></p>-->
+            <!--<hr>-->
+        <!--</div>-->
+        <!--<div class="media-object">-->
+            <!--<div class="media-object-section">-->
+                <!--<img src="http://placeimg.com/100/100/people" alt="women">-->
+            <!--</div>-->
+            <!--<div class="media-object-section goods_desc">-->
+                <!--<h6>茄子茄子 ￥<span class="price">4.60 </span>(元/斤)</h6>-->
+                <!--<p style="margin-top: 20px;">来自:哪个农场</p>-->
+                <!--<p>所属类型:农资工具<span class="float-right">&times;2</span></p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="media-object">-->
+            <!--<div class="media-object-section">-->
+                <!--<img src="http://placeimg.com/100/100/people" alt="women">-->
+            <!--</div>-->
+            <!--<div class="media-object-section goods_desc">-->
+                <!--<h6>茄子茄子 ￥<span class="price">4.60 </span>(元/斤)</h6>-->
+                <!--<p style="margin-top: 20px;">来自:哪个农场</p>-->
+                <!--<p>所属类型:农资工具<span class="float-right">&times;2</span></p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="total">-->
+            <!--<p class="float-right">共<span class="count">2</span>件商品<span class="count" style="margin-left: 15px;">实付 ￥51.50</span></p>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 
 <script src="../../js/vendor/jquery.js"></script>
-<script src="../../js/vendor/public.js"></script>
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../js/app.js"></script>
 <script>
-    //计算总价
+    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    console.log(token);
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-        console.log(token);
-        $("#backto_center").click(function(){//回退到个人中心界面
-            $("#backto_center").attr("href","user_center.html");
-        });
-    })
+        if(token == null) {
+            layer.msg("请先登录！");
+            window.location.href = "login.html";
+        }
+        else {
+            //获取我的订单
+            $.get("http://localhost:8080/PersonalGarden/index.php/Home/Order/fahuo/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                if(json.data.count == 0){
+                    $(".no-order").removeClass("hide");
+                }else{
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    console.log(json.data);
+                    $("#render").html(html);
+                }
+            }
+            });
+        }
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+[ 2017-04-26T14:27:35+08:00 ] ::1 /PersonalGarden/garden/add_admin.html?_=1493188055770
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T14:28:24+08:00 ] ::1 /PersonalGarden/garden/add_admin.html?_=1493188055770
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T20:31:13+08:00 ] ::1 /PersonalGarden/garden/public/AdminManage/admin/updateAdmin_dialog.html?admin_id=11&uname=&companyname=&sex=undefined&mobile=undefined&email=undefined&companyid=undefined&_=1493209872905
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T23:30:16+08:00 ] ::1 /PersonalGarden/garden/themes/default/images/logo_new3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T23:30:19+08:00 ] ::1 /PersonalGarden/garden/themes/purple/images/listLine.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T23:30:19+08:00 ] ::1 /PersonalGarden/garden/themes/default/images/logo_new3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T23:30:21+08:00 ] ::1 /PersonalGarden/garden/themes/default/images/logo_new3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载模块:Garden
+
+[ 2017-04-26T23:30:22+08:00 ] ::1 /PersonalGarden/garden/themes/default/images/logo_new3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Garden
+

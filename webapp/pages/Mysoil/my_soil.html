@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我的土地</title>
     <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
-    <!-- <link rel="stylesheet" href="css/icons.css" /> -->
+	<link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+	<link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
     <link rel="stylesheet" href="../../css/app.css" />
     <style type="text/css">
       .container{
@@ -68,13 +69,24 @@
       .right_set .labels span{
       	border-radius: 8px;
       }
-      .right_set .miaoshu{
+      .right_set .miaoshu span{
       	font-size: 13px;
       	text-indent: 2em;
       }
+	  .button{
+		  padding: 0.45em 0.5em;
+		  border-radius: 8px;
+		  margin-top: 12px;
+	  }
 	  .item_img{
 		  width: 100px;
 		  height: 100px;
+	  }
+	  .verify{
+		  color:#cc4b37;
+		  margin-left: 10px;
+		  font-size: 13px;
+		  font-weight: 100;
 	  }
     </style>
   </head>
@@ -86,24 +98,28 @@
 	    	    <div class="container">
 	    	    	<div class="media-object">
 	    	    	    <div class="media-object-section head">
-		    	    	    <img src="http://placeimg.com/60/60/people" alt="women">
+		    	    	    <img class="hide" src="../../img/person.png" alt="women">
 		    	    	</div>
-		    	    	<div class="media-object-section">
-		    	    	    <h5>Hello World</h5>
-		    	    	    <a href="">点此编辑</a>
+		    	    	<div class="media-object-section user_infor">
+							<ul class="no-data hide">
+								<li><a href="../UserCenter/login.html">登录</a></li>
+								<li><a href="../UserCenter/register.html">注册</a></li>
+							</ul>
+		    	    	    <!--<h5>Hello World</h5>-->
+		    	    	    <!--<a href="">点此编辑</a>-->
 		    	    	</div>
 	    	    	</div>
 	    	    	<hr>
 	    	    </div>
     	        <ul class="off-canvas-list">
-    	    	    <li><a href="" target="_blank"><i class="fi-home"></i>首页</a></li>
-    	    	    <li><a href="" target="_blank"><i class="fi-mail"></i>电子商务</a></li>
-    	    	    <li><a href="" target="_blank"><i class="fi-eye"></i>我的土地</a></li>
-    	    	    <li><a href="" target="_blank"><i class="fi-female"></i>  个人中心</a></li>
-    	    	    <li><a href="" target="_blank"><i class="fi-share"></i>设置</a></li>
+					<li><a href="../HomePage/home.html" target="_self"><i class="fi-home"></i>首页</a></li>
+					<li><a href="../ShopMall/shopping_mall.html" target="_self"><i class="fi-shopping-cart"></i>电子商务</a></li>
+					<li><a href="my_soil.html" target="_self"><i class="fi-layout"></i>我的土地</a></li>
+					<li><a href="../UserCenter/user_center.html" target="_self"><i class="fi-torso"></i>  个人中心</a></li>
+					<li><a href="../SystemSettings/system_setting.html" target="_self"><i class="fi-widget"></i>设置</a></li>
     	        </ul>
     	        <div class="container">
-	    	        <button type="button" class="alert button expanded" id="logout">退出登录</button>
+	    	        <button type="button"  class="alert button expanded" id="logout">退出登录</button>
     	        </div>
 		    </div>
 			<div class="off-canvas-content" data-off-canvas-content>
@@ -133,7 +149,7 @@
 					<div class="tabs-content" data-tabs-content="collapsing-tabs">
 						<div class="tabs-panel is-active" id="panel1c">
 							<!-- 用户没有土地的时候显示的内容 -->
-							<div class="container no-soil" style="margin-top: 20px;">
+							<div class="container no-soil hide" style="margin-top: 20px;">
 								<img src="../../img/smile.png" alt="no data" class="float-center" width="100" height="100">
 								<p class="text-center">没有土地？</p>
 								<p class="text-center">来申请一个，开启你的种菜之旅吧！</p>
@@ -141,6 +157,11 @@
 							</div>
 							<!-- 有土地的时候显示该用户的土地信息 -->
 							<div class="container result1"></div>
+							<!--新增更多土地-->
+							<div class="container float-center add_soil hide" style="margin-top: 20px;">
+								<img id="add_soil" class="float-center" src="../../pics/add.png" alt="add" style="border: 2px dashed #bfbfbf;margin: 0 auto;cursor: pointer;">
+								<p class="text-center" style="margin-top: 15px;color: #bfbfbf;font-size: 13px;">新增更多土地</p>
+							</div>
 							<script id="theTemp1" type="x-jsrender">
 								{{for subitem}}
 									<div class="media-object">
@@ -148,7 +169,7 @@
 										  <img class="item_img" src={{:soil_photo}} alt="my soil">
 										</div>
 										<div class="media-object-section right_set">
-											<h5><a href="">{{:soil_name}}</a></h5>
+											<h5><a href="">{{:soil_name}}<span class="verify">[{{:status_desc}}]</span></a></h5>
 											<p class="labels" style="margin-top: 10px;font-size: 12px;">
 												<i class="fi-marker success">&nbsp;&nbsp;</i>
 												{{:farm_name}}
@@ -157,8 +178,15 @@
 						              			<span class="label warning">养生</span>
 											</p>
 											<p class="miaoshu">
-												{{:soil_desc}}
-												<span><a href="">详细&gt;&gt;</a></span>
+												<span>{{:soil_desc}}</span>
+												{{if soil_status =='1'}}
+													<!--<button><a href="soil_detail.html?sid={{:sid}}" id=jump{{:sid}}>详细&gt;&gt;</a></button>-->
+													<a class="button text-center" href="soil_detail.html?sid={{:sid}}" id=jump{{:sid}}>详细&gt;&gt;</a>
+												{{else}}
+													<!--<button disabled="disabled"><a href="soil_detail.html?sid={{:sid}}" id=jump{{:sid}}>详细&gt;&gt;</a></button>-->
+													<!--<button disabled="disabled" class="button">详细&gt;&gt;</button>-->
+													<a class="button text-center" disabled="disabled" href="javascript:void(0)" >详细&gt;&gt;</a>
+												{{/if}}
 											</p>
 										</div>
 									</div>
@@ -200,64 +228,63 @@
     <script src="../../js/vendor/what-input.js"></script>
     <script src="../../js/vendor/foundation.6.3.0.js"></script>
 	<script src="../../js/vendor/jsrender.js"></script>
+	<script src="../../layer/layer.js"></script>
+	<script src="../../js/app.js"></script>
     <script>
-      	$(document).foundation();
 		$(function(){
+			//获取所有的合作农场的信息
+			$.get(URL+"Farm/get_farm", function(json) {
+				if(json.resultcode == -2) {
+					layer.msg("token已失效，请重新登录！");
+					window.location.href = "login.html";
+				}
+				else {
+					var template = $.templates("#theTemp2");
+					var html = template.render(json.data);
+					console.log(json.data);
+					$(".result2").html(html);
+				}
+			});
 			var token = localStorage.getItem("log_status");//从本地缓存取得token数据
 			console.log(token);
-//        alert(token);
 			$(".rent_soil").click(function(){
 				window.location.href = "rent_soil.html";
 			});
-			//退出登录
-			$("#logout").click(function(){
-//				localStorage.clear();//清除全部保存的对象
-//				localStorage.removeItem("log_status");
-				window.location.href = "../UserCenter/login.html";
-			});
-
 			//未登陆则跳转登陆页面
 			if(token == null) {
-				alert("请先登陆！");
+				layer.msg("请先登录！");
 				window.location.href = "../UserCenter/login.html";
 			}
 			else {
 				//获取用户个人的土地信息
-				$.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/my_soil/token/"+token, function(json) {
+				$.get(URL+"Farm/my_soil/token/"+token, function(json) {
 					if(json.resultcode == -2) {
-						alert("token已失效，请重新登录！");
-						window.location.href = "login.html";
+						layer.msg("token已失效，请重新登录！");
+						window.location.href = "../UserCenter/login.html";
 					}
 					else {
-//						$(".no-soil").addClass("hide");
 						console.log(json.data.subitem);
-//						if(json.data.subitem == null){
-//							$(".no-soil").css("display","block");//隐藏的部分显示
-//						}else{
-//							$(".no-soil").addClass("hide");
-//						}
-						var template = $.templates("#theTemp1");
-						var html = template.render(json.data);
-						console.log(json.data);
-						$(".result1").html(html);
+						if(json.data.subitem.length == 0){
+							$(".no-soil").removeClass("hide");
+						}else{
+							$(".add_soil").removeClass("hide");
+							var template = $.templates("#theTemp1");
+							var html = template.render(json.data);
+							console.log(json.data);
+							$(".result1").html(html);
+						}
 					}
 				});
-				//获取所有的合作农场的信息
-				$.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/get_farm", function(json) {
-					if(json.resultcode == -2) {
-						alert("token已失效，请重新登录！");
-						window.location.href = "login.html";
-					}
-					else {
-						var template = $.templates("#theTemp2");
-						var html = template.render(json.data);
-						console.log(json.data);
-						$(".result2").html(html);
+				$("#add_soil").click(function(){
+					if(token == null){
+						layer.msg("请先登录！");
+						window.location.href = "../UserCenter/login.html";
+					}else{
+						window.location.href = "rent_soil.html";
 					}
 				});
 			}
 		});
     </script>
-
   </body>
 </html>

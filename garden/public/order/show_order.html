@@ -1,0 +1,80 @@
+<style>
+    .order_show{
+        width: 80%;
+        margin: 10px auto;
+    }
+    .infor .left{
+        width: 30%;
+        float: left;
+    }
+    .infor .right{
+        width: 70%;
+        float: right;
+    }
+    .infor .right span{
+        font-size: 15px;
+        color: #666;
+    }
+    .item_desc{
+        line-height: 25px;
+    }
+    .item_img img{
+        width: 100px;
+        height: 100px;
+    }
+    .fixed{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<div class="order_show">
+    <div class="infor">
+        <h4 style="color: #009926;font-family: 'Microsoft YaHei', '微软雅黑';">商品信息</h4>
+        <hr>
+        <div class="left">
+            <p class="item_img"><img class="fixed" src="" alt="product picture"></p>
+        </div>
+        <div class="right">
+            <p >商品名称：<span class="item_name"></span></p>
+            <p >商品描述：<span class="item_desc"></span></p>
+            <p >商品来源：<span class="item_from"></span></p>
+            <p >商品单价：<span class="item_price"></span></p>
+            <p >商品库存量：<span class="item_amount"></span></p>
+            <p >商品类型：<span class="type_desc"></span></p>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    var id = getQueryString("itemid");
+//    console.log(id);
+    $(function(){
+        $.get("http://localhost:8080/PersonalGarden/index.php/Home/Farm/item_detail/id/"+id,function(json){
+            if(json.resultcode == 0){
+                var item_img = json.data.subitem[0]["item_img"];
+                var item_name = json.data.subitem[0]["item_name"];
+                var item_desc = json.data.subitem[0]["item_desc"];
+                var item_from = json.data.subitem[0]["item_from"];
+                var item_price = json.data.subitem[0]["item_price"];
+                var item_amount = json.data.subitem[0]["item_amount"];
+                var type_desc = json.data.subitem[0]["type_desc"];
+                $(".item_img img").attr("src",item_img);
+                $(".item_name").text(item_name);
+                $(".item_desc").text(item_desc);
+                $(".item_from").text(item_from);
+                $(".item_price").text(item_price);
+                $(".item_amount").text(item_amount);
+                $(".type_desc").text(type_desc);
+            }else{
+                alert(json.reslutmsg);
+            }
+        });
+    });
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>

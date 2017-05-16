@@ -1,0 +1,213 @@
+
+<style>
+    .container{
+        width: 80%;
+        margin: 10px auto;
+        border: 1px solid #eee;
+        padding: 20px;
+    }
+    .admin_manage_div thead{
+        border: 1px solid red;
+    }
+
+    .admin_manage_div thead tr th {
+        border-top: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+        background: #f5f5f5;
+        color: #132846;
+        font-size: 14px;
+        padding: 12px 3px;
+    }
+    .admin_manage_div thead tr {
+        text-align: center;
+        font-weight: 700;
+        border-top: 1px solid #DCDDDF;
+        border-bottom: 1px solid #DCDDDF;
+    }
+    .admin_manage_div tbody {
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+    }
+    .admin_manage_div tbody tr td{
+        border-bottom: 1px solid #DCDDDF;
+        padding: 10px 3px;
+    }
+</style>
+<div class="container">
+    <div class="pageContent">
+        <h3 class="sub-header clearfix">
+            <span class="dib f22 fontn">用户土地</span>
+        </h3>
+    </div>
+    <div class="adminManage_box">
+        <div class="admin_manage_div" id="admin_manage_div">
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>土地ID</th>
+                    <th>土地面积</th>
+                    <th>租赁时长</th>
+                    <th>申请状态</th>
+                    <th>未过原因</th>
+                </tr>
+                <tr style="display: none;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody class="addSoil_tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <script type="text/x-jsrender" id="addSoil_render">
+            {{for subitem}}
+            <tr>
+                <td>{{:soil_id}}</td>
+                <td>{{:soil_area}}(平方米)</td>
+                <td>{{:rent_period}}(月)</td>
+
+                <td>
+                    <select onchange="changeState({{:rent_id}},{{:verify_status}})" class="select{{:rent_id}}">
+                        {{if verify_status =='0'}}
+                              <option value="0" selected="selected">待审核</option>
+                              <option value="1">审核通过</option>
+                              <option value="-1">审核未通过</option>
+                        {{else verify_status =='1'}}
+                              <option value="1" selected="selected">审核通过</option>
+                              <option value="-1">审核未通过</option>
+                        {{else verify_status =='-1'}}
+                              <option value="1">审核通过</option>
+                              <option value="-1" selected="selected">审核未通过</option>
+                        {{/if}}
+                    </select>
+                </td>
+                <td>{{:unpass_cause}}</td>
+
+            </tr>
+            {{/for}}
+        </script>
+    </div>
+</div>
+
+<script src="../../js/jquery-1.7.2.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/jsrender.js"></script>
+<script type="text/javascript">
+    var id = getQueryString("id");
+    $(function() {
+        get_soil();
+    });
+    function get_soil(){
+        $(".addSoil_tbody").empty();
+        $.ajax({
+            type: "get",
+            url: "http://localhost:8080/PersonalGarden/index.php/Home/Soil/my_soil/id/"+id,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data) {
+                if(data.resultcode == -2) {
+                    return false;
+                }
+                if(data.data.subitem == 'null' || data.data.subitem == null) {
+//                    layer.alert("暂无数据！");
+                    layer.msg("暂无数据!",{icon:3});
+                } else {
+                    var addSoil_render = $("#addSoil_render").render(data.data);
+                    $(".addSoil_tbody").html(addSoil_render);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                layer.msg(JSON.stringify(errorThrown));
+            }
+        });
+    }
+
+    //对用户申请的土地进行人工审核,rent_id为当前项id，state为当前项的原状态
+    function changeState(rent_id,state){
+        var verify_status = $(".select"+rent_id).val();
+        var flag = true;//用来判断审核未通过的状态
+        if(verify_status==-1){
+            layer.prompt({
+                title: '请输入未通过理由',
+                formType: 2,
+                end:function(){
+                    if (flag) {
+                        $(".select"+rent_id).find("option[value="+state+"]").prop("selected",true);
+                    }
+                }
+            },function(value,index){
+                var unpass_cause = value;
+                layer.load();
+                $.ajax({
+                    type:"post",
+                    url:"http://localhost:8080/PersonalGarden/index.php/Home/Soil/verify",
+                    async:true,
+                    cache:false,
+                    dataType:'json',
+                    data:JSON.stringify({"data":{"rent_id":rent_id,"verify_status":verify_status,"unpass_cause":unpass_cause}}),
+                    success:function(data){
+                        layer.closeAll();
+                        if(data.resultcode==0){
+                            layer.msg(data.resultmsg,{icon:1});
+                            get_soil();
+                            flag = false;
+                        }
+                    },
+                    error:function(data){
+                        if (flag) {
+                            $(".select"+rent_id).find("option[value="+state+"]").prop("selected",true);
+                        }
+                        layer.closeAll();
+//                        layer.alert("网络连接不正常，请稍后再试！");
+                        return;
+                    }
+                });
+            });
+        }else if(verify_status==1){
+            var unpass_cause ="";
+            layer.confirm("确定通过审核？",
+                    function(){
+                        layer.load();
+                        $.ajax({
+                            type:"post",
+                            url:"http://localhost:8080/PersonalGarden/index.php/Home/Soil/verify",
+                            async:true,
+                            cache:false,
+                            dataType:'json',
+                            data:JSON.stringify({"data":{"rent_id":rent_id,"verify_status":verify_status,"unpass_cause":unpass_cause}}),
+                            success:function(data){
+                                layer.closeAll();
+                                if(data.resultcode==0){
+                                    layer.msg(data.resultmsg,{icon:1});
+                                    get_soil();
+                                    return false;
+                                }
+                            },
+                            error:function(data){
+                                $(".select"+rent_id).find("option[value="+state+"]").prop("selected",true);
+                                layer.closeAll();
+                                return;
+                            }
+                        });
+                    },function(){
+                        layer.msg("你取消了审核通过!",{icon:5});
+                        $(".select"+rent_id).find("option[value="+state+"]").prop("selected",true);
+                    });
+        }
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>
+
+

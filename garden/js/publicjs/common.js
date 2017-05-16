@@ -498,13 +498,13 @@ function alertClose(){
 	 function body_click_unselect() {
 	 	if($(".selected_oi").length > 0) {
 	 		$(".selected_oi").each(function() {
-	 			//		$("#posted_val").blur();		
+	 			//		$("#posted_val").blur();
 	 			$(this).removeClass("selected_oi");
 	 		})
 	 		$(".entrance").each(function() {
-	 			//		$("#posted_val").blur();		
+	 			//		$("#posted_val").blur();
 	 			$(this).removeClass("entrance");
-	 		
+
 	 		})
 	 	}
 	 	$(".answer").css("display","none");
@@ -553,4 +553,27 @@ function alertClose(){
 	 		rollj = left + find_first_edit(tableName_origin, rolli) + 1;
 	 	} //while;
 	 	bottom = rolli;
+	 }
+
+	 function parseUrl_dialog() { //dialog是用的get请求
+		 // 该函数为解析a链接中?后带的参数
+		 var url = $.pdialog.getCurrent().data("url");
+//	console.log(url)
+		 var theRequest = new Object();
+		 if (url.indexOf("?") != -1) {
+			 var str = url.substr(url.indexOf("?") + 1);
+			 strs = str.split("&");
+			 for (var i = 0; i < strs.length; i++) {
+				 theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			 }
+		 }
+		 return theRequest;
+	 }
+
+
+	 function getQueryString(name) {
+		 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		 var r = window.location.search.substr(1).match(reg);
+		 if (r != null) return unescape(r[2]);
+		 return null;
 	 }

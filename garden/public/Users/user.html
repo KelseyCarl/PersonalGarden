@@ -1,0 +1,216 @@
+<style>
+    .operate {
+        color: #3363A4;
+        line-height: 20px;
+        clear: both;
+    }
+</style>
+<div class="pageContent">
+    <h3 class="sub-header clearfix">
+        <span class="dib f22 fontn">注册用户管理</span>
+    </h3>
+    <div>
+        <table width="100%" class="adminManageTab adminManageBox">
+            <tr>
+                <td>
+                    <input type="text" placeholder="请输入用户电话" class="uid" />
+                    <input type="text" placeholder="请输入用户昵称" class="uname" />
+                    <button class="cgBtn-btn cgBtn-primary" onclick="search()"><span>查询</span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="adminManage_box">
+        <div>
+            <div>
+                <div class="admin_manage_div" id="user_manage_div">
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>用户电话</th>
+                            <th>用户昵称</th>
+                            <th>用户地址</th>
+                            <th>租赁土地</th>
+                            <th>售卖申请</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr style="display: none;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody class="addAdmin_tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/x-jsrender" id="addUser_render">
+					{{for data}}
+					<tr>
+						<td>{{:user_phone}}</td>
+						<td>{{:nickname}}</td>
+						<td>{{:user_addr}}</td>
+						<td><a class="operate" onclick="soil('{{:user_id}}');return false">{{:soil_nums}}</a></td>
+						<td><a class="operate" onclick="apply_sale('{{:user_id}}');return false">{{:apply_sale}}</a></td>
+						<!--<td><a class="operate" href="javascript:;" target="ajax" rel="jbsxBox" onclick="soil('{{:user_id}}');return false">{{:soil_nums}}</a></td>-->
+						<td class="cz_change">
+							<div>
+							    <a class="admin_man_add_role" onclick="admin_man_update('{{:user_id}}');return false">查看信息</a>
+								<a class="resetAdminPwd" onclick="change_admin('{{:user_id}}');return false">重置密码</a>
+							</div>
+						</td>
+					</tr>
+					{{/for}}
+				</script>
+            </div>
+        </div>
+        <div class="pagination_live_list">
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                get_users();
+                setTimeout(function() {
+                    $("input.uid.textInput,input.uname.textInput").unbind("focus");
+                }, 500);
+            });
+
+            function get_users() {
+                $(".addAdmin_tbody").empty();
+                var url1 = URL + "User/query_user";
+                if($(".uid").val()) {
+                    url1 = url1 +"/uid/" + $(".uid").val();
+                }
+                if($(".uname").val()) {
+                    url1 = url1 +"/uname/" + $(".uname").val();
+                }
+                $.ajax({
+                    type: "get",
+                    url: url1+"/token/"+token,
+                    dataType: "json",
+                    async: true,
+                    cache: false,
+                    success: function(data) {
+                        if(data.resultcode == -2) {
+                            Tools.tokenMiss("index.html");
+                            return false;
+                        }
+                        if(data.data == 'null' || data.data == null || data.data == undefined) {
+                            layer.msg("暂无数据！");
+                        } else {
+                            var adduser_render = $("#addUser_render").render(data);
+                            $(".addAdmin_tbody").html(adduser_render);
+                            var pagecount = data.pagecount;
+                            var page = data.page;
+                            showFy(pagecount,URL+"User/query_user/token/"+token);//分页显示数据
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        layer.msg(JSON.stringify(errorThrown));
+                    }
+                });
+            }
+
+            function search() {
+                get_users();
+            }
+            //分页
+            function showFy(pagecount, pUrl) {
+                $(".pagination_live_list").createPage({
+                    pageCount: pagecount,
+                    current: 1,
+                    backFn: function(p) {
+                        $.ajax({
+                            type: "get",
+                            url: pUrl + '/page/' + p,
+                            async: true,
+                            dataType: "json",
+                            cache: false,
+                            success: function(data) {
+                                if(data.resultcode == -2) {
+                                    Tools.tokenMiss("../../index.html");
+                                    return false;
+                                }
+                                if(data.data == 'null' || data.data == null || data.data == undefined) {
+                                    layer.msg("暂无数据！");
+                                } else {
+                                    var adduser_render = $("#addUser_render").render(data);
+                                    $(".addAdmin_tbody").html(adduser_render);
+                                }
+                            }
+                        })
+                    }
+                });
+            }
+            //重置管理员密码为：123456
+            function change_admin(id) {
+                layer.confirm('确认重置该用户密码？', {
+                            btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                        },
+                        function() { //点前者执行方法
+                            $.ajax({
+                                type: "post",
+                                url: URL+"User/reset_pass/token/" + token + "/id/" + id,
+                                dataType: "json",
+                                async: true,
+                                cache: false,
+                                success: function(data) {
+                                    if(data.resultcode == 0) {
+                                        layer.msg(data.resultmsg);
+                                        get_users();
+                                    } else if(data.resultcode == -2) {
+                                        Tools.tokenMiss("index.html");
+                                        return false;
+                                    } else {
+                                        layer.msg(data.resultmsg);
+                                        return false;
+                                    }
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                    layer.msg(JSON.stringify(errorThrown));
+                                }
+                            });
+                        },
+                        function() { //点后者执行方法
+                        }
+                )
+            }
+
+            //查看用户信息
+            function admin_man_update(user_id) {
+                layer.open({
+                    type:2,
+                    title:"查看用户个人信息",
+                    area: ['500px', '300px'],
+                    content: ['public/Users/show_user.html?id=' + user_id, 'no']
+                });
+//                $.pdialog.open("public/Users/show_user.html?id=" + user_id, "pdialogid", "查看用户个人信息", {
+//                    maxable: false,
+//                    minable: false,
+//                    mask: true,
+//                    width: 550,
+//                    height: 320
+//                });
+                return false;
+            }
+            function soil(user_id){
+                layer.open({
+                    type:2,
+                    title:"查看用户土地信息",
+                    area: ['800px', '500px'],
+                    content: ['public/Users/user_soil.html?id=' + user_id, 'no']
+                });
+            }
+
+            function apply_sale(id){
+                layer.open({
+                    type:2,
+                    title:"用户售卖申请",
+                    area: ['800px', '500px'],
+                    content: ['public/Users/user_sale.html?id=' + id, 'no']
+                });
+            }
+        </script>

@@ -1,0 +1,93 @@
+<!--http://upload.qiniu.com/ http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload/token/61c483c5b43448e30b71b210b0ec7be6-->
+
+
+<!--<script src="../../js/jquery-1.7.2.js"></script>-->
+<style>
+    .buttonActive,
+    .buttonContent {
+        background: none;
+    }
+
+    .buttonActive {
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #62A5C3;
+        outline: none;
+        background: #EBF2F3;
+        height: 23px;
+    }
+    .upload{
+        float: left;
+    }
+    .pageFormContent label {
+        text-align:center;
+    }
+</style>
+<div class="pageContent">
+    <form >
+
+    </form>
+    <form class="pageForm required-validate" method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Qiniu/upload4" enctype="multipart/form-data">
+        <div class="pageFormContent" layoutH="88">
+            <p>
+                <label>商品图片：</label>
+                <input name="token" type="hidden" value="<upload_token>">
+                <input name="myfile" type="file" />
+            </p>
+            <p>
+                <label>商品名称：</label>
+                <input class="adminName_addAdmin required" name="goods_name" type="text" size="20" value="" />
+            </p>
+            <p>
+                <label>商品数量：</label>
+                <input class="adminName_addAdmin required" name="goods_amount" min="10" type="number" size="20" value="10" />
+            </p>
+
+            <p>
+                <label>商品价格：</label>
+                <input class="adminName_addAdmin required" name="goods_price" type="text" size="20" value="" />
+            </p>
+
+            <p>
+                <label>商品类型：</label>
+                <select class="adminName_addAdmin required" id="chose_goods" name="chose_goods">
+                    <option value="root" selected>根菜类</option>
+                    <option value="jing">茎菜类</option>
+                    <option value="leaf" >叶菜类</option>
+                    <option value="flower" >花菜类</option>
+                    <option value="fruit" >果菜类</option>
+                    <option value="tools" >农资工具</option>
+                    <option value="seeds" >种子种苗</option>
+                    <option value="taocan" >套餐推荐</option>
+                    <option value="dangji" >时令蔬菜</option>
+                </select>
+            </p>
+
+            <p>
+                <label>商品源头：</label>
+                <select class="adminName_addAdmin required" id="goods_from" name="goods_from">
+                    <option value="001" selected>一点田西江月农场</option>
+                    <option value="002">田园牧歌</option>
+                    <option value="003" >翔生有机生态农场</option>
+                </select>
+            </p>
+
+            <p>
+                <label>商品描述：</label>
+                <textarea class="adminName_addAdmin required" name="goods_desc" size="20"></textarea>
+            </p>
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="save_addAdmin">
+                    <input class="buttonActive" id="up"  type="submit" value="保存" />
+                    <!--<div class="buttonActive">提交</div>-->
+                </li>
+                <li>
+                    <div class="buttonContent"><button type="button" class="close">取消</button></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
