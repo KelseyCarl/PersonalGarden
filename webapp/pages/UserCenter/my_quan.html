@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的服务券</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
+    <style type="text/css">
+        .goods_desc .buy_amount{
+            float: right;
+            color:darkred;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row title-top">
+        <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        </div>
+        <div class="small-10 columns top-6">
+            <h5 class="">我的服务券</h5>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="no-quan hide"><!--hide隐藏区域-->
+            <div class="row">
+                <div class="small-12 columns">
+                    <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div style="height: 20px;"></div>
+                    <p class="text-center">暂无数据</p>
+                </div>
+            </div>
+        </div>
+        <div id="render">
+        </div>
+        <script id="theTemp" type="x-jsrender">
+            {{for subitem}}
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <a href="../ShopMall/buy_detail.html?id={{:id}}"><img src={{:item_img}} alt="women"></a>
+                    </div>
+                    <div class="media-object-section goods_desc">
+                        <p class="hide get_item_id">{{:id}}</p>
+                        <h6>{{:item_name}} </h6>
+                        <p class="item_from">来自:{{:item_from}} <span class="buy_amount" >&times;{{:buy_amount}}</span></p>
+                        <p class="">服务券用途:{{:item_desc}} </p>
+                    </div>
+                </div>
+                <hr>
+            {{/for}}
+        </script>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    var token = getCookie("token");
+    $(function(){
+        if(token == null) {
+            layer.msg("请先登录！");
+            window.location.href = "login.html";
+        }
+        else {
+            //获取我的服务券
+            get_quan();
+        }
+    });
+
+    function get_quan(){
+        $.get(URL+"Order/show_quan/token/"+token, function(json) {
+            if(json.resultcode == -2) {
+                layer.msg("token已失效，请重新登录！");
+                window.location.href = "login.html";
+            }
+            else {
+                if(json.data.subitem.length == 0){
+                    $(".no-quan").removeClass("hide");
+                }else{
+                    var template = $.templates("#theTemp");
+                    var html = template.render(json.data);
+                    console.log(json.data);
+                    $("#render").html(html);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

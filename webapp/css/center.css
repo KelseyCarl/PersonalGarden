@@ -1,0 +1,95 @@
+/*个人中心页面设置css*/
+.container{
+    width: 80%;
+    margin: 20px auto;
+}
+.title-top{
+    border-bottom: 1px solid #e8e6e8;
+    /*text-align: center;*/
+    background: #06c673;
+    color: #fff;
+    padding: 10px;
+}
+.title-top h5{
+    font-size: 16px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 2px;
+    margin-left: -30px;
+}
+.top-6{
+    margin-top: 6px;
+}
+
+.empty{
+    width: 200px;
+    height: 170px;
+    margin-top: 40px;
+}
+.touxiang{
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    border:1px solid #999;
+    border-radius: 50px;
+}
+.row img{
+    padding: 25px;
+    margin: 10px auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left:17%;
+}
+.media-object img{
+    width: 80px;
+    height: 80px;
+}
+.fahuo{
+    font-size: 14px;
+    color: #666;
+}
+.goods_desc h6{
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+}
+.goods_desc h6 span{
+    color: #cc4b37;
+    margin-left: 12px;
+}
+.goods_desc p{
+    font-size: 13px;
+    color: #888;
+}
+.kucun{
+    margin-left: 6px;
+    font-size: 12px;
+    color: #666;
+    height: 40px;
+    line-height: 40px;
+}
+.total_money{
+    padding: 10px 5px;
+    margin-top: 30px;
+    font-size: 16px;
+    color:#111111;
+}
+.total_money span{
+    color:#cc4b37;
+    font-weight: bold;
+}
+.button.expanded{
+    margin-top: 10px;
+}
+.count_btn{
+}
+.del_collect_item{
+    padding:0.25em 0.55em;
+    margin-left: 25px;
+}
+.del_cart_item{
+    padding:0.25em 0.25em;
+    font-size: 11px;
+    margin-left:15px;
+}

@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实时生长</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <link href="../../layer/skin/default/layer.css" rel="stylesheet">
+    <style type="text/css">
+        .container{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .title-top{
+            /*border: 1px solid red;*/
+            text-align: center;
+            background: #06c673;
+            color: #fff;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 8px;
+        }
+        .button.warning,.button.success{
+            color: #fff;
+        }
+        tspan{
+            font-size: 12px;
+        }
+        #time{
+            width: 200px;
+            float: left;
+        }
+        #now_temper,#now_wet{
+            color: firebrick;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="row">
+        <div class="small-12 columns title-top">
+            <h5>
+                <i class="fi-arrow-left float-left" onclick="window.history.back()"></i>
+                环境因子
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns show_data">
+            <!-- 温度/湿度曲线图表-->
+            <h5 class="">实时温度：<span id="now_temper"></span> </h5>
+            <h5 class="">实时湿度：<span  id="now_wet"></span> </h5>
+            <h5 class="">
+                <span class="float-left">选择日期：</span>
+                <input type="date" id="time" onchange="edit_time()" style="font-size: 16px"/>
+            </h5>
+            <div id="charts1" style="width: 600px;height: 500px;margin:10px auto;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<!--<script src="../../js/vendor/highcharts.js"></script>-->
+<script src="../../js/vendor/echarts.js"></script>
+<script src="../../js/temper_line.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+<script>
+    var token = getCookie("token");
+    $("#token2").val(token);
+    $(function() {
+        var timer = window.setTimeout(" insert_data()",100);
+        get_data();
+    });
+    function edit_time(){
+        if($("#time").val())
+            get_data();
+    }
+    function get_data() {
+        //获取最新数据
+        var  url2=URL+"Data/now_data"
+        $.ajax({
+            type: "get",
+            url: url2+"/token/"+token,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data1) {
+                if (data1.resultcode == -2) {
+                    Tools.tokenMiss("index.html");
+                    return false;
+                }
+                if (data1.data == 'null' || data1.data == null || data1.data == undefined || data1.data.length == 0) {
+                    layer.msg("暂无数据！");
+                } else {
+                    $("#now_temper").html(data1.data[0].soil_temper+"℃");
+                    $("#now_wet").html(data1.data[0].soil_wet+"°");
+                    $("#now_temper").css("font-size","20px");
+                    $("#now_wet").css("font-size","20px");
+                }
+            }
+        });
+        //获取历史数据
+        var url1 = URL + "Data/all_data";
+        if($("#time").val()) {
+            url1 = url1 +"/time/" + $("#time").val();
+        }
+        $.ajax({
+            type: "get",
+            url: url1+"/token/"+token,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data1) {
+                if(data1.resultcode == -2) {
+                    Tools.tokenMiss("index.html");
+                    return false;
+                }
+                if(data1.data == 'null' || data1.data == null || data1.data == undefined||data1.data.length==0  ) {
+                    layer.msg("暂无数据！");
+                } else {
+                    var myChart1 = echarts.init(document.getElementById('charts1'));
+                    var xAxisData = [];
+                    var data3 = [];
+                    var data2 = [];
+                    for (var i = 47; i>0; i--) {
+                        if((47-i)%2==0){
+                            xAxisData.push(  (47-i)/2+':00');
+                            data3.push(data1.data[i].soil_temper);
+                            data2.push(data1.data[i].soil_wet);
+                        }
+                        else{
+                            xAxisData.push(   (47-i-1)/2+':30');
+                            data3.push(data1.data[i].soil_temper);
+                            data2.push(data1.data[i].soil_wet);
+                        }
+                    }
+                    option = {
+                        title: {
+                            text: '土壤温湿度变化图'
+                        },
+                        legend: {
+                            top:20,
+                            data: ['温度', '湿度'],
+                            align: 'left'
+                        },
+                        toolbox: {
+                            // y: 'bottom',
+                            feature: {
+                                magicType: {
+                                    type: ['stack', 'tiled']
+                                },
+                                dataView: {},
+                                saveAsImage: {
+                                    pixelRatio: 2
+                                }
+                            }
+                        },
+                        tooltip: {},
+                        xAxis: {
+                            data: xAxisData,
+                            silent: false,
+                            splitLine: {
+                                show: false
+                            }
+                        },
+                        yAxis: {
+                        },
+                        series: [{
+                            name: '温度',
+                            type: 'line',
+                            data: data3,
+                            animationDelay: function (idx) {
+                                return idx * 10;
+                            }
+                        }, {
+                            name: '湿度',
+                            type: 'line',
+                            data: data2,
+                            animationDelay: function (idx) {
+                                return idx * 10 + 100;
+                            }
+                        }],
+                        animationEasing: 'elasticOut',
+                        animationDelayUpdate: function (idx) {
+                            return idx * 5;
+                        }
+                    };
+                    myChart1.setOption(option);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                layer.msg(JSON.stringify(errorThrown));
+            }
+        });
+    }
+    function insert_data () {
+        var MyDateTime=new Date();
+        //获取年月日时分秒
+        var year = MyDateTime.getFullYear();
+        var month = MyDateTime.getMonth()+1;
+        var date = MyDateTime.getDate();
+        var hour = MyDateTime.getHours();
+        var minutes = MyDateTime.getMinutes();
+        var second = MyDateTime.getSeconds();
+        //补0
+        if(month<10){
+            month = "0" + month;
+        }
+        if(date<10){
+            date = "0" + date;
+        }
+        if(hour <10){
+            hour = "0" + hour;
+        }
+        if(minutes <10){
+            minutes = "0" + minutes;
+        }
+        var url3=URL+"Data/insert_data"+"/now_time/"+year+month+date+hour+minutes;
+//        alert(url3);
+        $.ajax({
+            type: "get",
+            url: url3+"/token/"+token,
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data1) {
+                //alert("最新数据已经入库")
+            }
+        });
+    }
+</script>
+</body>
+</html>

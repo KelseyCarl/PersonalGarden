@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的种子</title>
+    <link rel="stylesheet" href="../../css/foundation.6.3.0.css" />
+    <link rel="stylesheet" href="../../layer/skin/default/layer.css">
+    <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/app.css" />
+    <style>
+        select{
+            width: 70%;
+            margin: 14%;
+        }
+    </style>
+</head>
+<body>
+<select id="seeds" name="seeds">
+    <option selected>请选择</option>
+    <option>1</option>
+    <option>2</option>
+</select>
+<script src="../../js/vendor/jquery.js"></script>
+<script src="../../js/vendor/what-input.js"></script>
+<script src="../../js/vendor/foundation.6.3.0.js"></script>
+<script src="../../js/vendor/jsrender.js"></script>
+<script src="../../layer/layer.js"></script>
+<script src="../../js/app.js"></script>
+
+<script>
+    var token = getCookie("token");
+    $(function(){
+        $("#seeds").empty();
+        $("#seeds").append("<option>-请选择-</option>");
+        $.get(URL+"Operate/my_seeds/token/"+token,function(json){
+            console.log(json.data.subitem);
+            var count = json.data.subitem.length;
+            for(var i = 0;i < count;i++){
+                var seeds = json.data.subitem[i].item_name;
+                var id = json.data.subitem[i].item_id;
+                $("#seeds").append("<option value='"+id+"'>"+seeds+"</option>");
+            }
+        });
+//        alert($("#seeds option:selected").val());
+        $("#seeds").change(function(){
+            var item_id=$(this).children('option:selected').val();//这就是selected的值
+            //item_id存在本地
+            localStorage.setItem("item_id",item_id);
+//            var local_item_id = localStorage.getItem("item_id");
+//            alert(local_item_id);
+        });
+
+    });
+</script>
+</body>
+</html>
