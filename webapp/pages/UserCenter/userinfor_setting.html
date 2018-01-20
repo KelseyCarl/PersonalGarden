@@ -8,25 +8,30 @@
     <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
+    <!--<link rel="stylesheet" href="../../css/center.css" />-->
     <style type="text/css">
-      .container{
-        width: 80%;
-        margin: 20px auto;
-      }
-      .title-top{
-        border-bottom: 1px solid #e8e6e8;
-      	/*text-align: center;*/
-      	background: #06c673;
-      	color: #fff;
-        padding: 10px;
-      }
-      .title-top h5{
-      	font-size: 16px;
-      	font-weight: bold;
-        height: 20px;
-        line-height: 20px;
-      	margin-top: 2px;
-      }
+        .container{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .title-top{
+            border-bottom: 1px solid #e8e6e8;
+            /*text-align: center;*/
+            background: #06c673;
+            color: #fff;
+            padding: 10px;
+        }
+        .title-top h5{
+            font-size: 16px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 20px;
+            margin-top: 2px;
+            margin-left: -30px;
+        }
+        .top-6{
+            margin-top: 6px;
+        }
       .title-top .save{
         color: #fff;
       }
@@ -76,13 +81,13 @@
   <body>
 	<div class="">
     	<div class="row title-top">
-          <div class="small-2 columns">
-            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+          <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
           </div>
-      		<div class="small-7 columns">
-        			<h5 class="text-center">资料完善</h5>
-      	  </div>
-          <div class="small-3 columns">
+      		<div class="small-7 columns top-6">
+                <h5 class="text-center">资料完善</h5>
+      	    </div>
+          <div class="small-3 columns top-6">
             <a href="" class="save float-right" id="save">保存</a>
           </div>
     	</div>
@@ -141,18 +146,18 @@
           <div style="height: 20px;"></div>
           <div class="row change_head">
               <div class="small-4 columns" >
-                <p class="first_p">修改密码</p>
+                <p class="first_p">重置密码</p>
               </div>
               <div class="small-6 columns">
                 <p class="second_p float-right"></p>
               </div>
               <div class="small-2 columns">
-                <img class="arrow_img" src="../../img/right_arrow.png" alt="arrow">
+                <a href="resetpass.html"><img class="arrow_img" src="../../img/right_arrow.png" alt="arrow"></a>
               </div>
           </div>
       </div>
       <div class="container">
-        <button type="button" class="button success expanded">退出登录</button>
+        <button type="button" id="logout" class="button success expanded">退出登录</button>
       </div>
 	</div>
 
@@ -162,11 +167,19 @@
     <script src="../../layer/layer.js"></script>
     <!--<script src="../../js/app.js"></script>-->
     <script>
-        URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
+//        URL = "http://localhost/PersonalGarden/index.php/Home/";
+        URL = "http://192.111.111.221/PersonalGarden/index.php/App/";
         $(document).foundation();
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+//        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        //从cookie中获取token值
+        var token = getCookie("token");
         console.log(token);
         $(function(){
+            $("#logout").click(function(){
+//				localStorage.clear();//清除全部保存的对象
+//                localStorage.removeItem("log_status");
+                window.location.href = "login.html";
+            });
 
             $("#changehead").click(function(){
                 window.location.href = "change_head.html";
@@ -174,15 +187,19 @@
             //昵称的修改
             $(".arrow_here1").click(function(){
                 $("#nickname1").removeClass("hide");//输入框出现
-                $(".arrow_here").addClass("hide");//箭头消失
+                $(".arrow_here1").addClass("hide");//箭头消失
                 $("#nickname2").addClass("hide");//文本元素消失
             });
             $("#nickname1").blur(function(){
                 $("#nickname1").addClass("hide");//失去焦点隐藏
                 $("#nickname2").removeClass("hide");
                 var put_val = $("#nickname1").val();
+                if(put_val == null || put_val == undefined || put_val == ''){
+                    $(".arrow_here1").removeClass("hide");
+                    return;
+                }
                 $("#nickname2").text(put_val);
-                $(".arrow_here").removeClass("hide");
+                $(".arrow_here1").removeClass("hide");
             });
             //电话号码的修改
             $(".arrow_here2").click(function(){
@@ -194,6 +211,10 @@
                 $("#tel1").addClass("hide");//失去焦点隐藏
                 $("#tel_num").removeClass("hide");
                 var put_val = $("#tel1").val();
+                if(put_val == null || put_val == undefined || put_val == ''){
+                    $(".arrow_here1").removeClass("hide");
+                    return;
+                }
                 $("#tel_num").text(put_val);
                 $(".arrow_here2").removeClass("hide");
             });
@@ -207,37 +228,21 @@
                 $("#addr1").addClass("hide");//失去焦点隐藏
                 $("#address").removeClass("hide");
                 var put_val = $("#addr1").val();
+                if(put_val == null || put_val == undefined || put_val == ''){
+                    $(".arrow_here1").removeClass("hide");
+                    return;
+                }
                 $("#address").text(put_val);
                 $(".arrow_here3").removeClass("hide");
             });
-            if(token == null) {
-                layer.msg("请先登录！");
-                window.location.href = "login.html";
-            }
-            else {
-                getinfor();
-                //获取用户信息
-//                $.get(URL+"Login/login/token/"+token, function(json) {
-//                    if(json.resultcode == -2) {
-//                        layer.msg("token已失效，请重新登录！");
-//                        window.location.href = "login.html";
-//                    }
-//                    else {
-//                        user_head = json.data.subitem[0].photo_url;//获取用户头像
-//                        nickname = json.data.subitem[0].nickname;//获取用户昵称
-//                        user_tel = json.data.subitem[0].user_phone;//获取用户电话
-//                        user_addr = json.data.subitem[0].user_addr;//获取用户收货地址
-//                        console.log(nickname);
-//                        if(user_tel){
-//                            $(".head_img").attr('src',user_head);
-//                            $("#nickname2").text(nickname);
-//                            $("#tel_num").text(user_tel);
-//                            $("#address").text(user_addr);
-//                        }
-//                    }
-//                });
-            }
-
+            getinfor();
+//            if(token == null) {
+//                layer.msg("请先登录！");
+//                window.location.href = "login.html";
+//            }
+//            else {
+//                getinfor();
+//            }
             //点击保存将用户资料存入数据库中
             $("#save").click(function(){
                 var nickname = $("#nickname2").text();
@@ -301,6 +306,15 @@
                     }
                 }
             });
+        }
+
+        function getCookie(name)
+        {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if(arr=document.cookie.match(reg))
+                return unescape(arr[2]);
+            else
+                return null;
         }
     </script>
   </body>

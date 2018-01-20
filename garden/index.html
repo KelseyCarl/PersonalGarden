@@ -152,36 +152,8 @@ $(function(){
 	$("#loginsub").click(function(){
 		login();
 	});
-	
-})
-//	function autoLogin(){
-//	var ckey=getRequestParam("ckey");
-//	var oaId=getRequestParam("staffOaid");
-//	if(ckey&&oaId){
-//		$.ajax({
-//			type:"get",
-//			url:URL+"Member/member_login/ckey/"+ckey+"/staffOaid/"+oaId,
-//			async:false,
-//			dataType:'json',
-//			success:function(data){
-//				if(data.resultcode==0){
-//				 	var token=data.data.token;
-//					var qt1=data.data.qt1;
-//					window.open("main.html?token="+token+"&&qt1="+qt1,'_blank');
-//				}
-//				else{
-//					return;
-//				}
-//			},
-//			error:function(XMLHttpRequest, textStatus, errorThrown, data) {
-//					alert(errorThrown);
-//					return ;
-//				}
-//		});
-//		}
-//	}
+});
 function login(){
-	
 	if($("#username").val()&&$("#password").val()){
 	var Data={
 		data:{
@@ -191,8 +163,7 @@ function login(){
 	};
 	$.ajax({
 		type:"post",
-//		url:URL+"Admin/login",//在接口确定之后修改
-		url:"http://localhost:8080/PersonalGarden/index.php/Home/Admin/login",//在接口确定之后修改
+		url:"http://192.111.111.221/PersonalGarden/index.php/Admin/Admin/login",//在接口确定之后修改
 		data:JSON.stringify(Data),
 		async:true,
 		dataType:'json',

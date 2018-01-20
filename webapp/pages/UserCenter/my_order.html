@@ -8,63 +8,24 @@
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
     <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <style type="text/css">
-        .container{
-            width: 80%;
-            margin: 20px auto;
-        }
-        .title-top{
-            border-bottom: 1px solid #e8e6e8;
-            /*text-align: center;*/
-            background: #06c673;
-            color: #fff;
-            padding: 10px;
-        }
-        .title-top h5{
-            font-size: 16px;
-            font-weight: bold;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 2px;
-            margin-left: -30px;
-        }
         .tabs-title > a {
             padding: 1.25rem 1.5rem;
             /*padding: 1.25rem 2.17rem;*/
             font-size: 0.85rem;
-        }
-        .media-object img{
-            width: 80px;
-            height: 80px;
-        }
-        .goods_desc h6{
-            font-size: 14px;
-            color: #222;
-            font-weight: bold;
-        }
-        .goods_desc h6 span{
-            color: #cc4b37;
-            margin-left: 12px;
-        }
-        .goods_desc p{
-            font-size: 13px;
-            color: #888;
-        }
-        .no-cart img{
-            width: 100px;
-            height: 100px;
         }
     </style>
 </head>
 <body>
 <div class="">
     <div class="row title-top">
-        <div class="small-2 columns">
-            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
-        <div class="small-10 columns">
-            <h5 class="text-center">我的订单</h5>
+        <div class="small-10 columns top-6">
+            <h5>我的订单</h5>
         </div>
     </div>
     <!--tabs实现-->
@@ -81,7 +42,7 @@
                 <div class="no-cart"><!--hide隐藏区域-->
                     <div class="row">
                         <div class="small-12 columns">
-                            <img src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                            <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
                         </div>
                     </div>
                     <div class="row">
@@ -96,7 +57,7 @@
                 <div class="no-cart hide"><!--hide隐藏区域-->
                     <div class="row">
                         <div class="small-12 columns">
-                            <img src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                            <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
                         </div>
                     </div>
                     <div class="row">
@@ -126,7 +87,7 @@
                 <div class="no-cart hide"><!--hide隐藏区域-->
                     <div class="row">
                         <div class="small-12 columns">
-                            <img src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                            <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
                         </div>
                     </div>
                     <div class="row">
@@ -167,7 +128,7 @@
                 <div class="no-cart"><!--hide隐藏区域-->
                     <div class="row">
                         <div class="small-12 columns">
-                            <img src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                            <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
                         </div>
                     </div>
                     <div class="row">
@@ -190,7 +151,9 @@
 <script src="../../js/app.js"></script>
 <script>
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+//        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        var token = getCookie("token");
+        console.log(token);
         if(token == null){
             layer.msg("您还没有登录");
             window.location.href = "login.html";

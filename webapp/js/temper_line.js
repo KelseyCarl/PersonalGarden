@@ -66,5 +66,5 @@ $(document).ready(function() {
     json.series = datas;
 
     //绘制图表
-    $('#temper').highcharts(json);
+    //$('#temper').highcharts(json);
 });

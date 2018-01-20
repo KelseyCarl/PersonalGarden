@@ -42,7 +42,6 @@
             border-radius: 40px;
             margin-top: 35px;
             border:2px solid #fff;
-
         }
         .head_set,.settings{
             position: absolute;
@@ -143,10 +142,10 @@
                 <hr>
             </div>
             <ul class="off-canvas-list">
-                <li><a href="../HomePage/home.html" target="_self"><i class="fi-home"></i>首页</a></li>
-                <li><a href="../ShopMall/shopping_mall.html" target="_self"><i class="fi-shopping-cart"></i>电子商务</a></li>
+                <li><a href="../ShopMall/home.html" target="_self"><i class="fi-home"></i>首页</a></li>
                 <li><a href="../Mysoil/my_soil.html" target="_self"><i class="fi-layout"></i>我的土地</a></li>
-                <li><a href="user_center.html" target="_self"><i class="fi-torso"></i>  个人中心</a></li>
+                <li><a href="user_center.html" target="_self"><i class="fi-torso"></i>个人中心</a></li>
+                <li><a href="../About/about.html" target="_self"><i class="fi-shopping-cart"></i>关于我们</a></li>
                 <li><a href="../SystemSettings/system_setting.html" target="_self"><i class="fi-widget"></i>设置</a></li>
             </ul>
             <div class="container">
@@ -162,9 +161,6 @@
             </div>
             <!-- 导航栏开始 -->
             <nav class="marketing-topbar show-for-medium">
-                <!-- <ul class="menu">
-                  <li class="topbar-title text-center"><a href="">电子商务中心</a></li>
-                </ul> -->
                 <div class="menu">
                     <h5 class="topbar-title text-center dianshang">个人中心</h5>
                 </div>
@@ -176,7 +172,7 @@
                     <div class="small-12 columns personal_part" style="">
                         <!-- <img class="head_set float-center" src="img/female.jpg" alt="head" width="80" height="80" style="opacity: 1;-webkit-filter: blur(0px);filter: blur(0px);"> -->
                     </div>
-                    <div class="settings">
+                    <div class="settings" style="z-index: 100;">
                         <a href="userinfor_setting.html" id="settings"><i class="fi-widget"></i></a>
                     </div>
                     <div class="small-12 columns head_set">
@@ -280,7 +276,20 @@
                     </div>
                 </div>
                 <hr style="margin-top: -10px;" >
-                <div id="my_account" class="row" style="background: #fff;margin-top: -20px;">
+
+                <div id="my_quan" class="row" style="background: #fff;margin-top: -20px;">
+                    <div class="small-10 columns" >
+                        <button type="button" class="button alert btn_radius">
+                            <i class="fi-clipboard-notes"></i>
+                            <!-- <span>我的订单</span> -->
+                        </button><span>&nbsp;&nbsp;我的服务券</span>
+                    </div>
+                    <div class="small-2 columns float-right">
+                        <img class="float-right" src="../../img/right_arrow.png" alt="arrow" width="20" height="20" style="margin-top: 20px;">
+                    </div>
+                </div>
+
+                <div id="my_account" class="row" style="background: #fff;margin-top: 15px;">
                     <div class="small-10 columns" >
                         <button type="button" class="button alert btn_radius">
                             <i class="fi-clipboard-notes"></i>
@@ -305,12 +314,13 @@
 <script>
     $(function(){
         //登陆的token
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+//        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        var token = getCookie("token");
         console.log(token);
         //未登陆则跳转登陆页面
         if(token == null) {
             layer.msg("请先登录！");
-            window.location.href = "login.html";
+//            window.location.href = "login.html";
         }
         else {
             //获取用户信息
@@ -324,6 +334,7 @@
                     user_tel = json.data.subitem[0].user_phone;
                     user_desc = json.data.subitem[0].sentence;
                     user_head = json.data.subitem[0].photo_url;
+                    sentence = json.data.subitem[0].sentence;
                     console.log(user_head);
                     if(user_tel){
                         //添加欢迎信息
@@ -336,6 +347,8 @@
                         $(".head_set .head_img").attr('src',user_head);
                         $(".media-object-section img").attr('src',user_head);
                         $(".personal_part").css("background-image","url("+user_head+")");
+                        //个性签名处默认加载
+                        $("#mysign").text(sentence);
                     }
                 }
             });
@@ -405,11 +418,34 @@
         $("#my_apply").click(function(){
             window.location.href = "my_apply.html";
         });
+        //我的服务券
+        $("#my_quan").click(function(){
+            window.location.href = "my_quan.html";
+        });
         //我的账户
         $("#my_account").click(function(){
             window.location.href = "my_account.html";
         });
     });
+
+
+    function readcookie(name)
+    {
+        var cookievalue = "";
+        var search = name + "=";
+        if(document.cookie.length > 0)
+        {
+            offset = document.cookie.indexof(search);
+            if (offset != -1)
+            {
+                offset += search.length;
+                end = document.cookie.indexof(";", offset);
+                if (end == -1) end = document.cookie.length;
+                cookievalue = unescape(document.cookie.substring(offset, end))
+            }
+        }
+        return cookievalue;
+    }
 </script>
 
 </body>

@@ -15,7 +15,7 @@
 <div class="register-box">
     <div class="register-box-content">
         <div class="register-logo">
-            <a href="../HomePage/home.html"><img src="../../img/mygarden.png"></a>
+            <a href="../About/about.html"><img src="../../img/mygarden.png"></a>
         </div>
         <div class="register-box-body">
             <p class="register-box-msg">密码重置</p>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="row">
-                <div class="small-6 columns text-left"><a href="login.html">返回</a>
+                <div class="small-6 columns text-left"><a href="javascript:window.history.back()">返回</a>
                 </div>
             </div>
             <!--</form>-->
@@ -70,8 +70,11 @@
 <script src="../../js/app.js"></script>
 <script src="../../layer/layer.js"></script>
 <script>
-    URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
+    URL = "http://192.111.111.221/PersonalGarden/index.php/App/";
     $(document).foundation();
+//    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+    var token = getCookie("token");
+    console.log(token);
     $(function(){
         $("#reset_btn").click(function(){
             reset_pass();
@@ -95,7 +98,7 @@
                 };
                 $.ajax({
                     type:"post",
-                    url:URL+"Login/reset_pass",
+                    url:URL+"Login/reset_pass/token/"+token,
                     data:JSON.stringify(Data),
                     async:true,
                     dataType:'json',

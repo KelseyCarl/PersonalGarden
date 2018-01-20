@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
-
-
 </head>
 <body class="login-page">
     <div class="login-box">
         <div class="login-box-content">
             <div class="login-logo">
-                <a href="../HomePage/home.html"><img src="../../img/mygarden.png"></a>
+                <a href="../About/about.html"><img src="../../img/mygarden.png"></a>
             </div>
             <div class="login-box-body">
                 <p class="login-box-msg">用户登录</p>
@@ -52,10 +50,10 @@
 <script src="../../js/vendor/what-input.js"></script>
 <script src="../../js/vendor/foundation.6.3.0.js"></script>
 <script src="../../layer/layer.js"></script>
-<script src="../../js/app.js"></script>
 <!--控件初始化-->
 <script type="text/javascript">
-    URL = "http://localhost:8080/PersonalGarden/index.php/Home/";
+    URL = "http://192.111.111.221/PersonalGarden/index.php/App/";
+//    URL = "http://localhost/PersonalGarden/index.php/Home/";
     $(document).foundation();
     $(function(){
         $("#login_btn").click(function(){
@@ -82,12 +80,13 @@
                     success:function(data){
                         //登录信息正确的时候
                         if(data.resultcode==0){
-                            var token =data.data.subitem[0].token;
-                            //本地缓存:登录之后产生token
-                            localStorage.setItem("log_status",token);
-                            var log_local = localStorage.getItem("log_status");
-                            console.log(log_local);
-//                            window.location.href="../HomePage/home.html";//登录之后跳转到商城页面
+//                            var token =data.data.subitem[0].token;
+//                            //本地缓存:登录之后产生token
+//                            localStorage.setItem("log_status",token);
+//                            var log_local = localStorage.getItem("log_status");
+//                            console.log(log_local);
+//                            window.location.href="../About/about.html";//登录之后跳转到商城页面
+                            layer.msg(data.resultmsg);
                             window.location.href = "userinfor_setting.html";//登录之后跳转到资料完善页面
                         }
                         else if(data.resultcode== -2){

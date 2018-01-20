@@ -32,29 +32,39 @@
             height: 100%;
         }
         .operate{
-            padding: 20px 0;
+            /*border: 1px solid red;*/
+            background: #eee;
         }
-        .operate button{
-            margin-left: 20px;
-            padding: 0.85em 2em;
+        .operate ul li{
+            float: left;
+            padding: 13px 6px;
+            color: royalblue;
+            font-family: "Microsoft YaHei", "微软雅黑";
+            font-size: 13px;
+        }
+        .plant_now{
+            color: darkred;
+            font-weight: bold;
+        }
+        /*.operate{*/
+            /*padding: 20px 0;*/
+        /*}*/
+        /*.operate button{*/
+            /*margin-left: 20px;*/
+            /*padding: 0.85em 2em;*/
+            /*border-radius: 10px;*/
+            /*color: #fff;*/
+        /*}*/
+        .button.warning,.button.success,.button.alert{
+            color: #fff;
             border-radius: 10px;
-            color: #fff;
-        }
-        .button.warning,.button.success{
-            color: #fff;
         }
         tspan{
             font-size: 12px;
         }
-        /*.jw-media{*/
-            /*border:2px solid greenyellow;*/
-            /*margin-left: 200px;*/
+        /*.jw-media #xtlLive_swf_0{*/
+            /*background-image: url("../../img/banner.jpg");*/
         /*}*/
-        /*#xtlLive_swf_0{*/
-            /*border:2px solid red;*/
-            /*margin-left: 200px;*/
-        /*}*/
-
     </style>
 </head>
 <body>
@@ -68,57 +78,70 @@
         </div>
     </div>
 
-    <!-- 视频直播-->
-    <div class="row">
-        <div class="small-12 columns text-center">
-            <div class="h25"></div>
-            <p class="">现场直播：当前土地[当前土地名称]</p>
-
-            <h3>MyGarden直播间</h3>
-            <div id="mygardenLive" class="float-center"></div>
-                <script src="../../js/vendor/cyberplayer.js"></script>
-                <script type="text/javascript">
-                    var play = cyberplayer("mygardenLive").setup({
-                        width: 500,
-                        height: 264,
-                        file: "http://play.coderteam.cn/playtest/stream_xtl1.m3u8", //rtmp直播地址
-                        autostart: true,
-                        stretching: "uniform",
-                        volume: 100,
-                        controls: true,
-                        hls: {
-                            reconnecttime: 5 // hls直播的重连次数
-                        },
-                        ak: "221c3ad12e2f4f0382ebaa7addd4eb78" //自己的百度云accessKeyID
-                    });
-                </script>
-             </div>
-    </div>
+    <!-- 操作指令合集-->
     <div class="row operate">
         <div class="small-12 columns text-center">
             <div class="H25"></div>
-            <p>可执行操作：</p>
-            <button type="button" class="button">浇水</button>
-            <button type="button" class="button success">除草</button>
-            <button type="button" class="button warning">施肥</button>
-            <button type="button" class="button alert">除虫</button>
-            <button type="button" class="button warning">播种</button>
-            <button id="zhuanrang" type="button" class="button">转让</button>
+            <p class="float-left" style="padding-top: 9px;">操作指令：</p>
+            <nav class="float-left">
+                <ul>
+                    <li id="songtu" class="operate_detail">松土</li>
+                    <li id="zaizhong" class="operate_detail">栽种</li>
+                    <li id="chucao" class="operate_detail">除草</li>
+                    <li id="jiaoshui" class="operate_detail">浇水</li>
+                    <li id="shifei" class="operate_detail">施肥</li>
+                    <li id="shouge" class="operate_detail">收割</li>
+                    <li id="zhuanrang">转让</li>
+                </ul>
+            </nav>
         </div>
+    </div>
+    <!-- 土地视频现场直播-->
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <div class="h25"></div>
+            <h3>MyGarden直播间</h3>
+            <p class="">现场直播：<span class="live_now"></span></p>
+            <p class="">当前土地种植：<span class="plant_now"></span></p>
+            <div id="mygardenLive" class="float-center"></div>
+            <div id="zhibo" class="float-center"></div>
+            <script src="../../js/vendor/cyberplayer.js"></script>
+            <script type="text/javascript">
+                var play = cyberplayer("zhibo").setup({
+                    width: 380,
+                    height: 240,
+                    file: "http://play.coderteam.cn/playtest/stream_xtl1.m3u8",
+                    autostart: true,
+                    stretching: "uniform",
+                    volume: 100,
+                    controls: true,
+                    hls: {
+                        reconnecttime: 5
+                    },
+                    ak: "221c3ad12e2f4f0382ebaa7addd4eb78"
+                });
+            </script>
+                <!--<script type="text/javascript">-->
+                    <!--var play = cyberplayer("mygardenLive").setup({-->
+                        <!--width: 380,-->
+                        <!--height: 234,-->
+                        <!--file: "http://play.coderteam.cn/playtest/stream_xtl1.m3u8", //rtmp直播地址-->
+                        <!--autostart: true,-->
+                        <!--stretching: "uniform",-->
+                        <!--volume: 100,-->
+                        <!--controls: true,-->
+                        <!--hls: {-->
+                            <!--reconnecttime: 5 // hls直播的重连次数-->
+                        <!--},-->
+                        <!--ak: "221c3ad12e2f4f0382ebaa7addd4eb78" //自己的百度云accessKeyID-->
+                    <!--});-->
+                <!--</script>-->
+             </div>
     </div>
 
     <div class="row">
-        <div class="small-12 columns" style="margin-bottom: 20px;">
-            <!-- 温度曲线图表-->
-            <!-- 设置采集数据的频度-->
-            <p class="text-center">采集频率：</p>
-            <select class="float-center" id="frequence" style="width: 200px;margin: 10px auto;">
-                <option>请选择：</option>
-                <option>每12小时</option>
-                <option selected>每24小时</option>
-            </select>
-            <div id="temper" style="width: 550px;height: 400px;margin:0 auto;">
-            </div>
+        <div class="small-12 columns text-center" >
+            <a href="environment.html" class="button alert" style="margin-top: 30px">环境因子查看</a>
         </div>
     </div>
 </div>
@@ -131,10 +154,111 @@
 <script src="../../layer/layer.js"></script>
 <script src="../../js/app.js"></script>
 <script>
-    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-    console.log(token);
+    var token = getCookie("token");
     var sid = getQueryString("sid");
     $(function(){
+        $.get(URL+"Soil/one_soil/sid/"+sid,function(json){
+            var soil_name = json.data.subitem[0].soil_name;
+            var plant = json.data.subitem[0].plant;
+            if(soil_name == ""){
+                $(".live_now").text("暂无土地名称");
+            }else{
+                $(".live_now").text(soil_name);
+            }
+            if(plant == null){
+                $(".plant_now").text("暂无种植蔬菜");
+            }else{
+                $(".plant_now").text(plant.substr(0,2));
+            }
+        });
+        //松土
+        $("#songtu").click(function(){
+            var operate_name = $("#songtu").text();//操作名
+            operate(operate_name);
+        });
+        //栽种
+        $("#zaizhong").click(function(){
+            if($(".plant_now").text() != "暂无种植蔬菜"){
+                layer.msg("作物已经种下了");
+            }else{
+                var operate_name = $("#zaizhong").text();//操作名
+                var Data={
+                    data:{
+                        which:operate_name,//在接口确定之后修改字段名称
+                        sid:sid
+                    }
+                };
+                $.ajax({
+                    type:"post",
+                    url:URL+"Operate/operate/token/"+token,
+                    data:JSON.stringify(Data),
+                    async:true,
+                    dataType:'json',
+                    success:function(json){
+                        var count = json.data.my_quan;
+                        if(count == 0){
+                            layer.alert('您还没有'+operate_name+'券，去商城买券?', {
+                                        btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                                    },
+                                    function(){
+                                        window.location.href = "../ShopMall/vegetable.html?type=service";
+                                    });
+                        }else{
+                            layer.alert('您有'+count+'张'+operate_name+'券，确认使用?', {
+                                        btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                                    },
+                                    function(){
+                                        layer.closeAll();
+                                        layer.open({
+                                            title:'种子/种苗选择',
+                                            type: 2,
+                                            content: ['my_seeds.html','no'],
+                                            btn: ['确认', '取消'],
+                                            yes:function(){
+                                                var local_item_id = localStorage.getItem("item_id");
+                                                $.get(URL+"Operate/sub_item/item_id/"+local_item_id+"/sid/"+sid,function(json){
+                                                    if(json.resultcode == 0){
+                                                        layer.msg(json.resultmsg);
+                                                    }else{
+                                                        layer.msg(json.resultmsg);
+                                                    }
+                                                });
+                                                layer.closeAll();
+                                            },
+                                            btn2:function(){
+                                                layer.closeAll();
+                                            }
+                                        });
+                                    }
+                            );
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown, data) {
+                        layer.msg(errorThrown);
+                    }
+                });
+            }
+        });
+        //除草
+        $("#chucao").click(function(){
+            var operate_name = $("#chucao").text();//操作名
+            operate(operate_name);
+        });
+        //浇水
+        $("#jiaoshui").click(function(){
+            var operate_name = $("#jiaoshui").text();//操作名
+            operate(operate_name);
+        });
+        //施肥
+        $("#shifei").click(function(){
+            var operate_name = $("#shifei").text();//操作名
+            operate(operate_name);
+        });
+        //收割
+        $("#shouge").click(function(){
+            var operate_name = $("#shouge").text();//操作名
+            operate(operate_name);
+        });
        $("#zhuanrang").click(function(){
            layer.alert('确认转让当前土地？', {
                        btn: ['是', '否'], //按钮文字 ，默认为确认，取消
@@ -164,6 +288,42 @@
            );
        });
     });
+    function operate(operate_name){
+        var Data={
+            data:{
+                which:operate_name,//在接口确定之后修改字段名称
+                sid:sid
+            }
+        };
+        $.ajax({
+            type:"post",
+            url:URL+"Operate/operate/token/"+token,
+            data:JSON.stringify(Data),
+            async:true,
+            dataType:'json',
+            success:function(json){
+                var count = json.data.my_quan;
+                if(count == 0){
+                    layer.alert('您还没有'+operate_name+'券，去商城买券?', {
+                                btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                            },
+                            function(){
+                                window.location.href = "../ShopMall/vegetable.html?type=service";
+                            });
+                }else{
+                    layer.alert('您有'+count+'张'+operate_name+'券，确认使用?', {
+                        btn: ['是', '否'], //按钮文字 ，默认为确认，取消
+                    },
+                    function(){
+                        layer.msg(json.resultmsg);
+                    });
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown, data) {
+                layer.msg(errorThrown);
+            }
+        });
+    }
 </script>
 </body>
 </html>

@@ -119,8 +119,7 @@
 <script>
     $(document).foundation();
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-        console.log(token);
+        var token = getCookie("token");
 //        alert(token);
         $("#edit_user").click(function(){
             $("#edit_user").attr("href","userinfor_setting.html");
@@ -187,9 +186,6 @@
 
 //        template.link("#result", data);
     });
-
-    
 </script>
-
 </body>
 </html>

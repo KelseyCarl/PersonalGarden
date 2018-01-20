@@ -10,44 +10,45 @@
     <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
     <link rel="stylesheet" href="../../layer/skin/default/layer.css" />
     <style type="text/css">
         .container{
             width: 90%;
             margin: 20px auto;
         }
-        .title-top{
-            border-bottom: 1px solid #e8e6e8;
-            /*text-align: center;*/
-            background: #06c673;
-            color: #fff;
-            padding: 10px;
-        }
-        .title-top h5{
-            font-size: 16px;
-            font-weight: bold;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 2px;
-            margin-left: -30px;
-        }
+        /*.title-top{*/
+            /*border-bottom: 1px solid #e8e6e8;*/
+            /*!*text-align: center;*!*/
+            /*background: #06c673;*/
+            /*color: #fff;*/
+            /*padding: 10px;*/
+        /*}*/
+        /*.title-top h5{*/
+            /*font-size: 16px;*/
+            /*font-weight: bold;*/
+            /*height: 20px;*/
+            /*line-height: 20px;*/
+            /*margin-top: 2px;*/
+            /*margin-left: -30px;*/
+        /*}*/
     </style>
 </head>
 <body>
 <div class="">
     <div class="row title-top">
-        <div class="small-2 columns">
-            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
-        <div class="small-10 columns">
-            <h5 id="vegetable" class="text-center">售卖申请</h5>
+        <div class="small-10 columns top-6">
+            <h5 id="vegetable">售卖申请</h5>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="small-12 columns">
                 <!--"-->
-                <form method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Apply/sale" enctype="multipart/form-data">
+                <form method="post" action="http://192.111.111.221/PersonalGarden/index.php/App/Apply/sale" enctype="multipart/form-data">
                     <div class="row">
                         <p class="text-center">蔬菜售卖申请单填写</p>
                     </div>
@@ -122,8 +123,7 @@
 <script src="../../layer/layer.js"></script>
 <script src="../../js/app.js"></script>
 <script>
-    var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-    console.log(token);
+    var token = getCookie("token");
     $(function(){
         if(token == null){
             layer.alert('请先登录', {

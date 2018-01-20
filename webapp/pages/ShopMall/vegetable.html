@@ -10,43 +10,11 @@
     <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="../../css/app.css" />
     <link rel="stylesheet" href="../../css/cart.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
     <style type="text/css">
         .container{
             width: 90%;
             margin: 20px auto;
-        }
-        .title-top{
-            border-bottom: 1px solid #e8e6e8;
-            /*text-align: center;*/
-            background: #06c673;
-            color: #fff;
-            padding: 10px;
-        }
-        .title-top h5{
-            font-size: 16px;
-            font-weight: bold;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 2px;
-            margin-left: -30px;
-        }
-        #empty{
-            width: 200px;
-            height: 170px;
-            margin-top: 40px;
-        }
-        .goods_desc h6{
-            font-size: 14px;
-            color: #222;
-            font-weight: bold;
-        }
-        .goods_desc h6 span{
-            color: #cc4b37;
-            margin-left: 12px;
-        }
-        .goods_desc p{
-            font-size: 13px;
-            color: #888;
         }
         .total_money span{
             color:#cc4b37;
@@ -65,17 +33,17 @@
 <body>
 <div class="">
     <div class="row title-top">
-        <div class="small-2 columns">
-            <a href="" id="" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
-        <div class="small-10 columns">
-            <h5 id="vegetable" class="text-center"></h5>
+        <div class="small-10 columns top-6">
+            <h5 id="vegetable"></h5>
         </div>
     </div>
     <div class="container hide no-shucai"><!--hide隐藏区域-->
         <div class="row">
             <div class="small-12 columns">
-                <img id="empty" src="../../img/empty.jpg" class="float-center" alt="tou xiang">
+                <img src="../../img/empty.jpg" class="float-center empty" alt="tou xiang">
             </div>
         </div>
         <div class="row">
@@ -93,7 +61,9 @@
                 <div class="container">
                     <div class="media-object">
                         <div class="media-object-section">
-                            <img class="item_img" src={{:item_img}} alt="shucai">
+                            <a href="dateback.html?from={{:from}}&itemname={{:item_name}}">
+                                <img class="item_img" src={{:item_img}} alt="shucai">
+                            </a>
                         </div>
                         <div class="media-object-section goods_desc">
                             <h6>{{:item_name}}<span class="price"><i class="fi-yen"></i>{{:item_price}} </span>元</h6>
@@ -116,8 +86,7 @@
 <script>
     //计算总价
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
-        console.log(token);
+        var token = getCookie("token");
         //获取链接参数
         var type = getQueryString("type");
         if(type == "root"){
@@ -138,6 +107,8 @@
             $("#vegetable").text("套餐推荐");
         }else if(type == "dangji"){
             $("#vegetable").text("当季热销");
+        }else if(type == "service"){
+            $("#vegetable").text("服务购买");
         }
 
         $.get(URL+"Farm/shucai/type/"+type, function(json) {

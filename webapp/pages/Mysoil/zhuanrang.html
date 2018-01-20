@@ -53,8 +53,8 @@
         </div>
     </div>
     <div class="container">
-        <!--http://localhost:8080/PersonalGarden/index.php/Home/Apply/trans-->
-        <form method="post" action="http://localhost:8080/PersonalGarden/index.php/Home/Apply/trans">
+        <!--http://localhost/PersonalGarden/index.php/Admin/Apply/trans-->
+        <form method="post" action="http://192.111.111.221/PersonalGarden/index.php/App/Apply/trans">
             <div class="row">
                 <div class="small-4 columns">
                     <label for="apply_person" class="text-right">申请人：</label>
@@ -97,7 +97,7 @@
 <script src="../../js/app.js"></script>
 <script>
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        var token = getCookie("token");
         //获取用户当前可以选择转租的土地
         $.get(URL+"Apply/transfer/token/"+token,function(json){
             console.log(json.data.subitem);

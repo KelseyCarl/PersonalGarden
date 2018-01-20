@@ -1,7 +1,6 @@
 * {
     /*box-sizing: border-box;*/
 }
-
 .input-number {
     width: 50px;
     padding: 0 12px;
@@ -10,7 +9,6 @@
     outline: none;
 
 }
-
 .input-number,
 .input-number-decrement,
 .input-number-increment {
@@ -19,7 +17,6 @@
     float: left;
     user-select: none;
 }
-
 .input-number-decrement,
 .input-number-increment {
     display: inline-block;
@@ -35,12 +32,10 @@
 .input-number-increment:active {
     background: #dddddd;
 }
-
 .input-number-decrement {
     border-right: none;
     border-radius: 0px 0 0 0px;
 }
-
 .input-number-increment {
     border-left: none;
     border-radius: 0 0px 0px 0;

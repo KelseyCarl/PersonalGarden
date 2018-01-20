@@ -9,25 +9,11 @@
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/logo.png">
     <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
     <style type="text/css">
         .container{
             width: 94%;
             margin: 10px auto;
-        }
-        .title-top{
-            border-bottom: 1px solid #e8e6e8;
-            /*text-align: center;*/
-            background: #06c673;
-            color: #fff;
-            padding: 10px;
-        }
-        .title-top h5{
-            font-size: 16px;
-            font-weight: bold;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 2px;
-            margin-left: -30px;
         }
         .tabs-panel img{
             width:100px;
@@ -57,11 +43,11 @@
 </head>
 <body>
 <div class="row title-top">
-    <div class="small-2 columns">
-        <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+    <div class="small-2 columns top-6">
+        <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
     </div>
-    <div class="small-10 columns">
-        <h5 class="text-center">申请记录查询</h5>
+    <div class="small-10 columns top-6">
+        <h5>申请记录查询</h5>
     </div>
 </div>
 
@@ -140,7 +126,8 @@
 <script src="../../js/app.js"></script>
 <script>
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+//        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        var token = getCookie("token");
         console.log(token);
         //获取所有租赁申请的信息
         $.get(URL+"Apply/query_rent/token/"+token, function(json) {

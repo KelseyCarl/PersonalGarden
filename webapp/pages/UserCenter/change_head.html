@@ -8,26 +8,8 @@
     <link rel="stylesheet" href="../../layer/skin/default/layer.css">
     <link rel="stylesheet" href="https://static.runoob.com/assets/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="../../css/app.css" />
+    <link rel="stylesheet" href="../../css/center.css" />
     <style type="text/css">
-        .container{
-            width: 80%;
-            margin: 20px auto;
-        }
-        .title-top{
-            border-bottom: 1px solid #e8e6e8;
-            /*text-align: center;*/
-            background: #06c673;
-            color: #fff;
-            padding: 10px;
-        }
-        .title-top h5{
-            font-size: 16px;
-            font-weight: bold;
-            height: 20px;
-            line-height: 20px;
-            margin-top: 2px;
-            margin-left: -30px;
-        }
         .row img{
             width: 200px;
             height: 200px;
@@ -39,11 +21,11 @@
 <body>
 <div class="">
     <div class="row title-top">
-        <div class="small-2 columns">
-            <a href="" id="backto_center" onclick="window.history.back()"><i class="fi-arrow-left float-left"></i></a>
+        <div class="small-2 columns top-6">
+            <a href="javascript:window.history.back()"><i class="fi-arrow-left float-left"></i></a>
         </div>
-        <div class="small-10 columns">
-            <h5 class="text-center">头像修改</h5>
+        <div class="small-10 columns top-6">
+            <h5>头像修改</h5>
         </div>
     </div>
     <div class="row">
@@ -68,7 +50,8 @@
 <script src="../../layer/layer.js"></script>
 <script>
     $(function(){
-        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+//        var token = localStorage.getItem("log_status");//从本地缓存取得token数据
+        var token = getCookie("token");
         $("#token2").val(token);
         console.log(token);
         if(token == null) {
